@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1490112217 source:c:\users\benof\onedrive\documentos\github\programacionlaboratorio1utn2\comisión 5 - docente gonzalo benoffi\ejemplo_pila_lib\pila.c
+	"pila.h"
+
+1490112217 c:\users\benof\onedrive\documentos\github\programacionlaboratorio1utn2\comisión 5 - docente gonzalo benoffi\ejemplo_pila_lib\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1585073595 source:c:\users\benof\onedrive\documentos\github\programacionlaboratorio1utn2\comisión 5 - docente gonzalo benoffi\ejemplo_pila_lib\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
