@@ -16,6 +16,7 @@ int main()
         if(nro>0){
             printf("\n\n Numero positivo: %d\n\n",nro);
         }
+        cont = cont + 1; /// cont++; /// cont+=1;
         system("pause");
         system("cls");
     }

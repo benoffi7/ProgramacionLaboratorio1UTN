@@ -7,7 +7,7 @@ Realizar un algoritmo para calcular la calificación promedio y la calificación m
 #include <stdlib.h>
 
 /// para probar el codigo cambien el 40 por un numero menor
-const int TOTAL_ALUMNOS = 40;
+const int TOTAL_ALUMNOS = 3;
 
 int main()
 {
@@ -44,7 +44,7 @@ int main()
         system("cls");
     }
 
-    promedio = totalNotas / TOTAL_ALUMNOS;
+    promedio = (float) totalNotas / TOTAL_ALUMNOS;
 
     printf("\n\n El promedio de las notas es.....: %.2f", promedio);
     printf("\n\n La nota menor es................: %d", notaMenor);
