@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1490112217 source:c:\users\emma\desktop\ejemplopilas\pila.c
+	"pila.h"
+
+1490112217 c:\users\emma\desktop\ejemplopilas\pila.h
+	<stdio.h>
+	<malloc.h>
+
