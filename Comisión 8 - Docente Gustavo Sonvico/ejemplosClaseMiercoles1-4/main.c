@@ -1,9 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "pila.h"
 
 int main()
 {
+    /// ejercicio 3
+    Pila dada, iguales, distintos;
+    inicpila(&dada);
+    inicpila(&iguales);
+    inicpila(&distintos);
+
+    char control;
+
+    do
+    {
+        leer(&dada);
+        printf("Desea continuar? s/n: ");
+        fflush(stdin);
+        printf("%c", control = getch());
+        printf("\n");
+    }
+    while(control == 's');
+
+
+    while(!pilavacia(&dada))
+    {
+        if(tope(&dada)!=8)
+        {
+            apilar(&distintos, desapilar(&dada));
+        }
+        else
+        {
+            apilar(&iguales, desapilar(&dada));
+        }
+    }
+
+    while(!pilavacia(&distintos))
+    {
+        apilar(&dada, desapilar(&distintos));
+    }
+
+    mostrar(&dada);
+
     printf(".:EJERCICIO 6:.\n");
     printf("Pasar el primer elemento (tope) de la pila DADA a su ultima posicion (base),\ndejando los restantes elementos en el mismo orden\n\n");
 
@@ -67,7 +106,6 @@ int main()
         leer(&dada7);
         printf("Desea continuar? s/n: ");
         fflush(stdin);
-        //scanf("%c", &cont4);
         printf("%c", cont4 = getch());
         printf("\n");
     }
@@ -163,7 +201,6 @@ int main()
     mostrar(&jug2);
     system("pause");
 
-
     printf(".:EJERCICIO 10:.\n");
     printf("Comparar las pilas A y B. Mostrar por pantalla el resultado\n\n");
 
@@ -195,7 +232,7 @@ int main()
     while(cont4 == 's');
     system("cls");
 
-    while(!pilavacia(&A10) && !pilavacia(&B10) && tope(&A10) == tope(&B10))
+    while(!pilavacia(&A10) && !pilavacia(&B10) && tope(&A10)==tope(&B10))
     {
         apilar(&auxA10, desapilar(&A10));
         apilar(&auxB10, desapilar(&B10));
@@ -213,11 +250,85 @@ int main()
     }
     else
     {
-        printf("\nLas pilas NO SON iguales\n");
+        printf("\nLas pilas NO son iguales\n");
     }
 
+
+    printf(".:EJERCICIO 11:.\n\n");
+    printf("Suponiendo la existencia de una pila MODELO que no este vacia, eliminar\nde la pila DADA todos los elementos que sean iguales al tope de la pila MODELO\n\n");
+
+    Pila dada11, modelo11, aux11, descarte11, auxModelo;
+    inicpila(&dada11);
+    inicpila(&modelo11);
+    inicpila(&aux11);
+    inicpila(&descarte11);
+    inicpila(&auxModelo);
+
+
+    printf("Cargando pila DADA\n");
+    do
+    {
+        leer(&dada11);
+        printf("Desea continuar? s/n ");
+        printf("%c", cont4 = getch());
+        printf("\n");
+    }
+    while(cont4 == 's');
+
+    system("cls");
+    printf("Cargando pila MODELO\n");
+    do
+    {
+        leer(&modelo11);
+        printf("\nDesea continuar? s/n ");
+        printf("%c", cont4 = getch());
+        printf("\n");
+    }
+    while(cont4 == 's');
+
+    printf("Asi quedo cargada DADA\n");
+    mostrar(&dada11);
+
+    printf("\n\nNOTA: se van a eliminar de dada el tope de modelo que es: %i\n\n", tope(&modelo11));
+    system("pause");
+    system("cls");
+
+
+
+    while (!pilavacia(&modelo11))
+    {
+        /// ejercicio 11
+        while(!pilavacia(&dada11))
+        {
+            if(tope(&dada11) == tope(&modelo11))
+            {
+                apilar(&descarte11, desapilar(&dada11));
+            }
+            else
+            {
+                apilar(&aux11, desapilar(&dada11));
+            }
+        }
+
+        while(!pilavacia(&aux11))
+        {
+            apilar(&dada11, desapilar(&aux11));
+        }
+        /// fin ejercicio 11
+
+        apilar(&auxModelo, desapilar(&modelo11));
+
+    }
+
+    while(!pilavacia(&auxModelo))
+    {
+        apilar(&modelo11, desapilar(&auxModelo));
+    }
+
+    printf("DADA con los elementos eliminados\n");
+    mostrar(&dada11);
+
+    system("pause");
+
     return 0;
-
-
-
 }
