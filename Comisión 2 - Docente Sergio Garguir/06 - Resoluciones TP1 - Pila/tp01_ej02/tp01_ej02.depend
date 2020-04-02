@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1490112217 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 9\tp01_ej02\pila.c
+	"pila.h"
+
+1490112217 c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 9\tp01_ej02\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1585837711 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 9\tp01_ej02\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"pila.h"
+
