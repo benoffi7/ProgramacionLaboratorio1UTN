@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1490112217 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\cargatemp\pila.c
+	"pila.h"
+
+1490112217 c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\cargatemp\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1586185535 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\cargatemp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<windows.h>
+	"pila.h"
+
