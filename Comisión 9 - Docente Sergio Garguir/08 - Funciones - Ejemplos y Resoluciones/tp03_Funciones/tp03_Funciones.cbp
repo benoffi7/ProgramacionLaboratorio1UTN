@@ -31,9 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="fPila.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fPila.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pila.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pila.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
