@@ -19,6 +19,8 @@ void insertaEnOrden(Pila * pPila, int aInsertar);
 
 void ordenPorInsercion(Pila * pOrigen, Pila *pDestino);
 
+int sumaTopeYAnterior(Pila copiaDePila);
+
 int main()
 {
     srand(time(NULL));
@@ -36,7 +38,14 @@ int main()
     printf("Pila pilita cargada: \n");
     mostrar(&pilita);
 
+    printf("La suma del tope y anterior es %d\n", sumaTopeYAnterior(pilita));
 
+    system("pause");
+
+    printf("Pila pilita cargada: \n");
+    mostrar(&pilita);
+
+    system("pause");
 /// vayan pensando un main con menu, para ir ejecutando
 /// cada una de las funciones que hicimos hasta ahora
 
@@ -95,8 +104,10 @@ void cargarPilaRandom(Pila * punteroPila, int limite)
 {
     int i=0;
 
+    /// limite me da la cantidad a apilar
     for (i=0; i< limite; i++)
     {
+        /// apilo valores random entre 1 y 100
         apilar(punteroPila, (rand()%100)+1);
     }
 
@@ -169,6 +180,7 @@ void ordenPorSeleccion(Pila * pOrigen, Pila *pDestino)
     while(!pilavacia(pOrigen))
     {
         menor=buscarMenor(pOrigen);
+
         apilar(pDestino, menor);
     }
 }
@@ -192,13 +204,16 @@ void insertaEnOrden(Pila * pPila, int aInsertar)
     pasarPila(&aux,pPila);
 }
 
-/// Hacer una función que pase los elementos de una pila a otra, de manera
+/// 7 - Hacer una función que pase los elementos de una pila a otra, de manera
 /// que se genere una nueva pila ordenada. Usar la función del ejercicio 6.
 /// (Ordenamiento por inserción)
+/// pOrigen tiene datos desordenados, pdestino debe estar vacia
 
-void ordenPorInsercion(Pila * pOrigen, Pila *pDestino)
+void ordenPorInsercion(Pila * pOrigen, Pila * pDestino)
 {
     int dato;
+
+
 
     while(!pilavacia(pOrigen))
     {
@@ -206,5 +221,25 @@ void ordenPorInsercion(Pila * pOrigen, Pila *pDestino)
 
         insertaEnOrden(pDestino, dato);
     }
+
+
 }
 
+/// 8 - Hacer una función que sume y retorne los dos primeros elementos
+/// de una pila (tope y anterior), sin alterar su contenido.
+
+int sumaTopeYAnterior(Pila copiaDePila)
+{
+    int rta=0;
+    int i=0;
+
+    while(!pilavacia(&copiaDePila)&& i< 2)
+    {
+
+        rta = rta+desapilar(&copiaDePila);
+
+        i++;
+    }
+
+    return rta;
+}
