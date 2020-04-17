@@ -10,5 +10,8 @@ void pasaPilaOrden(Pila *origen, Pila *destino);
 void copiaPila(Pila origen, Pila *destino);
 int buscaMenor(Pila origen);
 int buscaMenorE(Pila *origen);
+void ordenaPorSeleccion(Pila *p);
+void insertaElemento(Pila *p, int e);
+void ordenaPorInsercion(Pila *p);
 
 #endif // FPILA_H_INCLUDED

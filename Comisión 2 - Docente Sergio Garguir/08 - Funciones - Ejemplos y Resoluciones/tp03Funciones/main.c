@@ -7,11 +7,13 @@
 
 int main()
 {
-    Pila dada, otra, auxDada;
+    Pila dada, otra, auxDada, desordenada;
     inicpila(&dada);
     inicpila(&otra);
     inicpila(&auxDada);
-
+    inicpila(&desordenada);
+    printf("\n\n Direccion de memoria de la pila dada %p\n\n",&dada);
+/**
     cargaPila(&dada,"Ingrese una temperatura");
     cargaPilaRandom(&otra,25);
     printf("\n\n Mostrando Temperaturas ");
@@ -35,7 +37,21 @@ int main()
 
     printf("\n\n Mostrando pila otra ");
     mostrar(&otra);
+*/
 
-    printf("Hello world!\n");
+    cargaPilaRandom(&desordenada,15);
+
+    printf("\n Pila desordenada ..........\n");
+    mostrar(&desordenada);
+    system("pause");
+/**
+    ordenaPorSeleccion(&desordenada);
+    printf("\n Pila desordenada ORDENADA ..........\n");
+    mostrar(&desordenada);
+*/
+    ordenaPorInsercion(&desordenada);
+    printf("\n Pila desordenada ORDENADA ..........\n");
+    mostrar(&desordenada);
+
     return 0;
 }
