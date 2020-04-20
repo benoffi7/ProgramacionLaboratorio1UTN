@@ -13,7 +13,7 @@
 	<stdio.h>
 	<malloc.h>
 
-1587133238 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp03funciones\main.c
+1587393376 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp03funciones\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -21,9 +21,10 @@
 	"pila.h"
 	"fPila.h"
 
-1587133094 c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp03funciones\fpila.h
+1587396514 c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp03funciones\fpila.h
 
-1587133269 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp03funciones\fpila.c
+1587396514 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp03funciones\fpila.c
+	<conio.h>
 	"pila.h"
 	"fPila.h"
 
