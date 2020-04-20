@@ -19,6 +19,10 @@ void insertaEnOrden(Pila * pPila, int aInsertar);
 
 void ordenPorInsercion(Pila * pOrigen, Pila *pDestino);
 
+int sumaTopeYAnteriorPorReferencia(Pila * pPila);
+
+int sumaTopeYAnteriorPorCopia(Pila copiaDePila);
+
 int main()
 {
     srand(time(NULL));
@@ -35,7 +39,13 @@ int main()
 
     printf("Pila pilita cargada: \n");
     mostrar(&pilita);
+    system("pause");
 
+    printf("La suma del tope y anterior es %d \n", sumaTopeYAnteriorPorReferencia(&pilita));
+    system("pause");
+
+    printf("Pila pilita cargada: \n");
+    mostrar(&pilita);
 
 /// vayan pensando un main con menu, para ir ejecutando
 /// cada una de las funciones que hicimos hasta ahora
@@ -203,8 +213,39 @@ void ordenPorInsercion(Pila * pOrigen, Pila *pDestino)
     while(!pilavacia(pOrigen))
     {
         dato=desapilar(pOrigen);
-
         insertaEnOrden(pDestino, dato);
     }
 }
 
+int sumaTopeYAnteriorPorReferencia(Pila * pPila)
+{
+    Pila aux;
+    inicpila(&aux);
+
+    int rta=0;
+    int i=0;
+
+    while(!pilavacia(pPila)&& i<2)
+    {
+        rta=rta+tope(pPila);
+        apilar(&aux, desapilar(pPila));
+        i++;
+    }
+    pasarPila(&aux, pPila);
+
+    return rta;
+}
+
+int sumaTopeYAnteriorPorCopia(Pila copiaDePila)
+{
+    int rta=0;
+    int i=0;
+
+    while(!pilavacia(&copiaDePila)&& i<2)
+    {
+        rta=rta+desapilar(&copiaDePila);
+
+        i++;
+    }
+    return rta;
+}
