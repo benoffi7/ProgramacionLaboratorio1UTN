@@ -21,5 +21,6 @@ int cuentaPila(Pila p);
 float promedioPila(Pila p);
 int sumaTopeyAnterior(Pila p);
 int pila2decimal(Pila p);
-
+int sumaFibo(Pila p);
+void pilaFibonacci(Pila *p, int n);
 #endif // FPILA_H_INCLUDED

@@ -348,7 +348,25 @@ int pila2decimal(Pila p){
     return decimal;
 }
 
+int sumaFibo(Pila p){
+    int suma=0;
+    if(!pilavacia(&p)){
+        suma=desapilar(&p);
+        if(!pilavacia(&p)){
+            suma=suma+tope(&p);
+        }
+        else{
+            suma=1;
+        }
+    }
+    return suma;
+}
 
+void pilaFibonacci(Pila *p, int n){
+    for(int i=0;i<n;i++){
+        apilar(p, sumaFibo(*p));
+    }
+}
 
 
 
