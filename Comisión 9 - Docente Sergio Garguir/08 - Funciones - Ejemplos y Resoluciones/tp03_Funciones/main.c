@@ -5,6 +5,10 @@
 #include "pila.h"
 #include "fPila.h"
 
+/**
+* funcion que no hace nada
+*/
+int algo();
 
 int main()
 {
@@ -14,6 +18,14 @@ int main()
     inicpila(&horas);
     inicpila(&aux);
     inicpila(&tempOrd);
+
+
+    cargaPilaRandom(&horas,5,1,10);
+    mostrar(&horas);
+    int nro = pila2decimal(horas);
+
+    printf("\n\n : %d", nro);
+
 
     cargaPila(&temperaturas,"Ingrese una temperatura: ");
     cargaPilaRandom(&temperaturas,40,-10,50);
@@ -38,4 +50,8 @@ int main()
     mostrar(&aux);
 
     return 0;
+}
+
+int algo(){
+
 }

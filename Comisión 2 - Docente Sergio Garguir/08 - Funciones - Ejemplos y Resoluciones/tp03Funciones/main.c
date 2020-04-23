@@ -41,7 +41,14 @@ int main()
     printf("\n\n Mostrando pila otra ");
     mostrar(&otra);
 */
-    cargaPilaRandom(&dada,9, 1,9);
+    cargaPilaRandom(&dada,10, 1,9);
+    pilaFibonacci(&otra, 15);
+    printf("\n Pila otra ..........\n");
+    mostrar(&otra);
+    system("pause");
+
+   // printf("----%d-----",desapilar(&dada));
+    system("pause");
     copiaPila(dada, &auxDada);
 
     promedio = promedioPila(dada);

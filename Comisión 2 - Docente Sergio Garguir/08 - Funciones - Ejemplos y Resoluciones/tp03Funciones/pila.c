@@ -30,7 +30,8 @@ int tope(P_Pila p)
 
 int pilavacia(P_Pila p)
 {
-       return (p->postope == 0);
+      /// return (p->postope == 0);
+       return (p->postope > 0)?0:1;
 }
 
 void leer (P_Pila p)

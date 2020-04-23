@@ -2,8 +2,12 @@
 #include "pila.h"
 #include "fPila.h"
 
+/**
+*@ Author Sergio Garguir <br>
+*@ Funcion para carga de pila <br>
+*1. Hacer una función que permita ingresar varios elementos a una Pila, tantos como quiera el usuario.
+*/
 
-/// 1. Hacer una función que permita ingresar varios elementos a una Pila, tantos como quiera el usuario.
 void cargaPila(Pila *p, char texto[]){
     char opcion;
     int e;
@@ -142,7 +146,11 @@ void ordenaPorInsercion(Pila origen, Pila *ordenada){
     }
 }
 
-/// Ordena por Insercion
+/**
+*
+* Ordena por Insercion
+*
+*/
 void ordenaPorInsercion2(Pila *origen){
     Pila aux;
     inicpila(&aux);
@@ -152,4 +160,123 @@ void ordenaPorInsercion2(Pila *origen){
         /// insertaElemento(ordenada, desapilar(&origen));
     }
     pasaPila(&aux, origen);
+}
+
+/**
+*
+* Suma los 2 primeros datos de la pila y lo retorna
+*
+*/
+
+int sumaTopeYSiguiente(Pila p){
+    int total=0;
+    if(!pilavacia(&p)){
+        total = desapilar(&p);
+        if(!pilavacia(&p)){
+            total = total + tope(&p);
+        }
+    }
+
+    return total;
+}
+
+int sumaPilaLimite(Pila p, int limite)
+{
+    Pila aux;
+    inicpila(&aux);
+    int total =0;
+    int i =0;
+
+    while(!pilavacia(&p)&& i<limite)
+    {
+        total=total+tope(&p);
+        apilar(&aux,desapilar(&p));
+        i++;
+    }
+
+    return total;
+}
+
+/**
+*
+*  Funcion que suma los elementos de una pila
+*  y retorna el resultado
+*
+*/
+int sumaPila(Pila p){
+    Pila aux;
+    inicpila(&aux);
+    int total = 0;
+
+    while(!pilavacia(&p)){
+        total = total + tope(&p);
+        apilar(&aux, desapilar(&p));
+    }
+
+    return total;
+}
+
+/**
+*
+*  Funcion que cuenta los elementos de una pila
+*  y retorna el resultado
+*
+*/
+int cuentaPila(Pila p){
+    Pila aux;
+    inicpila(&aux);
+    int cont = 0;
+
+    while(!pilavacia(&p)){
+        apilar(&aux, desapilar(&p));
+        cont++;
+    }
+
+    return cont;
+}
+
+float divide(int n1, int n2){
+    float div = 0;
+
+    if(n2 > 0){
+        div = (float) n1/n2;
+    }
+
+    return div;
+}
+
+float promedioPila(Pila p){
+    float promedio = 0;
+    if(!pilavacia(&p)){
+        promedio = divide(sumaPila(p), cuentaPila(p));
+    }
+    return promedio;
+}
+
+float promedioPila2(Pila p){
+    float promedio = 0;
+    int suma;
+    int cont;
+
+    if(!pilavacia(&p)){
+        suma = sumaPila(p);
+        cont = cuentaPila(p);
+        promedio = divide(suma, cont);
+    }
+    return promedio;
+}
+
+int pila2decimal(Pila p){
+    Pila aux;
+    inicpila(&aux);
+    int nro = 0;
+    int multiplicador = 1;
+
+    pasaPila(&p, &aux);
+
+    while(!pilavacia(&aux)){
+        nro = nro + desapilar(&aux)*multiplicador;
+        multiplicador = multiplicador * 10;
+    }
+    return nro;
 }
