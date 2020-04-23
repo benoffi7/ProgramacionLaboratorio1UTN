@@ -1,19 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int cargarArregloInt(int A[], int dim);
 
 void mostrarArregloInt(int A[], int cantVal);
 
+void mostrarArregloChar(char A[], int cantVal);
+
+const int MAXEMPLE=100;
 
 int main()
 {
 
-    printf("Hello world arrays!\n");
+    printf("Hello arrays!\n");
 
 /// declaro el arreglo
 
-    int idEmpleados[100];
+    int idEmpleados[MAXEMPLE];
 /// el compilador ve esto.
 /// int * idEmpleados=malloc(sizeof(int)*100);
 
@@ -46,11 +50,32 @@ int main()
 
 /// invocamos la fn para cargar, enviamos el array de empleados y su dimension
 /// la variable cantEmpleados va a contener la cantidad de datos que cargo el usr
-    cantEmpleados=cargarArregloInt(idEmpleados, 100);
+    cantEmpleados=cargarArregloInt(idEmpleados, MAXEMPLE);
 
 /// ahora mostramos el contenido del arreglo desde la fn, le enviamos el arreglo y
 /// la cantidad que se cargo con la fn de carga
     mostrarArregloInt(idEmpleados, cantEmpleados);
+
+
+
+    char unaPalabra[5];
+
+    printf("direccion de memoria del arreglo %p\n", unaPalabra);
+
+    system("pause");
+
+    printf("Ingrese una palabra: ");
+    fflush(stdin);
+
+///   scanf("%s", unaPalabra);
+    gets(unaPalabra);
+
+    printf("La palabra escaneada es %s\n", unaPalabra);
+
+/// mostrarArregloChar(unArregloDeChar, 10);
+
+   system("pause");
+
     return 0;
 }
 
@@ -78,7 +103,19 @@ void mostrarArregloInt(int A[], int cantVal)
 {
     int i;
 
-    printf("Contenido del arreglo:\n");
+    printf("Contenido del arreglo de int:\n");
+
+    for(i=0; i<cantVal; i++)
+    {
+        printf("%d ", A[i]);
+    }
+}
+
+void mostrarArregloChar(char A[], int cantVal)
+{
+    int i;
+
+    printf("Contenido del arreglo de char:\n");
 
     for(i=0; i<cantVal; i++)
     {
