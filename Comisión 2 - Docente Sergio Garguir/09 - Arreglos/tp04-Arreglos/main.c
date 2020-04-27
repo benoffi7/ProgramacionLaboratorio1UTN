@@ -3,33 +3,31 @@
 #include <conio.h>
 
 void muestraMenu();
-void funcion01();
-void funcion02();
-void funcion03();
-int cargaArreglo(int a[], int v, int dim);
-void mostrarArreglo(int a[], int v);
+int funcion01(int a[], int v, int dim);
+void funcion02(int a[],int v);
+int funcion03(int v);
+int funcion04(char a[], int v, int dim);
+void funcion05(char a[],int v);
+int cargaArregloInt(int a[], int v, int dim);
+void mostrarArregloInt(int a[], int v);
+int cargaArregloChar(char a[], int v, int dim);
+void mostrarArregloChar(char a[], int v);
 
+#define DDNI 100
+#define DLETRAS 24
 const char ESC = 27;
 
 int main(){
     char opcion;
-    int miArreglo[50];
-    int otroArreglo[100];
-    int mAdim = 50;
-    int oAdim = 100;
-    int mAvalidos = 0;
-    int oAvalidos = 0;
 
-    mAvalidos = cargaArreglo(miArreglo, mAvalidos, mAdim);
-    mostrarArreglo(miArreglo,mAvalidos);
-    system("pause");
-    mAvalidos = cargaArreglo(miArreglo, mAvalidos, mAdim);
-    mostrarArreglo(miArreglo,mAvalidos);
+    int dni[DDNI];
+    int vDni = 0;
 
 
+    char letras[DLETRAS];
+    int vLetras = 0;
 
 
-/**
     do{
         system("cls");
         muestraMenu();
@@ -38,13 +36,20 @@ int main(){
 
         switch(opcion){
             case 49: /// 49 es el codigo ASCII de la tecla 1  - también pueden usar '1'
-                    funcion01();
+                    vDni = funcion01(dni, vDni, DDNI);
                     break;
             case 50:
-                    funcion02();
+                    funcion02(dni, vDni);
                     break;
-            case 51 ... 53:
-                    funcion03();
+            case 51:
+                    vDni = funcion03(vDni);
+                    ///vDni = 0;
+                    break;
+            case 52:
+                    vLetras = funcion04(letras, vLetras, DLETRAS);
+                    break;
+            case 53:
+                    funcion05(letras, vLetras);
                     break;
             case 'a': /// 97
                     break;
@@ -54,7 +59,7 @@ int main(){
         system("pause");
     }
     while(opcion!=ESC);
-        */
+
     printf("Hasta la vista Baby!!!!!\n");
     return 0;
 }
@@ -62,34 +67,51 @@ int main(){
 void muestraMenu(){
     printf("\t\t\t<<< Mi Primer Menu >>>");
     printf("\n\n");
-    printf("\n\t 1 - Ejercicio 1");
-    printf("\n\t 2 - Ejercicio 2");
-    printf("\n\t 3 a 5 - Ejercicio 3 al 5");
-    printf("\n\t a - Ejercicio a");
+    printf("\n\t 1 - Carga un arreglo de enteros");
+    printf("\n\t 2 - Muestra un arreglo de enteros");
+    printf("\n\t 3 - Vacia un arreglo");
+    printf("\n\t 4 - Carga un arreglo de letras");
+    printf("\n\t 5 - Muestra un arreglo de letras");
     printf("\n\n");
     printf("ESC para salir ");
 }
 
-void funcion01(){
-    printf("Ej 1");
-     /// aca va el codigo del ej 1
+int funcion01(int a[], int v, int dim){
+    printf("\nCarga de Arreglo de numeros\n");
+    v = cargaArregloInt(a, v, dim);
+    printf("\n\n\n");
+
+    return v;
+}
+
+void funcion02(int a[], int v){
+    printf("\nMuestra el arreglo\n");
+    mostrarArregloInt(a, v);
     printf("\n\n\n");
 }
 
-void funcion02(){
-    printf("Ej 2");
-     /// aca va el codigo del ej 2
+int funcion03(int v){
+    printf("Vacia un arreglo");
+    v = 0;
+    printf("\n\n\n");
+    return v;
+}
+
+int funcion04(char a[], int v, int dim){
+    printf("\nCarga de Arreglo de letras\n");
+    v = cargaArregloChar(a, v, dim);
+    printf("\n\n\n");
+
+    return v;
+}
+
+void funcion05(char a[], int v){
+    printf("\nMuestra el arreglo de letras\n");
+    mostrarArregloChar(a, v);
     printf("\n\n\n");
 }
 
-void funcion03(){
-    printf("Ej 3");
-     /// aca va el codigo del ej 3
-    printf("\n\n\n");
-}
-
-
-int cargaArreglo(int a[], int v, int dim){
+int cargaArregloInt(int a[], int v, int dim){
     char opcion;
 
     while(v<dim && opcion!=ESC){
@@ -104,9 +126,37 @@ int cargaArreglo(int a[], int v, int dim){
     return v;
 }
 
-void mostrarArreglo(int a[], int v){
+void mostrarArregloInt(int a[], int v){
     for(int i=0;i<v;i++){
         printf("%d - ", a[i]);
     }
 }
 
+
+int cargaArregloChar(char a[], int v, int dim){
+    char opcion;
+
+    while(v<dim && opcion!=ESC){
+        system("cls");
+        printf("\n Ingrese una letra: ");
+        fflush(stdin);
+        scanf("%c", &a[v]);
+
+        printf("\n\n\t ESC para salir ...");
+        opcion=getch();
+        v++;
+    }
+    return v;
+}
+
+void mostrarArregloChar(char a[], int v){
+    for(int i=0;i<v;i++){
+        printf("%c - ", a[i]);
+    }
+}
+
+
+int dimArray(int a[]){
+    int dim = sizeof(a)/sizeof(a[0]);
+    return dim;
+}
