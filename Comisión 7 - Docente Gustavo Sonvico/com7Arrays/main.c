@@ -8,6 +8,8 @@ void mostrarArregloInt(int A[], int cantVal);
 
 void mostrarArregloChar(char A[], int cantVal);
 
+char buscarCharMax(char A[], int cantVal);
+
 const int MAXEMPLE=100;
 
 int main()
@@ -74,7 +76,17 @@ int main()
 
 /// mostrarArregloChar(unArregloDeChar, 10);
 
-   system("pause");
+    system("pause");
+
+    char miArreglo[7]= {"pomlfai"};
+
+    int validos=7;
+
+    mostrarArregloChar(miArreglo, validos);
+
+    char caracterMaximo = buscarCharMax(miArreglo,validos);
+
+    printf("El maximo caracter es %c \n", caracterMaximo);
 
     return 0;
 }
@@ -119,6 +131,45 @@ void mostrarArregloChar(char A[], int cantVal)
 
     for(i=0; i<cantVal; i++)
     {
-        printf("%d ", A[i]);
+        printf("%c ", A[i]);
     }
+}
+
+char buscarCharMax(char A[], int cantVal)
+{
+    int i=0;
+
+    char charMax=A[i];
+
+
+    for(i=1; i<cantVal; i++)
+    {
+        if(A[i]>charMax)
+        {
+            charMax=A[i];
+        }
+    }
+
+    return charMax;
+}
+
+int buscaPosMenor(int A[], int cantVal, int pos)
+{
+    int menor = A[pos];
+
+    int posMenor=pos;
+
+    int i = pos+1;
+
+    while(i<cantVal)
+    {
+        if(A[i]<menor)
+        {
+            menor=A[i];
+            posMenor=i;
+        }
+        i++;
+    }
+
+    return posMenor;
 }
