@@ -37,7 +37,7 @@ int main(){
         system("cls");
 
         switch(opcion){
-            case 49: /// 49 es el codigo ASCII de la tecla 1  - también pueden usar '1'
+            case 49: /// 49 es el codigo ASCII de la tecla 1  - tambiÃ©n pueden usar '1'
                     vDni = funcion01(dni, vDni, DDNI);
                     break;
             case 50:
@@ -124,7 +124,7 @@ void funcion05(char a[], int v){
 void funcion06(int a[], int v){
     int dato;
     int encontrado;
-
+car
     printf("\n\n Busca un dato en el arrelgo de Int\n\n");
     printf("\n\n Ingrese el dato a buscar: ");
     scanf("%d", &dato);
@@ -139,12 +139,12 @@ void funcion06(int a[], int v){
 void funcion07(int a[], int v){
     printf("\nOrdena el arreglo de menor a mayor\n");
     ordenarSelInt(a, v);
-    printf("\n\nOrdenación terminada\n");
+    printf("\n\nOrdenacion terminada\n");
 }
 
-/**************************************************************
+/************************************************************//**
 *
-* \Carga un arreglo de tipo Int
+* \brief Carga un arreglo de tipo Int
 * \param Recibo el arreglo de Int, sus validos y su dimension
 * \return cantidad cargada
 *
@@ -164,7 +164,7 @@ int cargaArregloInt(int a[], int v, int dim){
     return v;
 }
 
-/**************************************************************
+/************************************************************//**
 *
 * Muestra un arreglo de tipo Int
 * Recibo el arreglo de Int y sus validos
@@ -176,7 +176,7 @@ void mostrarArregloInt(int a[], int v){
     }
 }
 
-/**************************************************************
+/************************************************************//**
 *
 * Carga un arreglo de tipo Char
 * Recibo el arreglo de Char, sus validos y su dimension
@@ -198,7 +198,7 @@ int cargaArregloChar(char a[], int v, int dim){
     return v;
 }
 
-/**************************************************************
+/************************************************************//**
 *
 * Muestra un arreglo de tipo Char
 * Recibo el arreglo de Char y sus validos
@@ -210,7 +210,7 @@ void mostrarArregloChar(char a[], int v){
     }
 }
 
-/**************************************************************
+/************************************************************//**
 *
 * Busca un dato en un arreglo de tipo Int
 * Recibo el arreglo de int, sus validos y el dato
@@ -231,7 +231,7 @@ int buscoInt(int a[], int v, int dato){
     return flag;
 }
 
-/**************************************************************
+/************************************************************//**
 *
 * Busca el menor elemento en un arreglo de tipo Int
 * Recibo el arreglo de int y sus validos
@@ -249,7 +249,7 @@ int buscaMenorInt(int a[], int v){
     return menor;
 }
 
-/**********************************************************************************
+/********************************************************************************//**
 *
 * Busca el menor elemento en un arreglo de tipo Int
 * Recibo el arreglo de int, sus validos y desde donde quiero comenzar la busqueda
@@ -269,7 +269,7 @@ int buscaMenorPosInt(int a[], int v, int inicio){
     return posMenor;
 }
 
-/**************************************************************
+/************************************************************//**
 *
 * Ordena un arreglo de tipo Int
 * Recibo el arreglo de int y sus validos

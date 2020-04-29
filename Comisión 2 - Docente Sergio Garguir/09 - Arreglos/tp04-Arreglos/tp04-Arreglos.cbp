@@ -40,7 +40,7 @@
 			<debugger />
 			<lib_finder disable_auto="1" />
 			<DoxyBlocks>
-				<comment_style block="4" line="0" />
+				<comment_style block="0" line="0" />
 				<doxyfile_project />
 				<doxyfile_build />
 				<doxyfile_warnings />
