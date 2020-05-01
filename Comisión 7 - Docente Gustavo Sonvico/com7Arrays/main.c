@@ -10,6 +10,9 @@ void mostrarArregloChar(char A[], int cantVal);
 
 char buscarCharMax(char A[], int cantVal);
 
+void cargaRandom(int filas, int columnas, int M[filas][columnas]);
+
+
 const int MAXEMPLE=100;
 
 int main()
@@ -17,9 +20,13 @@ int main()
 
     printf("Hello arrays!\n");
 
+    int matriz[10][4];
+
+
 /// declaro el arreglo
 
     int idEmpleados[MAXEMPLE];
+
 /// el compilador ve esto.
 /// int * idEmpleados=malloc(sizeof(int)*100);
 
@@ -90,6 +97,7 @@ int main()
 
     return 0;
 }
+
 
 int cargarArregloInt(int A[], int dim)
 {
@@ -173,3 +181,18 @@ int buscaPosMenor(int A[], int cantVal, int pos)
 
     return posMenor;
 }
+
+
+void cargaRandom(int filas, int columnas, int M[filas][columnas])
+{
+    int i, j;
+
+    for(i=0; i<filas; i++)
+    {
+        for(j=0; j<columnas; j++)
+        {
+            M[i][j]=rand()%100;
+        }
+    }
+}
+

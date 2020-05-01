@@ -9,6 +9,10 @@ void mostrarArregloInt(int A[], int cantValidos);
 
 void mostrarArregloChar(char A[], int cantVal);
 
+int posicionMenor(int a[], int cantVal, int pos);
+
+void ordenacionSeleccion(int a[ ], int cantVal);
+
 const int MAXEMPLE =100;
 
 int main()
@@ -63,22 +67,32 @@ int main()
 
 //   mostrarArregloChar(unArregloDeChar, 5);
 
-    char palabra[20];
-    printf("direccion de memoria del arreglo %p\n", palabra);
+//    char palabra[20];
+//    printf("direccion de memoria del arreglo %p\n", palabra);
+//
+//    system("pause");
+//    printf("Ingrese su palabra: ");
+//
+//    fflush(stdin);
+//    //  scanf("%s", palabra);
+//
+//
+//    gets(palabra);
+//    printf("La palabra escaneada es %s", palabra);
+//
+//    system("pause");
+//
+//    printf("La palabra escaneada tiene %d", strlen(palabra));
 
-    system("pause");
-    printf("Ingrese su palabra: ");
-
-    fflush(stdin);
-    //  scanf("%s", palabra);
+    int unArreglo[10]= {6,2,4,8,3};
+    int validos=5;
 
 
-    gets(palabra);
-    printf("La palabra escaneada es %s", palabra);
+    mostrarArregloInt(unArreglo, 5);
 
-    system("pause");
+    ordenacionSeleccion(unArreglo, 5);
 
-    printf("La palabra escaneada tiene %d", strlen(palabra));
+    mostrarArregloInt(unArreglo, 5);
 
     return 0;
 }
@@ -106,7 +120,7 @@ void mostrarArregloInt(int A[], int cantValidos)
 {
     int i;
 
-    printf("El contenido del arreglo es: \n");
+    printf("\nEl contenido del arreglo es: \n");
 
     for(i=0; i<cantValidos; i++)
     {
@@ -126,3 +140,61 @@ void mostrarArregloChar(char A[], int cantVal)
     }
 }
 
+int buscaMenor(int A[], int cantVal)
+{
+    int i=0;
+
+    int menor=A[i];
+
+    i++;
+
+    while(i<cantVal)
+    {
+        if(A[i]<menor)
+        {
+            menor=A[i];
+        }
+        i++;
+    }
+
+    return menor;
+}
+
+
+
+
+int posicionMenor(int a[], int cantVal, int pos)
+{
+    int menor = a[pos];
+    int posMenor = pos;
+    int index = pos + 1;
+    while (index < cantVal)
+    {
+        if(menor > a[index])
+        {
+            menor = a[index];
+            posMenor = index;
+        }
+        index++;
+    }
+    return posMenor;
+}
+
+
+
+void ordenacionSeleccion(int a[ ], int cantVal)
+{
+    int posMenor, aux;
+    int i = 0;
+
+    while(i<cantVal-1)
+    {
+        posMenor = posicionMenor(a, cantVal, i);
+
+        aux = a[posMenor];
+        a[posMenor] = a[i];
+        a[i] = aux;
+
+        i++;
+    }
+}
