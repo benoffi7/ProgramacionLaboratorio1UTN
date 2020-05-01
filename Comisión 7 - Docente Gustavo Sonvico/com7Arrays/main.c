@@ -10,8 +10,15 @@ void mostrarArregloChar(char A[], int cantVal);
 
 char buscarCharMax(char A[], int cantVal);
 
-void cargaRandom(int filas, int columnas, int M[filas][columnas]);
+void cargaRandomMatrizInt(int filas, int columnas, int M[filas][columnas]);
 
+void mostrarMatrizInt(int filas, int columnas, int M[filas][columnas]);
+
+int cargarArregloPalabras(int dim, int dimCaracteres, char p[][dimCaracteres]);
+
+void mostrarArregloPalabras(int cantVal, int dimCaracteres, char p[][dimCaracteres]);
+
+int agregaCharEnOrden (char A[], int validos, char dato);
 
 const int MAXEMPLE=100;
 
@@ -94,6 +101,18 @@ int main()
     char caracterMaximo = buscarCharMax(miArreglo,validos);
 
     printf("El maximo caracter es %c \n", caracterMaximo);
+
+    int matrix [5][6];
+
+    cargaRandomMatrizInt(5,6,matrix);
+
+    mostrarMatrizInt(5,6,matrix);
+
+    char palabras[10][30];
+
+    int val=cargarArregloPalabras(10, 30, palabras);
+
+    mostrarArregloPalabras(val, 30, palabras);
 
     return 0;
 }
@@ -182,8 +201,7 @@ int buscaPosMenor(int A[], int cantVal, int pos)
     return posMenor;
 }
 
-
-void cargaRandom(int filas, int columnas, int M[filas][columnas])
+void cargaRandomMatrizInt(int filas, int columnas, int M[filas][columnas])
 {
     int i, j;
 
@@ -196,3 +214,66 @@ void cargaRandom(int filas, int columnas, int M[filas][columnas])
     }
 }
 
+void mostrarMatrizInt(int filas, int columnas, int M[filas][columnas])
+{
+    int i, j;
+
+    printf("Contenido de la matriz: \n");
+    for(i=0; i<filas; i++)
+    {
+        for(j=0; j<columnas; j++)
+        {
+            printf("%d ", M[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+int cargarArregloPalabras(int dim, int dimCaracteres, char p[][dimCaracteres])
+{
+    int i=0;
+    char control='s';
+
+    while(i<dim && control=='s')
+    {
+        printf("Ingrese una palabra: (maximo 30 chars)\n");
+
+        fflush(stdin);
+        scanf("%s", p[i]);
+
+        printf("Desea continuar? s/n\n");
+        fflush(stdin);
+        scanf("%c", &control);
+        i++;
+    }
+    /// retornamos el valor de i, que es la cantidad de valores que se cargaron en el array
+
+    return i;
+
+}
+
+void mostrarArregloPalabras(int cantVal, int dimCaracteres, char p[][dimCaracteres])
+{
+
+    int i;
+
+    printf("Contenido del arreglo de palabras:\n");
+
+    for(i=0; i<cantVal; i++)
+    {
+        printf("%s\n", p[i]);
+    }
+}
+
+int agregaCharEnOrden (char A[], int validos, char dato)
+{
+    int i = validos-1;
+    while (i>=0 && dato<A[i])
+    {
+        A[i+1]=A[i];
+        i--;
+    }
+    A[i+1]= dato;
+    return validos+1;
+}
