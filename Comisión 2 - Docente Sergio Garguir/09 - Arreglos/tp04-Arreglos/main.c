@@ -9,14 +9,17 @@ int funcion03(int v);
 int funcion04(char a[], int v, int dim);
 void funcion05(char a[],int v);
 void funcion06(int a[], int v);
+void funcion07(int a[], int v);
 int cargaArregloInt(int a[], int v, int dim);
 void mostrarArregloInt(int a[], int v);
 int cargaArregloChar(char a[], int v, int dim);
 void mostrarArregloChar(char a[], int v);
 int buscoInt(int a[], int v, int dato);
 int buscaMenorInt(int a[], int v);
+void cambiaValoresInt(int *a, int *b);
 int buscaMenorPosInt(int a[], int v, int inicio);
 void ordenarSelInt(int a[], int v);
+int insertaElementoInt(int a[], int v, int dato);
 
 #define DDNI 100
 #define DLETRAS 24
@@ -124,7 +127,7 @@ void funcion05(char a[], int v){
 void funcion06(int a[], int v){
     int dato;
     int encontrado;
-car
+
     printf("\n\n Busca un dato en el arrelgo de Int\n\n");
     printf("\n\n Ingrese el dato a buscar: ");
     scanf("%d", &dato);
@@ -145,7 +148,9 @@ void funcion07(int a[], int v){
 /************************************************************//**
 *
 * \brief Carga un arreglo de tipo Int
-* \param Recibo el arreglo de Int, sus validos y su dimension
+* \param arreglo de tipo Int
+* \param sus validos
+* \param su dimension
 * \return cantidad cargada
 *
 **************************************************************/
@@ -166,8 +171,10 @@ int cargaArregloInt(int a[], int v, int dim){
 
 /************************************************************//**
 *
-* Muestra un arreglo de tipo Int
-* Recibo el arreglo de Int y sus validos
+* \brief Muestra un arreglo de tipo Int
+* \param arreglo de int
+* \param sus validos
+* \return void
 *
 **************************************************************/
 void mostrarArregloInt(int a[], int v){
@@ -178,8 +185,11 @@ void mostrarArregloInt(int a[], int v){
 
 /************************************************************//**
 *
-* Carga un arreglo de tipo Char
-* Recibo el arreglo de Char, sus validos y su dimension
+* \brief Carga un arreglo de tipo Char
+* \param arreglo de tipo char
+* \param sus validos
+* \param su dimension
+* \return cantidad cargada
 *
 **************************************************************/
 int cargaArregloChar(char a[], int v, int dim){
@@ -200,8 +210,10 @@ int cargaArregloChar(char a[], int v, int dim){
 
 /************************************************************//**
 *
-* Muestra un arreglo de tipo Char
-* Recibo el arreglo de Char y sus validos
+* \brief Muestra un arreglo de tipo Char
+* \param arreglo de char
+* \param sus validos
+* \return void
 *
 **************************************************************/
 void mostrarArregloChar(char a[], int v){
@@ -212,9 +224,11 @@ void mostrarArregloChar(char a[], int v){
 
 /************************************************************//**
 *
-* Busca un dato en un arreglo de tipo Int
-* Recibo el arreglo de int, sus validos y el dato
-* Retorno un booleano - 0 es falso/false - 1 es verdadero/true
+* \brief Busca un dato en un arreglo de tipo Int
+* \param arreglo de int
+* \param sus validos
+* \param el dato a buscar
+* \return un booleano - 0 es falso/false - 1 es verdadero/true
 *
 **************************************************************/
 int buscoInt(int a[], int v, int dato){
@@ -233,9 +247,33 @@ int buscoInt(int a[], int v, int dato){
 
 /************************************************************//**
 *
-* Busca el menor elemento en un arreglo de tipo Int
-* Recibo el arreglo de int y sus validos
-* Retorno el dato menor
+* \brief Busca un dato en un arreglo de tipo Char
+* \param arreglo de char
+* \param sus validos
+* \param el dato char a buscar
+* \return -1 sin el dato no existe - la posición si existe
+*
+**************************************************************/
+int buscoChar(char a[], int v, char dato){
+    int flag=-1;
+    int i=0;
+
+    while(i<v && flag==-1){
+        if(a[i]==dato){
+            flag = i;
+        }
+        i++;
+    }
+
+    return flag;
+}
+
+/************************************************************//**
+*
+* \brief Busca el menor elemento en un arreglo de tipo Int
+* \param arreglo de int
+* \param sus validos
+* \return el menor elemento
 *
 **************************************************************/
 int buscaMenorInt(int a[], int v){
@@ -251,11 +289,27 @@ int buscaMenorInt(int a[], int v){
 
 /********************************************************************************//**
 *
-* Busca el menor elemento en un arreglo de tipo Int
-* Recibo el arreglo de int, sus validos y desde donde quiero comenzar la busqueda
-* Retorna la posicion del menor elemento
+* \brief Invierte los valores de dos variables tipo Int
+* \param puntero a Int
+* \param puntero a Int
+* \return es de tipo void
 *
 ***********************************************************************************/
+void cambiaValoresInt(int *a, int *b){
+    int aux;
+    aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
+/*************************************************************************//**
+*
+* \brief Busca la posicion del menor elemento en un arreglo de tipo Int
+* \param arreglo de int
+* \param sus validos
+* \return la posicion del menor elemento
+*
+*****************************************************************************/
 int buscaMenorPosInt(int a[], int v, int inicio){
     int posMenor = inicio;
     int i=inicio+1;
@@ -271,9 +325,10 @@ int buscaMenorPosInt(int a[], int v, int inicio){
 
 /************************************************************//**
 *
-* Ordena un arreglo de tipo Int
-* Recibo el arreglo de int y sus validos
-* Lo ordena de menor a mayor
+* \brief Ordena por Seleccion un arreglo de tipo Int
+* \param arreglo de int
+* \param sus validos
+* \return void
 *
 **************************************************************/
 void ordenarSelInt(int a[], int v){
@@ -283,9 +338,66 @@ void ordenarSelInt(int a[], int v){
 
     while(i<v-1){
         posMenor = buscaMenorPosInt(a, v, i);
-        aux = a[posMenor];
+        /**aux = a[posMenor];
         a[posMenor] = a[i];
-        a[i] = aux;
+        a[i] = aux;*/
+        cambiaValoresInt(&a[posMenor], &a[i]);
         i++;
     }
 }
+
+/*******************************************************************************//**
+*
+* \brief Inserta un elemento en un arreglo ordenado de tipo Int<br>
+* \brief Es reponsabilidad del programador verificar que el arreglo tengo espacio
+* \param arreglo de tipo int
+* \param sus validos
+* \param el dato a insertar
+* \return validos + 1
+*
+************************************************************************************/
+int insertaElementoInt(int a[], int v, int dato){
+    int i=v-1;
+    while(i>=0 && a[i]>dato){
+        a[i+1]=a[i];
+        i--;
+    }
+    a[i+1]=dato;
+    return v+1;
+}
+
+/*******************************************************************************//**
+*
+* \brief Inserta un elemento en un arreglo ordenado de tipo Int<br>
+* \brief para usarla en Ordenacion por Insercion
+* \param arreglo de tipo int
+* \param sus validos
+* \param el dato a insertar
+* \return void
+*
+************************************************************************************/
+void insertaElementoPOInt(int a[], int v, int dato){
+    int i=v;
+    while(i>=0 && a[i]>dato){
+        a[i+1]=a[i];
+        i--;
+    }
+    a[i+1]=dato;
+}
+
+/*******************************************************************************//**
+*
+* \brief Funcion que ordena un arreglo de tipo Int por Insercion
+* \param arreglo de tipo int
+* \param sus validos
+* \return void
+*
+************************************************************************************/
+void ordenarInInt(int a[], int v){
+    int i = 0;
+    while(i<v-1){
+        insertaElementoPOInt(a,i,a[i+1])
+        i++;
+    }
+}
+
