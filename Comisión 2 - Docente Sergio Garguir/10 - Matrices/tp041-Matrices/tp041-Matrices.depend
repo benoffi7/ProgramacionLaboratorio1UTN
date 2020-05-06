@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1588789233 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\tp041-matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
