@@ -15,14 +15,14 @@ void muestroMatrizInt(int fil, int col, int m[fil][col]);
 void muestraArregloChar(char a[], int v);
 int cargaArregloNombres(int cantChar, char nombres[][cantChar], int v, int dim);
 void muestraArregloNombres(int cantChar, char names[][cantChar], int v);
-
+void muestraTablaASCII();
 
 int main(){
     char opcion;
     int matriz[FIL][COL];
     char names[DIM_NAMES][CANT_CHAR];
-    int vNames=0;
-
+    char alumnos[DIM_NAMES][CANT_CHAR];
+    char notas[DIM_NAMES];
 
     do{
         system("cls");
@@ -46,6 +46,8 @@ int main(){
             case 53:
                     muestraArregloNombres(CANT_CHAR, names, vNames);
                     break;
+            case 54:
+                    muestraTablaASCII();
         }
         system("pause");
     }
@@ -155,6 +157,7 @@ int cargaArregloNombres(int cantChar, char nombres[][cantChar], int v, int dim){
     char opcion;
     while(v<dim && opcion!=ESC){
         printf("\nIngrese un nombre: ");
+        fflush(stdin);
         gets(nombres[v]);
         v++;
 
@@ -178,6 +181,62 @@ int cargaArregloNombres(int cantChar, char nombres[][cantChar], int v, int dim){
 void muestraArregloNombres(int cantChar, char names[][cantChar], int v){
     for(int i=0;i<v;i++){
         printf("\n %s", names[i]);
+    }
+    printf("\n");
+}
+
+void muestraTablaASCII(){
+    int i;
+    for(i=20; i<256; i++){
+        if(i%20==0){
+            printf("\n");
+        }
+        printf("| %i - %c ", i, i);
+    }
+}
+
+/*****************************************************************************//**
+*
+* \brief Funcion que carga un arreglo de Strings y otro paralelo de notas
+* \param cantidad de caracteres por nombre
+* \param arreglo de Strings
+* \param arreglo de Int
+* \param validos
+* \param dimension
+* \return validos
+*
+*********************************************************************************/
+int cargaArregloNombresYNotas(int cantChar, char nombres[][cantChar], int notas[], int v, int dim){
+    char opcion;
+    while(v<dim && opcion!=ESC){
+        printf("\nIngrese un nombre: ");
+        fflush(stdin);
+        gets(nombres[v]);
+        printf("\nIngrese la nota..: ");
+        scanf("%d", &nota[v]);
+        v++;
+
+        printf("\n ESC para salir..... ");
+        opcion=getch();
+        system("cls");
+    }
+    printf("\n");
+    return v;
+}
+
+/**************************************************************//**
+*
+* \brief Funcion muestra un arreglo de Strings y de Notas
+* \param cantidad de caracteres por nombre
+* \param arreglo de Strings
+* \param arreglo de Nombres
+* \param validos
+* \return void
+*
+******************************************************************/
+void muestraArregloNombresYNotas(int cantChar, char names[][cantChar], int notas[], int v){
+    for(int i=0;i<v;i++){
+        printf("\n %s: %d", names[i], notas[i]);
     }
     printf("\n");
 }
