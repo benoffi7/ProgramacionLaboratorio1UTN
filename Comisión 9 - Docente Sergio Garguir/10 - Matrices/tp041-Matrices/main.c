@@ -17,13 +17,18 @@ void muestraMatrizInt(int fil, int col, int m[fil][col]);
 void colores();
 int cargaArregloStrings(int fil, int col, char as[][col], int v);
 void muestraArregloStrings(int col, char as[][col], int v);
-
+int cargaArregloParalelo(int fil, int col, char names[][col], int legajos[], int notas[], int v);
+void muestraArregloParalelo(int col, char names[][col], int legajos[], int notas[], int v);
 
 int main(){
     char opcion;
     int matrix[FIL][COL];
     char names[F][C];
+    int legajos[F];
+    int notas[F];
     int v=0;
+
+    char arregloChar[150][30];
 
     do{
         system("cls");
@@ -46,6 +51,12 @@ int main(){
                     break;
             case 53:
                     muestraArregloStrings(C, names, v);
+                    break;
+            case 54:
+                    v=cargaArregloParalelo(F, C, names, legajos, notas, v);
+                    break;
+            case 55:
+                    muestraArregloParalelo(C, names, legajos, notas, v);
                     break;
         }
         system("pause");
@@ -70,8 +81,10 @@ void muestraMenu(){
     printf("\n\t 1 - Carga una matriz random de tipo Int");
     printf("\n\t 2 - Carga una matriz el usuario");
     printf("\n\t 3 - Muestra una matriz de tipo int");
-    printf("\n\t 4 - Carga string Muestra una matriz de tipo int");
-    printf("\n\t 5 - Muestra string una matriz de tipo int");
+    printf("\n\t 4 - Carga arreglo de string");
+    printf("\n\t 5 - Muestra arreglo de string");
+    printf("\n\t 6 - Carga arreglos paralelos");
+    printf("\n\t 7 - Muestra arreglos paralelos");
     printf("\n\n\n");
     printf("ESC para salir ");
 }
@@ -182,6 +195,7 @@ int cargaArregloStrings(int fil, int col, char as[][col], int v){
     while(v<fil && opcion != ESC){
         printf("\n Ingrese un nombre: ");
         fflush(stdin);
+        //scanf("%s", as[v]);
         gets(as[v]);
         v++;
 
@@ -207,3 +221,70 @@ void muestraArregloStrings(int col, char as[][col], int v){
     printf("\n");
 }
 
+/**************************************************************//**
+*
+* \brief Funcion de carga por el usuario de Arreglos Paralelos
+* \param filas
+* \param columnas
+* \param el arreglo nombres
+* \param el arreglo legajos
+* \param el arreglo notas
+* \param validos
+* \return retorna validos
+*
+******************************************************************/
+int cargaArregloParalelo(int fil, int col, char names[][col], int legajos[], int notas[], int v){
+    char opcion;
+    while(v<fil && opcion != ESC){
+        printf("\n Ingrese un nombre: ");
+        fflush(stdin);
+        //scanf("%s", names[v]);
+        gets(names[v]);
+
+        printf("Ingrese el legajo: ");
+        scanf("%d", &legajos[v]);
+
+        printf("Ingrese la nota: ");
+        scanf("%d", &notas[v]);
+
+        v++;
+
+        printf("\n\n ESC para salir");
+        opcion=getch();
+    }
+    return v;
+}
+
+/**************************************************************//**
+*
+* \brief Funcion que muestra arreglos paralelos
+* \param columnas
+* \param el arreglo de nombres
+* \param el arreglo de legajos
+* \param el arreglo de notas
+* \param sus validos
+* \return void
+*
+******************************************************************/
+void muestraArregloParalelo(int col, char names[][col], int legajos[], int notas[], int v){
+    printf("\n-----------------------------------------");
+    for(int i=0;i<v; i++){
+        printf("\n Nombre: %s",names[i]);
+        printf("\n Legajo: %d",legajos[i]);
+        printf("\n Nota..: %d",notas[i]);
+        printf("\n-----------------------------------------");
+    }
+    printf("\n");
+}
+
+/**************************************************************//**
+*
+* \brief Muestra los codigos ASCII y sus caracteres
+* \return void
+*
+******************************************************************/
+void muestraTablaASCII(){
+    for(int i=0;i<256;i++){
+        printf("| %d - %c ", i, i);
+    }
+}
