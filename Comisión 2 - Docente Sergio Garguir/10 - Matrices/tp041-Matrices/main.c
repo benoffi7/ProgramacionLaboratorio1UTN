@@ -21,8 +21,10 @@ int main(){
     char opcion;
     int matriz[FIL][COL];
     char names[DIM_NAMES][CANT_CHAR];
+    int vNames=0;
     char alumnos[DIM_NAMES][CANT_CHAR];
     char notas[DIM_NAMES];
+    int vAlumnos=0;
 
     do{
         system("cls");
@@ -48,6 +50,12 @@ int main(){
                     break;
             case 54:
                     muestraTablaASCII();
+                    break;
+            case 55:
+                    vAlumnos=cargaArregloNombresYNotas(CANT_CHAR, alumnos, notas, vAlumnos, DIM_NAMES);
+                    break;
+            case 56:
+                    muestraArregloNombresYNotas(CANT_CHAR, alumnos, notas, vAlumnos);
         }
         system("pause");
     }
@@ -66,6 +74,9 @@ void muestraMenu(){
     printf("\n\t 3 - Muestra una matriz");
     printf("\n\t 4 - Carga un arreglo de Strings");
     printf("\n\t 5 - Muestra un arreglo de Strings");
+    printf("\n\t 6 - Muestra tabla ASCII");
+    printf("\n\t 7 - Carga arreglos paralelos");
+    printf("\n\t 8 - Muestra arreglos paralelos");
     printf("\n\n\n");
     printf("ESC para salir ");
 }
@@ -213,7 +224,7 @@ int cargaArregloNombresYNotas(int cantChar, char nombres[][cantChar], int notas[
         fflush(stdin);
         gets(nombres[v]);
         printf("\nIngrese la nota..: ");
-        scanf("%d", &nota[v]);
+        scanf("%d", &notas[v]);
         v++;
 
         printf("\n ESC para salir..... ");
