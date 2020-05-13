@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1589228033 source:c:\users\gsonv\documents\github\programacionlaboratorio1utn\comisión 7 - docente gustavo sonvico\estructurasdedatos\main.c
+1589394475 source:c:\users\gsonv\documents\github\programacionlaboratorio1utn\comisión 7 - docente gustavo sonvico\estructurasdedatos\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 
