@@ -21,7 +21,7 @@ void mostrarUnEmpleado(empleado e);
 
 int main()
 {
-    printf("Hello world strucs !\n");
+    printf("Hello world structs !\n");
 
     empleado emple1;
 
