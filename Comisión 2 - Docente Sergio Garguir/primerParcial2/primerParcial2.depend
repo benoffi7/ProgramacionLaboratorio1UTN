@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1490112217 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\primerparcial2\pila.c
+	"pila.h"
+
+1490112217 c:\users\techmdq\downloads\pruebas\programacion 1 - local\primerparcial2\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1590155611 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\primerparcial2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"pila.h"
+
+1490112217 source:d:\developer\c\programacion 1 - local\primerparcial2\pila.c
+	"pila.h"
+
+1490112217 d:\developer\c\programacion 1 - local\primerparcial2\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1590350809 source:d:\developer\c\programacion 1 - local\primerparcial2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"pila.h"
+
