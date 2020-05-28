@@ -11,16 +11,19 @@ typedef struct
     float sueldo;
 } empleado;
 
+
 int cargaArregloEmpleados(empleado E[], int dimension);
 
 void mostraArregloEmpleados(empleado E[], int validos);
+
+void mostrarUnEmpleado(empleado e);
 
 
 int main()
 {
     printf("Hello world structs!\n");
 
-   /* empleado emple1;
+    empleado emple1;
 
     printf("Ingrese los datos del empleado: \n");
 
@@ -43,11 +46,7 @@ int main()
 
     printf("\nLos datos del empleado cargado son:\n");
 
-    printf("       Id: %d\n", emple1.idEmpleado);
-    printf("   Nombre: %s\n", emple1.nombre);
-    printf("Direccion: %s\n", emple1.direccion);
-    printf(" Telefono: %ld\n", emple1.telefono);
-    printf("   Sueldo: $%.2f\n", emple1.sueldo);
+    mostrarUnEmpleado(emple1);
 
 
     empleado emple2= {1234, "pepe grillo", "no se 1200", 345678, 234567.09};
@@ -58,13 +57,9 @@ int main()
 
     printf("\nLos datos del empleado cargado son:\n");
 
-    printf("       Id: %d\n", emple1.idEmpleado);
-    printf("   Nombre: %s\n", emple1.nombre);
-    printf("Direccion: %s\n", emple1.direccion);
-    printf(" Telefono: %ld\n", emple1.telefono);
-    printf("   Sueldo: $%.2f\n", emple1.sueldo);
+    mostrarUnEmpleado(emple2);
 
-    printf("Un empleado pesa %d", sizeof(emple1));*/
+    printf("\nUn empleado pesa %d\n", sizeof(emple1));
 
 
     empleado empleAdministracion[10];
@@ -72,9 +67,10 @@ int main()
 
     cantEmple=cargaArregloEmpleados(empleAdministracion, 10);
 
-    printf("La cantidad de empleados que se cargaron fueron %d", cantEmple);
+    printf("La cantidad de empleados que se cargaron fueron %d\n", cantEmple);
 
 
+    mostraArregloEmpleados(empleAdministracion, cantEmple);
     return 0;
 }
 
@@ -116,3 +112,29 @@ int cargaArregloEmpleados(empleado E[], int dimension)
 
     return i;
 }
+
+void mostrarUnEmpleado(empleado e)
+{
+    printf("       Id: %d\n", e.idEmpleado);
+    printf("   Nombre: %s\n", e.nombre);
+    printf("Direccion: %s\n", e.direccion);
+    printf(" Telefono: %ld\n", e.telefono);
+    printf("   Sueldo: $%.2f\n", e.sueldo);
+}
+
+void mostraArregloEmpleados(empleado E[], int validos)
+{
+    int i=0;
+
+    printf("El contenido del arreglo de emplados es:\n");
+    printf("-----------\n");
+
+    for(i=0;i<validos;i++)
+    {
+        mostrarUnEmpleado(E[i]);
+        printf("-----------\n");
+    }
+
+}
+
+

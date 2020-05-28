@@ -20,12 +20,32 @@ void mostrarArregloPalabras(int cantVal, int dimCaracteres, char p[][dimCaracter
 
 int agregaCharEnOrden (char A[], int validos, char dato);
 
+void generaNuevoArray(int viejo[], int valV, int nuevo[], int dimN);
+
 const int MAXEMPLE=100;
 
 int main()
 {
 
+
+
     printf("Hello arrays!\n");
+
+    int arregloOrig[]= {1,5,6,7,8};
+
+    printf("%p", arregloOrig);
+
+    system("pause");
+
+    int arregloNuevo[5];
+
+    mostrarArregloInt(arregloOrig, 5);
+
+    generaNuevoArray(&arregloOrig, 5, arregloNuevo, 5);
+
+    mostrarArregloInt(arregloNuevo, 5);
+
+    system("pause");
 
     int matriz[10][4];
 
@@ -117,6 +137,29 @@ int main()
     return 0;
 }
 
+void generaNuevoArray(int viejo[], int valV, int nuevo[], int dimN)
+{
+    /// Dado un el arreglo de enteros {1,5,6,7,8} escribir un programa que
+    /// genere otro arreglo con la suma del contenido de todo los elementos
+    /// anteriores al índice actual. El resultado final del segundo arreglo
+    /// es el siguiente: {1,6,12,19,27}.
+
+    int i=0, j=0;
+
+    if(i<valV)
+    {
+        nuevo[i]=viejo[i];
+        for(i=1; i<valV; i++)
+        {
+            nuevo[i]=0;
+            for(j=i; j>=0; j--)
+            {
+                nuevo[i]+=viejo[j];
+            }
+        }
+    }
+}
+
 
 int cargarArregloInt(int A[], int dim)
 {
@@ -142,12 +185,13 @@ void mostrarArregloInt(int A[], int cantVal)
 {
     int i;
 
-    printf("Contenido del arreglo de int:\n");
+    printf("\nContenido del arreglo de int:\n");
 
     for(i=0; i<cantVal; i++)
     {
         printf("%d ", A[i]);
     }
+    printf("\n");
 }
 
 void mostrarArregloChar(char A[], int cantVal)
