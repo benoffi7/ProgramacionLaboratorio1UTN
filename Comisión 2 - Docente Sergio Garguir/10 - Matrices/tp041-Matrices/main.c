@@ -8,6 +8,8 @@
 #define CANT_CHAR 30
 #define DIM_NAMES 100
 
+
+
 void muestraMenu();
 void cargoMatrizRandInt(int fil, int col, int m[fil][col]);
 void cargoUserMatrizInt(int fil, int col, int m[fil][col]);
@@ -17,14 +19,25 @@ int cargaArregloNombres(int cantChar, char nombres[][cantChar], int v, int dim);
 void muestraArregloNombres(int cantChar, char names[][cantChar], int v);
 void muestraTablaASCII();
 
+
+
+
 int main(){
     char opcion;
     int matriz[FIL][COL];
     char names[DIM_NAMES][CANT_CHAR];
     int vNames=0;
+
     char alumnos[DIM_NAMES][CANT_CHAR];
     char notas[DIM_NAMES];
     int vAlumnos=0;
+
+    char cliNombres[DIM_NAMES][CANT_CHAR];
+    char cliApellido[DIM_NAMES][CANT_CHAR];
+    int cliDNIs[DIM_NAMES];
+    char cliCalles[DIM_NAMES][CANT_CHAR];
+    int cliNros[DIM_NAMES];
+    int vAlumno=0;
 
     do{
         system("cls");
@@ -93,7 +106,7 @@ void muestraMenu(){
 void cargoMatrizRandInt(int fil, int col, int m[fil][col]){
     for(int i=0; i<fil;i++){
         for(int j=0;j<col;j++){
-            m[i][j]=rand()%100;
+            m[i][j]=rand()%9900;
         }
     }
 }
@@ -133,6 +146,21 @@ void cargoUserMatrizInt(int fil, int col, int m[fil][col]){
 void muestroMatrizInt(int fil, int col, int m[fil][col]){
     for(int i=0; i<fil;i++){
         for(int j=0;j<col;j++){
+            switch(m[i][j]){
+                case 0 ... 9:
+                            printf("    ");
+                            break;
+                case 10 ... 99:
+                            printf("   ");
+                            break;
+                case 100 ... 999:
+                            printf("  ");
+                            break;
+                case 1000 ... 9999:
+                            printf(" ");
+                            break;
+            }
+            /// replicante(" ", 5-cuentaDigitos(m[i][j]));
             printf("%d - ", m[i][j]);
         }
         printf("\n");
