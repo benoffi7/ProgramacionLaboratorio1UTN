@@ -5,6 +5,8 @@
 #include "registroCliente.h"
 #include "pila.h"
 
+#define arCliente "clientes.dat"
+
 #define ESC 27
 #define DIM_CLI 100
 
@@ -20,6 +22,11 @@ int buscaPosMenorApellido(stCliente c[], int v, int inicio);
 void intercambiaClientes(stCliente *a, stCliente *b);
 void ordPorSelApellido(stCliente c[], int v);
 void arregloClientes2Pila(stCliente c[], int v, Pila *p);
+void guardaUnCliente(stCliente c);
+void cargaArchivoClientes();
+void muestraArchClientes();
+int buscaUnClienteDNIArchivo(int dni);
+stCliente buscaUnClienteApellidoArchivo(char apellido[]);
 
 int main(){
     Pila dni;
@@ -27,6 +34,16 @@ int main(){
     char opcion;
     stCliente clientes[DIM_CLI];
     int vClientes=0;
+
+    char apellido[]="Garguir";
+    stCliente c;
+    c = buscaUnClienteApellidoArchivo(apellido);
+    if(c.nroCliente!=-1){
+        printf("\n El Sr. %s existe en el archivo", apellido);
+        muestraUnCliente(c);
+        printf("\n");
+    }
+    system("pause");
 
     do{
         system("cls");
@@ -53,6 +70,12 @@ int main(){
             case 53:
                     arregloClientes2Pila(clientes, vClientes, &dni);
                     mostrar(&dni);
+                    break;
+            case 54:
+                    cargaArchivoClientes();
+                    break;
+            case 55:
+                    muestraArchClientes();
         }
         system("pause");
     }
@@ -72,6 +95,8 @@ void muestraMenu(){
     printf("\n\t 3 - Busca un Cliente");
     printf("\n\t 4 - Ordena un Arreglo de Clientes");
     printf("\n\t 5 - Pasa dnis del arreglo a la pila");
+    printf("\n\t 6 - Carga archivo de clientes");
+    printf("\n\t 7 - Muestra archivo de clientes");
 
     printf("\n\n\n");
     printf("ESC para salir ");
@@ -288,3 +313,73 @@ void arregloClientes2Pila(stCliente c[], int v, Pila *p){
         i++;
     }
 }
+
+
+void guardaUnCliente(stCliente c){
+    FILE *pArchCliente = fopen(arCliente,"ab");
+    if(pArchCliente != NULL){  /// if(pArchCliente)
+        fwrite(&c,sizeof(stCliente),1,pArchCliente);
+        fclose(pArchCliente);
+    }
+}
+
+void cargaArchivoClientes(){
+    char opcion=0;
+    ///stCliente cli;
+    while(opcion!=27){
+        system("cls");
+        printf("\n Carga de Clientes \n");
+        ///guardaUnCliente(cli);
+        guardaUnCliente(cargaUnCliente());
+
+        printf("\n\n ESC para salir ");
+        opcion=getch();
+    }
+}
+
+void muestraArchClientes(){
+    stCliente c;
+    FILE *pArchCliente = fopen(arCliente,"rb");
+    if(pArchCliente){
+        while(fread(&c,sizeof(stCliente),1,pArchCliente) > 0){
+            muestraUnCliente(c);
+        }
+    }
+    printf("\n");
+}
+
+int buscaUnClienteDNIArchivo(int dni){
+    int flag = 0;
+    stCliente c;
+    FILE *pArchCliente = fopen(arCliente, "rb");
+    if(pArchCliente){
+        while(fread(&c, sizeof(stCliente),1,pArchCliente) > 0 && flag == 0){
+            if(c.dni==dni){
+                flag=1;
+            }
+        }
+        fclose(pArchCliente);
+    }
+    return flag;
+}
+
+stCliente buscaUnClienteApellidoArchivo(char apellido[]){
+    stCliente c;
+    int flag=0;
+    FILE *pArchCliente = fopen(arCliente,"rb");
+    if(pArchCliente){
+        while( flag == 0 && fread(&c, sizeof(stCliente), 1, pArchCliente) > 0){
+            if(strcmp(c.apellido, apellido) == 0){
+                flag=1;
+            }
+        }
+        fclose(pArchCliente);
+    }
+    if(flag==0){
+        c.nroCliente=-1;
+    }
+
+    return c;
+}
+
+
