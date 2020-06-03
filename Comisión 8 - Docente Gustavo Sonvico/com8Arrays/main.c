@@ -13,6 +13,19 @@ int posicionMenor(int a[], int cantVal, int pos);
 
 void ordenacionSeleccion(int a[ ], int cantVal);
 
+int * crearArregloDinamico(){
+
+    int cantidad;
+    printf("Ingrese el tamanio del arreglo: ");
+    scanf("%d", &cantidad);
+
+    int * arregloDinamico= (int *) malloc(cantidad * sizeof(int));
+
+
+
+    return arregloDinamico;
+}
+
 const int MAXEMPLE =100;
 
 int main()

@@ -11,6 +11,12 @@ typedef struct
     float sueldo;
 } empleado;
 
+typedef struct {
+    int matricula;
+    char nombre[30];
+    char genero; //m, f, o
+}stAlumno;
+
 
 int cargaArregloEmpleados(empleado E[], int dimension);
 
