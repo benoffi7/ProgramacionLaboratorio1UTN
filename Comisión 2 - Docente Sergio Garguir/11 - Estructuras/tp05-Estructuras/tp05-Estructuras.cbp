@@ -34,6 +34,14 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="registroCliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="registroCliente.h" />
+		<Unit filename="utilidades.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utilidades.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

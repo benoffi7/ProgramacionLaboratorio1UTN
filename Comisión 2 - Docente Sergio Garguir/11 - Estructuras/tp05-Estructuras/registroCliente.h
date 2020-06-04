@@ -7,7 +7,7 @@
 #include <time.h>
 #include "utilidades.h"
 
-typedef struct{
+typedef struct {
     int nroCliente;
     char nombre[30];
     char apellido[30];
@@ -17,15 +17,24 @@ typedef struct{
 }stCliente;
 
 typedef struct{
-    int id;    /// unico y autoincremental
+    int id;   /// campo unico y autoincremental
     char nombre[30];
     char apellido[30];
     int dni;
     char email[30];
     char domicilio[45];
     int movil;
-    int baja;   /// 0 - 1
-}stClienteTPFinal;
+    int baja; /// 0 - 1
+}stClienteFinal;
+
+typedef struct{
+    int id; /// campo unico y autoincremental
+    int idCliente;
+
+    int baja;
+}stConsumos;
+
+#define arCliente "archivoClientes.dat"
 
 int getNroCliente();
 void getNombre(char n[]);
