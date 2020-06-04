@@ -281,6 +281,13 @@ void ordPorSelApellido(stCliente c[], int v){
     }
 }
 
+/*********************************************************************//**
+*
+* \brief Guarda un dato de tipo stCliente en un archivo
+* \param stCliente c
+* \return void
+*
+**************************************************************************/
 void guardaUnCliente(stCliente c){
     FILE *pArchCliente = fopen(arCliente, "ab");
     //FILE *pArchCliente = fopen("archivoCliente.dat", "ab");
@@ -290,6 +297,13 @@ void guardaUnCliente(stCliente c){
     }
 }
 
+/*********************************************************************//**
+*
+* \brief Carga datos de tipo stCliente usando la funcion cargaUnCliente()
+*  y lo guarda en un archivo usando la funcion guardaUnCliente()
+* \return void
+*
+**************************************************************************/
 void cargaClientesArch(){
     char opcion=0;
 
@@ -303,6 +317,13 @@ void cargaClientesArch(){
     }
 }
 
+/*********************************************************************//**
+*
+* \brief Muestra los datos de un archivo de tipo stCliente
+*  itera el archivo y llama a la funcion muestraUnCliente()
+* \return void
+*
+**************************************************************************/
 void muestraArchClientes(){
     stCliente c;
     FILE *pArchClientes = fopen(arCliente,"rb");
@@ -315,6 +336,13 @@ void muestraArchClientes(){
     printf("\n");
 }
 
+/*********************************************************************//**
+*
+* \brief Busca en un archivo de tipo stCliente un dni
+* \param int dni
+* \return int 0 si no existe / 1 si existe
+*
+**************************************************************************/
 int buscaUnClienteDNIArchivo(int dni){
     int flag = 0;
     stCliente c;
@@ -331,6 +359,13 @@ int buscaUnClienteDNIArchivo(int dni){
     return flag;
 }
 
+/*********************************************************************//**
+*
+* \brief Busca en un archivo de tipo stCliente un apellido
+* \param char apellido[]
+* \return stCliente (con valor -1 en campo nroCliente si no existe)
+*
+**************************************************************************/
 stCliente buscaUnClienteApellidoArchivo(char apellido[]){
     int flag=0;
     stCliente c;
