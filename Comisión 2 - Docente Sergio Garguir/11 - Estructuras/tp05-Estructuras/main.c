@@ -10,6 +10,7 @@
 void muestraMenu();
 int funcion00(stCliente c[], int v, int dim);
 void funcion03(stCliente c[], int v);
+void funcion55();
 stCliente cargaUnCliente();
 int cargaClientes(stCliente c[], int v, int dim);
 void muestraClientes(stCliente c[], int v);
@@ -23,6 +24,9 @@ void cargaClientesArch();
 void muestraArchClientes();
 int buscaUnClienteDNIArchivo(int dni);
 stCliente buscaUnClienteApellidoArchivo(char apellido[]);
+int cuentaRegistros(char nombreArchivo[], int dato);
+int buscaUltimoId();
+int validaEmail(char email[]);
 
 int main(){
     char opcion;
@@ -57,6 +61,12 @@ int main(){
                     break;
             case 54:
                     muestraArchClientes();
+                    break;
+            case 55:
+                    funcion55();
+                    break;
+            case 56:
+                    printf("Cantidad de registros del archivo de Clientes = %d", cuentaRegistros(arCliente,sizeof(stCliente)));
         }
         system("pause");
     }
@@ -77,6 +87,7 @@ void muestraMenu(){
     printf("\n\t 4 - Ordena un Arreglo de Clientes");
     printf("\n\t 5 - Carga archivo de Clientes");
     printf("\n\t 6 - Muestra archivo de Clientes");
+    printf("\n\t 7 - Busca un Cliente y lo muestra");
 
     printf("\n\n\n");
     printf("ESC para salir ");
@@ -87,6 +98,7 @@ int funcion00(stCliente c[], int v, int dim){
     printf("\n Cargando arreglo de Clientes");
     for(i=0;i<dim/2;i++){
         c[i]=cargoRegistroClienteRandom();
+        c[i].id=i;
         printf(".");
         Sleep(100);
     }
@@ -115,6 +127,27 @@ void funcion03(stCliente c[], int v){
     printf("\n");
 }
 
+void funcion55(){
+    char apellido[30];
+    stCliente encontrado;
+
+    system("cls");
+    printf("\n Ingrese un apellido para buscar en el archivo: ");
+    fflush(stdin);
+    gets(apellido);
+
+    encontrado = buscaUnClienteApellidoArchivo(apellido);
+
+    if(encontrado.id>-1){
+        printf("\n El cliente %s se encuentra en el arreglo\n", apellido);
+        muestraUnCliente(encontrado);
+    }
+    else{
+        printf("\n El cliente %s NO se encuentra en el arreglo\n", apellido);
+    }
+    printf("\n");
+}
+
 /*********************************************************//**
 *
 * \brief Funcion de carga de un Cliente
@@ -128,7 +161,7 @@ stCliente cargaUnCliente(){
         printf("\n Ingrese el nro de Cliente..........: ");
         scanf("%d", &c.nroCliente);
     }
-    while(c.nroCliente>0&&c.nroCliente<9999999);
+    while(c.nroCliente<0 || c.nroCliente>9999999);
     printf(" Ingrese el Nombre..................: ");
     fflush(stdin);
     gets(c.nombre);
@@ -137,15 +170,39 @@ stCliente cargaUnCliente(){
     gets(c.apellido);
     printf(" Ingrese el DNI.....................: ");
     scanf(" %d", &c.dni);
-    printf(" Ingrese la Calle...................: ");
+    do{
+        printf(" Ingrese el EMail...................: ");
+        fflush(stdin);
+        gets(c.email);
+    }while(!validaEmail(c.email));
+    printf(" Ingrese la Domicilio...................: ");
     fflush(stdin);
-    gets(c.calle);
-    printf(" Ingrese el Nro.....................: ");
-    scanf("%d", &c.calleNro);
-
+    gets(c.domicilio);
+    printf(" Ingrese el Numero de celular...........: ");
+    scanf(" %d", &c.movil);
+    c.baja=0;
     return c;
 }
 
+/*********************************************************************//**
+*
+* \brief Valida si existe una @ en un string
+* \param char email[]
+* \return int 0 si no existe - 1 si existe
+*
+**************************************************************************/
+int validaEmail(char email[]){
+    int v=strlen(email);
+    int i=0;
+    int flag=0;
+    while(i<v && flag == 0){
+        if(email[i]==64){ /// =='@'
+            flag=1;
+        }
+        i++;
+    }
+    return flag;
+}
 
 /*********************************************************//**
 *
@@ -163,6 +220,7 @@ int cargaClientes(stCliente c[], int v, int dim){
         system("cls");
         printf("\n Carga de Clientes \n");
         c[v]=cargaUnCliente();
+        c[v].id=v;
         v++;
 
         printf("\n\n ESC para salir ");
@@ -197,12 +255,15 @@ void muestraClientes(stCliente c[], int v){
 *************************************************************/
 void muestraUnCliente(stCliente c){
     printf("\n  -----------------------------------------------------------------");
-    printf("\n  nro de Cliente..........: %d", c.nroCliente);
+    printf("\n  ID......................: %d", c.id);
+    printf("\n  Nro de Cliente..........: %d", c.nroCliente);
     printf("\n  Nombre..................: %s", c.nombre);
     printf("\n  Apellido................: %s", c.apellido);
     printf("\n  DNI.....................: %d", c.dni);
-    printf("\n  Calle...................: %s", c.calle);
-    printf("\n  Nro.....................: %d", c.calleNro);
+    printf("\n  EMail...................: %s", c.email);
+    printf("\n  Calle...................: %s", c.domicilio);
+    printf("\n  Nro de Celular..........: %d", c.movil);
+    printf("\n  Activo s/n..............: %s", (c.baja)?"NO":"SI");
 }
 
 /*********************************************************//**
@@ -306,11 +367,14 @@ void guardaUnCliente(stCliente c){
 **************************************************************************/
 void cargaClientesArch(){
     char opcion=0;
+    stCliente c;
 
     while(opcion!=27){
         system("cls");
         printf("\n Carga de Clientes \n");
-        guardaUnCliente(cargaUnCliente());
+        c=cargaUnCliente();
+        c.id=buscaUltimoId()+1;
+        guardaUnCliente(c);
 
         printf("\n\n ESC para salir ");
         opcion=getch();
@@ -363,7 +427,7 @@ int buscaUnClienteDNIArchivo(int dni){
 *
 * \brief Busca en un archivo de tipo stCliente un apellido
 * \param char apellido[]
-* \return stCliente (con valor -1 en campo nroCliente si no existe)
+* \return stCliente (con valor -1 en campo id si no existe)
 *
 **************************************************************************/
 stCliente buscaUnClienteApellidoArchivo(char apellido[]){
@@ -379,8 +443,47 @@ stCliente buscaUnClienteApellidoArchivo(char apellido[]){
         fclose(pArchClientes);
     }
     if(flag==0){
-        c.nroCliente=-1;
+        c.id=-1;
     }
 
     return c;
+}
+
+/*********************************************************************//**
+*
+* \brief Cuenta la cantidad de registros de cualquier tipo de archivo
+* \param char nombreArchivo
+* \param int sizeof del tipo de datos del archivo
+* \return int cantidad de registros
+*
+**************************************************************************/
+int cuentaRegistros(char nombreArchivo[], int dato){
+    int total=0;
+    FILE *pArch = fopen(nombreArchivo,"rb");
+    if(pArch){
+        fseek(pArch,0,SEEK_END);
+        total=ftell(pArch)/dato;
+    }
+
+    return total;
+}
+
+/*********************************************************************//**
+*
+* \brief Retorna el ultimo id cargado
+* \return int -1 si no hay registros o el id del ultimo registro
+*
+**************************************************************************/
+int buscaUltimoId(){
+    stCliente c;
+    int id=-1;
+    FILE *pArchCliente=fopen(arCliente, "rb");
+    if(pArchCliente){
+        fseek(pArchCliente, -1,SEEK_END);
+        if(fread(&c,sizeof(stCliente),1,pArchCliente) > 0){
+            id=c.nroCliente;
+        }
+        fclose(pArchCliente);
+    }
+    return id;
 }

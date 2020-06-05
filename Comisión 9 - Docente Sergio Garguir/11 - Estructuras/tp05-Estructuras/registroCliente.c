@@ -81,8 +81,16 @@ stCliente cargoRegistroClienteRandom(){
     getNombre(c.nombre);
     getApellido(c.apellido);
     c.dni=getDNI();
-    getCalle(c.calle);
-    c.calleNro=getCalleNro();
+    strcpy(c.email,c.nombre);
+    strcat(c.email,"_");
+    strcat(c.email,c.apellido);
+    strcat(c.email,"@gmail.com");
 
+    getCalle(c.domicilio);
+    char nro[5];
+    strcat(c.domicilio," ");
+    strcat(c.domicilio, itoa(getCalleNro(),nro,10));
+
+    c.baja=0;
     return c;
 }

@@ -8,24 +8,16 @@
 #include "utilidades.h"
 
 typedef struct{
+    int id;   /// campo unico y autoincremental
     int nroCliente;
-    char nombre[30];
-    char apellido[30];
-    int dni;
-    char calle[50];
-    int calleNro;
-}stCliente;
-
-typedef struct{
-    int id;    /// unico y autoincremental
     char nombre[30];
     char apellido[30];
     int dni;
     char email[30];
     char domicilio[45];
     int movil;
-    int baja;   /// 0 - 1
-}stClienteTPFinal;
+    int baja; /// 0 - 1
+}stCliente;
 
 int getNroCliente();
 void getNombre(char n[]);

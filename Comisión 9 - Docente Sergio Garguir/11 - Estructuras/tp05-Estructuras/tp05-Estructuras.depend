@@ -56,10 +56,10 @@
 	<stdio.h>
 	<malloc.h>
 
-1589395183 source:d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\registrocliente.c
+1591373442 source:d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\registrocliente.c
 	"registroCliente.h"
 
-1591219155 d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\registrocliente.h
+1591373443 d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\registrocliente.h
 	<stdlib.h>
 	<stdio.h>
 	<windows.h>
@@ -74,7 +74,7 @@
 1571670222 source:d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\utilidades.c
 	"utilidades.h"
 
-1591224037 source:d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\main.c
+1591376761 source:d:\developer\c\programacion 1 - local\comision 9\tp05-estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
