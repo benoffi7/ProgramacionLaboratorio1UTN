@@ -29,6 +29,8 @@ void muestraArchClientes();
 int buscaUnClienteDNIArchivo(int dni);
 stCliente buscaUnClienteApellidoArchivo(char apellido[]);
 int validaEmail(char email[]);
+int cuentaRegistros(char nombreArchivo[],int dato);
+int buscaUltimoId();
 
 int main(){
     Pila dni;
@@ -92,6 +94,7 @@ void muestraMenu(){
     printf("\n\t 5 - Pasa dnis del arreglo a la pila");
     printf("\n\t 6 - Carga archivo de clientes");
     printf("\n\t 7 - Muestra archivo de clientes");
+    printf("\n\t 8 - Busca un apellido en el archivo de clientes");
 
     printf("\n\n\n");
     printf("ESC para salir ");
@@ -174,12 +177,14 @@ stCliente cargaUnCliente(){
     gets(c.apellido);
     printf(" Ingrese el DNI.....................: ");
     scanf(" %d", &c.dni);
+
     do{
         printf(" Ingrese el EMail...................: ");
         fflush(stdin);
         gets(c.email);
     }while(!validaEmail(c.email));
-    printf(" Ingrese la Domicilio...................: ");
+
+    printf(" Ingrese el Domicilio...................: ");
     fflush(stdin);
     gets(c.domicilio);
     printf(" Ingrese el Numero de celular...........: ");
@@ -267,7 +272,7 @@ void muestraUnCliente(stCliente c){
     printf("\n  EMail...................: %s", c.email);
     printf("\n  Calle...................: %s", c.domicilio);
     printf("\n  Nro de Celular..........: %d", c.movil);
-    printf("\n  Activo s/n..............: %s", (c.baja)?"NO":"SI");
+    printf("\n  Baja s/n................: %s", (c.baja)?"SI":"NO");
 }
 
 /*********************************************************//**
@@ -392,7 +397,7 @@ void cargaArchivoClientes(){
         system("cls");
         printf("\n Carga de Clientes \n");
         c=cargaUnCliente();
-//        c.id=buscaUltimoId()+1;
+        c.id=buscaUltimoId()+1;
         guardaUnCliente(c);
 
         printf("\n\n ESC para salir ");
@@ -464,6 +469,46 @@ stCliente buscaUnClienteApellidoArchivo(char apellido[]){
     }
 
     return c;
+}
+
+/*********************************************************************//**
+*
+* \brief Cuenta la cantidad de registros de cualquier tipo de archivo
+* \param char nombreArchivo
+* \param int sizeof del tipo de datos del archivo
+* \return int cantidad de registros
+*
+**************************************************************************/
+int cuentaRegistros(char nombreArchivo[],int dato){
+    int total=0;
+    FILE *pArch = fopen(nombreArchivo,"rb");
+    if(pArch){ /// (pArch!=NULL)
+        fseek(pArch,0,SEEK_END);
+        total=ftell(pArch)/dato;
+        fclose(pArch);
+    }
+
+    return total;
+}
+
+/*********************************************************************//**
+*
+* \brief Retorna el ultimo id cargado
+* \return int -1 si no hay registros o el id del ultimo registro
+*
+**************************************************************************/
+int buscaUltimoId(){
+    stCliente c;
+    int id=-1;
+    FILE *pArchCliente = fopen(arCliente,"rb");
+    if(pArchCliente){
+        fseek(pArchCliente, -1,SEEK_END);
+        if(fread(&c,sizeof(stCliente),1,pArchCliente) > 0){
+            id=c.id;
+        }
+        fclose(pArchCliente);
+    }
+    return id;
 }
 
 
