@@ -27,12 +27,17 @@ stCliente buscaUnClienteApellidoArchivo(char apellido[]);
 int cuentaRegistros(char nombreArchivo[], int dato);
 int buscaUltimoId();
 int validaEmail(char email[]);
+stCliente buscaUnClienteApellidoArchivoP(char apellido[]);
+stCliente BuscaDNIMenorArchivo();
+void arreglo2ArchivoConFiltro(stCliente a[], int v, int t);
+void arreglo2Archivo(stCliente a[], int v);
+void modifRegistro(stCliente c);
+int buscaPosicion(int id);
 
 int main(){
     char opcion;
     stCliente clientes[DIM_CLI];
     int vClientes=0;
-
 
     do{
         system("cls");
@@ -66,7 +71,7 @@ int main(){
                     funcion55();
                     break;
             case 56:
-                    printf("Cantidad de registros del archivo de Clientes = %d", cuentaRegistros(arCliente,sizeof(stCliente)));
+                    printf("Cantidad de registros del archivo de Clientes = %d", cuentaRegistros(AR_CLIENTES,sizeof(stCliente)));
         }
         system("pause");
     }
@@ -263,7 +268,7 @@ void muestraUnCliente(stCliente c){
     printf("\n  EMail...................: %s", c.email);
     printf("\n  Calle...................: %s", c.domicilio);
     printf("\n  Nro de Celular..........: %d", c.movil);
-    printf("\n  Activo s/n..............: %s", (c.baja)?"NO":"SI");
+    printf("\n  Baja s/n................: %s", (c.baja)?"SI":"NO");
 }
 
 /*********************************************************//**
@@ -350,11 +355,11 @@ void ordPorSelApellido(stCliente c[], int v){
 *
 **************************************************************************/
 void guardaUnCliente(stCliente c){
-    FILE *pArchCliente = fopen(arCliente, "ab");
-    //FILE *pArchCliente = fopen("archivoCliente.dat", "ab");
-    if(pArchCliente != NULL){  /// if(pArchCliente)
-        fwrite(&c,sizeof(stCliente),1,pArchCliente);
-        fclose(pArchCliente);
+    FILE *pArchClientes = fopen(AR_CLIENTES, "ab");
+    //FILE *pArchClientes = fopen("archivoCliente.dat", "ab");
+    if(pArchClientes != NULL){  /// if(pArchClientes)
+        fwrite(&c,sizeof(stCliente),1,pArchClientes);
+        fclose(pArchClientes);
     }
 }
 
@@ -390,7 +395,7 @@ void cargaClientesArch(){
 **************************************************************************/
 void muestraArchClientes(){
     stCliente c;
-    FILE *pArchClientes = fopen(arCliente,"rb");
+    FILE *pArchClientes = fopen(AR_CLIENTES,"rb");
 
     if(pArchClientes){
         while(fread(&c,sizeof(stCliente),1,pArchClientes) > 0){
@@ -410,7 +415,7 @@ void muestraArchClientes(){
 int buscaUnClienteDNIArchivo(int dni){
     int flag = 0;
     stCliente c;
-    FILE *pArchClientes = fopen(arCliente,"rb");
+    FILE *pArchClientes = fopen(AR_CLIENTES,"rb");
     if(pArchClientes){
         while(fread(&c,sizeof(stCliente),1,pArchClientes) > 0 && flag == 0){
             if(c.dni == dni){
@@ -433,7 +438,7 @@ int buscaUnClienteDNIArchivo(int dni){
 stCliente buscaUnClienteApellidoArchivo(char apellido[]){
     int flag=0;
     stCliente c;
-    FILE *pArchClientes = fopen(arCliente, "rb");
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
     if(pArchClientes){
         while(flag == 0 && fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
             if(strcmp(c.apellido,apellido) == 0){
@@ -477,13 +482,93 @@ int cuentaRegistros(char nombreArchivo[], int dato){
 int buscaUltimoId(){
     stCliente c;
     int id=-1;
-    FILE *pArchCliente=fopen(arCliente, "rb");
-    if(pArchCliente){
-        fseek(pArchCliente, -1,SEEK_END);
-        if(fread(&c,sizeof(stCliente),1,pArchCliente) > 0){
+    FILE *pArchClientes=fopen(AR_CLIENTES, "rb");
+    if(pArchClientes){
+        fseek(pArchClientes, sizeof(stCliente)*(-1),SEEK_END);
+        if(fread(&c,sizeof(stCliente),1,pArchClientes) > 0){
             id=c.nroCliente;
         }
-        fclose(pArchCliente);
+        fclose(pArchClientes);
     }
     return id;
 }
+
+/*********************************************************************//**
+*
+* \brief Busca en un archivo de tipo stCliente el cliente con dni menor
+* \return stCliente (con valor -1 en campo id si no existe)
+*
+**************************************************************************/
+stCliente BuscaDNIMenorArchivo(){
+    stCliente menor;
+    menor.id = -1;
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
+    if(pArchClientes){   /// (pArchClientes != NULL)
+        if(fread(&menor, sizeof(stCliente), 1, pArchClientes) > 0){
+            while(fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+                if(c.dni < menor.dni){
+                    menor = c;
+                }
+            }
+        }
+        fclose(pArchClientes);
+    }
+    return menor;
+}
+
+/*********************************************************************//**
+*
+* \brief Guarda clientes de una arreglo con una determinada terminacion de dni en un archivo
+* \param stCliente a[] el arreglo de clientes
+* \param int v los validos del arreglo
+* \param int t terminacion de dni
+* \return void
+*
+**************************************************************************/
+void arreglo2ArchivoConFiltro(stCliente a[], int v, int t){
+    FILE *pArchClientes = fopen(AR_CLIENTES,"ab");
+    if(pArchClientes){
+        for(int i=0;i<v;i++){
+            if(a[i].dni % 10 == t){
+                fwrite(&a[i], sizeof(stCliente), 1, pArchClientes);
+            }
+        }
+        fclose(pArchClientes);
+    }
+}
+
+/*********************************************************************//**
+*
+* \brief Guarda un arreglo completo de clientes en un archivo
+* \param stCliente a[] el arreglo de clientes
+* \param int v los validos del arreglo
+* \return void
+*
+**************************************************************************/
+void arreglo2Archivo(stCliente a[], int v){
+    FILE *pArchClientes = fopen(AR_CLIENTES, "ab");
+    if(pArchClientes){
+        fwrite(a, sizeof(stCliente), v, pArchClientes);
+        fclose(pArchClientes);
+    }
+}
+
+/*********************************************************************//**
+*
+* \brief Sobreescribe un cliente en un archivo de clientes
+* \param stCliente c el cliente modificado
+* \return void
+*
+**************************************************************************/
+void modifRegistro(stCliente c){
+    int pos=0;
+///    pos = buscaPosicion(c.id);  /// linea comentada hasta que hagan la función que falta
+    FILE *pArchClientes = fopen(AR_CLIENTES, "r+b");
+    if(pArchClientes){
+        fseek(pArchClientes, sizeof(stCliente)*pos, SEEK_SET); /// depende de lo que retorne buscaPosicion()
+        fwrite(&c, sizeof(stCliente), 1, pArchClientes);
+        fclose(pArchClientes);
+    }
+}
+

@@ -27,9 +27,9 @@ typedef struct{
    int dia; /// 1 a … dependiendo del mes
    int datosConsumidos;  /// expresados en mb.
    int baja;
-}stConsumos;
+}stConsumo;
 
-#define arCliente "archivoClientes.dat"
+#define AR_CLIENTES "archivoClientes.dat"
 
 int getNroCliente();
 void getNombre(char n[]);
@@ -40,3 +40,24 @@ int getCalleNro();
 stCliente cargoRegistroClienteRandom();
 
 #endif // REGISTROCLIENTE_H_INCLUDED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
