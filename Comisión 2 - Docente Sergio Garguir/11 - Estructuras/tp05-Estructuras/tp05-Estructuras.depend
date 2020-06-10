@@ -31,10 +31,10 @@
 	<stdlib.h>
 	<stdio.h>
 
-1589395183 source:d:\developer\c\programacion 1 - local\comision 2\tp05-estructuras\registrocliente.c
+1591372842 source:d:\developer\c\programacion 1 - local\comision 2\tp05-estructuras\registrocliente.c
 	"registroCliente.h"
 
-1591194329 d:\developer\c\programacion 1 - local\comision 2\tp05-estructuras\registrocliente.h
+1591803690 d:\developer\c\programacion 1 - local\comision 2\tp05-estructuras\registrocliente.h
 	<stdlib.h>
 	<stdio.h>
 	<windows.h>
@@ -42,7 +42,7 @@
 	<time.h>
 	"utilidades.h"
 
-1590592106 source:d:\developer\c\programacion 1 - local\comision 2\tp05-estructuras\main.c
+1591631289 source:d:\developer\c\programacion 1 - local\comision 2\tp05-estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>

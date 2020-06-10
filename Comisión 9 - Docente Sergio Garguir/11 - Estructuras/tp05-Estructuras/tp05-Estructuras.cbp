@@ -34,10 +34,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="pila.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="pila.h" />
 		<Unit filename="registroCliente.c">
 			<Option compilerVar="CC" />
 		</Unit>

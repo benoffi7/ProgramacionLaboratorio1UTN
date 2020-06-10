@@ -8,24 +8,28 @@
 #include "utilidades.h"
 
 typedef struct{
+    int id;   /// campo unico y autoincremental
     int nroCliente;
-    char nombre[30];
-    char apellido[30];
-    int dni;
-    char calle[50];
-    int calleNro;
-}stCliente;
-
-typedef struct{
-    int id;    /// unico y autoincremental
     char nombre[30];
     char apellido[30];
     int dni;
     char email[30];
     char domicilio[45];
     int movil;
-    int baja;   /// 0 - 1
-}stClienteTPFinal;
+    int baja; /// 0 - 1
+}stCliente;
+
+typedef struct{
+   int id;  /// campo único y autoincremental
+   int idCliente;
+   int anio;
+   int mes; /// 1 a 12
+   int dia; /// 1 a … dependiendo del mes
+   int datosConsumidos;  /// expresados en mb.
+   int baja;
+}stConsumo;
+
+#define AR_CLIENTES "archivoClientes.dat"
 
 int getNroCliente();
 void getNombre(char n[]);
@@ -36,3 +40,24 @@ int getCalleNro();
 stCliente cargoRegistroClienteRandom();
 
 #endif // REGISTROCLIENTE_H_INCLUDED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
