@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <strings.h>
+#include "pila.h"
 #include "registroCliente.h"
 
 #define ESC 27
@@ -72,6 +73,9 @@ int main(){
                     break;
             case 56:
                     printf("Cantidad de registros del archivo de Clientes = %d", cuentaRegistros(AR_CLIENTES,sizeof(stCliente)));
+                    break;
+            case 57:
+                    printf("Posicion del id 0 = %d y posicion del id 1 = %d", buscaPosicion(0),buscaPosicion(1));
         }
         system("pause");
     }
@@ -93,6 +97,8 @@ void muestraMenu(){
     printf("\n\t 5 - Carga archivo de Clientes");
     printf("\n\t 6 - Muestra archivo de Clientes");
     printf("\n\t 7 - Busca un Cliente y lo muestra");
+    printf("\n\t 8 - Muestra la cantidad de registros del archivo");
+    printf("\n\t 9 - Muestra la posicon del id 1 y del id 2");
 
     printf("\n\n\n");
     printf("ESC para salir ");
@@ -486,7 +492,7 @@ int buscaUltimoId(){
     if(pArchClientes){
         fseek(pArchClientes, sizeof(stCliente)*(-1),SEEK_END);
         if(fread(&c,sizeof(stCliente),1,pArchClientes) > 0){
-            id=c.nroCliente;
+            id=c.id;
         }
         fclose(pArchClientes);
     }
@@ -563,7 +569,7 @@ void arreglo2Archivo(stCliente a[], int v){
 **************************************************************************/
 void modifRegistro(stCliente c){
     int pos=0;
-///    pos = buscaPosicion(c.id);  /// linea comentada hasta que hagan la función que falta
+    pos = buscaPosicion(c.id);
     FILE *pArchClientes = fopen(AR_CLIENTES, "r+b");
     if(pArchClientes){
         fseek(pArchClientes, sizeof(stCliente)*pos, SEEK_SET); /// depende de lo que retorne buscaPosicion()
@@ -572,3 +578,73 @@ void modifRegistro(stCliente c){
     }
 }
 
+/*********************************************************************//**
+*
+* \brief Busca la posicion en el archivo de un determinado cliente por su id
+* \param int id
+* \return int posicion
+*
+**************************************************************************/
+int buscaPosicion(int id){
+    int pos=-1;
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES,"rb");
+    if(pArchClientes){
+        while(pos == -1 && fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+            if(c.id == id){
+                pos = ftell(pArchClientes)/sizeof(stCliente)-1;
+            }
+        }
+        fclose(pArchClientes);
+    }
+
+    return pos;
+}
+
+/*********************************************************************//**
+*
+* \brief Copia los clientes activos a un archivo de activos
+* \brief y los eliminados al archivo de eliminados
+* \return void
+*
+**************************************************************************/
+void algo(){
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
+    FILE *pArchClientesActivos = fopen(AR_CLI_ACTIVOS, "wb");
+    FILE *pArchClientesBaja = fopen(AR_CLI_BAJA, "wb");
+
+    if(pArchClientes && pArchClientesActivos && pArchClientesBaja){
+        while(fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+            if(c.baja){
+                fwrite(&c, sizeof(stCliente), 1, pArchClientesBaja);
+            }
+            else{
+                fwrite(&c, sizeof(stCliente), 1, pArchClientesActivos);
+            }
+        }
+        fclose(pArchClientes);
+        fclose(pArchClientesActivos);
+        fclose(pArchClientesBaja);
+    }
+}
+
+/*********************************************************************//**
+*
+* \brief Copia los dni de los clientes activos
+* \param Pila *
+* \return void
+*
+**************************************************************************/
+void arch2Pila(Pila *p){
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
+    if(pArchClientes){
+        while(fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+            if(c.baja==0){
+                apilar(p, c.dni);
+            }
+        }
+        fclose(pArchClientes);
+    }
+}

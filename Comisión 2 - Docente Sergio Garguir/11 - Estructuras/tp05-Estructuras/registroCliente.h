@@ -30,6 +30,8 @@ typedef struct{
 }stConsumo;
 
 #define AR_CLIENTES "archivoClientes.dat"
+#define AR_CLI_ACTIVOS "archivoClientesActivos.dat"
+#define AR_CLI_BAJA "archivoClientesBaja.dat"
 
 int getNroCliente();
 void getNombre(char n[]);
