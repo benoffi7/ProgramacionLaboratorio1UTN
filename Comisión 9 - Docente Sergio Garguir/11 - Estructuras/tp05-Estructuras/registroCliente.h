@@ -19,6 +19,18 @@ typedef struct{
     int baja; /// 0 - 1
 }stCliente;
 
+typedef struct{
+   int id;  /// campo único y autoincremental
+   int idCliente;
+   int anio;
+   int mes; /// 1 a 12
+   int dia; /// 1 a … dependiendo del mes
+   int datosConsumidos;  /// expresados en mb.
+   int baja;
+}stConsumo;
+
+#define AR_CLIENTES "archivoClientes.dat"
+
 int getNroCliente();
 void getNombre(char n[]);
 void getApellido(char a[]);
@@ -28,3 +40,24 @@ int getCalleNro();
 stCliente cargoRegistroClienteRandom();
 
 #endif // REGISTROCLIENTE_H_INCLUDED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
