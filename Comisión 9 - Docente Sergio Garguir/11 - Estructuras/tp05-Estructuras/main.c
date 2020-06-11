@@ -3,6 +3,11 @@
 #include <conio.h>
 #include <strings.h>
 #include "registroCliente.h"
+#include "pila.h"
+
+#define AR_CLIENTES "clientes.dat"
+#define AR_CLI_ACTIVOS "clientesActivos.dat"
+#define AR_CLI_BAJA "clientesBaja.dat"
 
 #define ESC 27
 #define DIM_CLI 100
@@ -10,7 +15,7 @@
 void muestraMenu();
 int funcion00(stCliente c[], int v, int dim);
 void funcion03(stCliente c[], int v);
-void funcion55();
+void funcion56();
 stCliente cargaUnCliente();
 int cargaClientes(stCliente c[], int v, int dim);
 void muestraClientes(stCliente c[], int v);
@@ -19,22 +24,25 @@ int buscaUnClienteApellido(stCliente c[], int v, char apellido[]);
 int buscaPosMenorApellido(stCliente c[], int v, int inicio);
 void intercambiaClientes(stCliente *a, stCliente *b);
 void ordPorSelApellido(stCliente c[], int v);
+void arregloClientes2Pila(stCliente c[], int v, Pila *p);
 void guardaUnCliente(stCliente c);
-void cargaClientesArch();
+void cargaArchivoClientes();
 void muestraArchClientes();
 int buscaUnClienteDNIArchivo(int dni);
 stCliente buscaUnClienteApellidoArchivo(char apellido[]);
-int cuentaRegistros(char nombreArchivo[], int dato);
-int buscaUltimoId();
 int validaEmail(char email[]);
-stCliente buscaUnClienteApellidoArchivoP(char apellido[]);
-stCliente BuscaDNIMenorArchivo();
-void arreglo2ArchivoConFiltro(stCliente a[], int v, int t);
-void arreglo2Archivo(stCliente a[], int v);
-void modifRegistro(stCliente c);
-int buscaPosicion(int id);
+int cuentaRegistros(char nombreArchivo[],int dato);
+int buscaUltimoId();
+stCliente buscaMenorDNIArchivo();
+void arreglo2Archivo(stCliente a[], int v, int t);
+void arreglo2ArchivoCompleto(stCliente a[], int v);
+void modificaRegistro(stCliente c);
+int buscaPos(int id);
+
 
 int main(){
+    Pila dni;
+    inicpila(&dni);
     char opcion;
     stCliente clientes[DIM_CLI];
     int vClientes=0;
@@ -62,16 +70,21 @@ int main(){
                     ordPorSelApellido(clientes, vClientes);
                     break;
             case 53:
-                    cargaClientesArch();
+                    arregloClientes2Pila(clientes, vClientes, &dni);
+                    mostrar(&dni);
                     break;
             case 54:
-                    muestraArchClientes();
+                    cargaArchivoClientes();
                     break;
             case 55:
-                    funcion55();
+                    muestraArchClientes();
                     break;
             case 56:
-                    printf("Cantidad de registros del archivo de Clientes = %d", cuentaRegistros(AR_CLIENTES,sizeof(stCliente)));
+                    funcion56();
+                    break;
+            case 57:
+                    arreglo2ArchivoCompleto(clientes, vClientes);
+                    printf("La posicion del id 0: %d y la del id 1: %d", buscaPos(0), buscaPos(1));
         }
         system("pause");
     }
@@ -90,9 +103,11 @@ void muestraMenu(){
     printf("\n\t 2 - Muestra un arreglo de Clientes");
     printf("\n\t 3 - Busca un Cliente");
     printf("\n\t 4 - Ordena un Arreglo de Clientes");
-    printf("\n\t 5 - Carga archivo de Clientes");
-    printf("\n\t 6 - Muestra archivo de Clientes");
-    printf("\n\t 7 - Busca un Cliente y lo muestra");
+    printf("\n\t 5 - Pasa dnis del arreglo a la pila");
+    printf("\n\t 6 - Carga archivo de clientes");
+    printf("\n\t 7 - Muestra archivo de clientes");
+    printf("\n\t 8 - Busca un apellido en el archivo de clientes");
+    printf("\n\t 9 - Muestra posicion del id 0 y el id 1");
 
     printf("\n\n\n");
     printf("ESC para salir ");
@@ -105,7 +120,7 @@ int funcion00(stCliente c[], int v, int dim){
         c[i]=cargoRegistroClienteRandom();
         c[i].id=i;
         printf(".");
-        Sleep(100);
+        Sleep(50);
     }
     printf("\n Arreglo cargado exitosamente...\n");
     return i;
@@ -132,7 +147,7 @@ void funcion03(stCliente c[], int v){
     printf("\n");
 }
 
-void funcion55(){
+void funcion56(){
     char apellido[30];
     stCliente encontrado;
 
@@ -175,12 +190,14 @@ stCliente cargaUnCliente(){
     gets(c.apellido);
     printf(" Ingrese el DNI.....................: ");
     scanf(" %d", &c.dni);
+
     do{
         printf(" Ingrese el EMail...................: ");
         fflush(stdin);
         gets(c.email);
     }while(!validaEmail(c.email));
-    printf(" Ingrese la Domicilio...................: ");
+
+    printf(" Ingrese el Domicilio...................: ");
     fflush(stdin);
     gets(c.domicilio);
     printf(" Ingrese el Numero de celular...........: ");
@@ -306,7 +323,7 @@ int buscaPosMenorApellido(stCliente c[], int v, int inicio){
     int i = inicio + 1;
     while(i<v){
         if(strcmp(c[i].apellido,c[posMenor].apellido)<0){
-            posMenor = i;
+            posMenor=i;
         }
         i++;
     }
@@ -323,7 +340,7 @@ int buscaPosMenorApellido(stCliente c[], int v, int inicio){
 **************************************************************************/
 void intercambiaClientes(stCliente *a, stCliente *b){
     stCliente aux;
-    aux = *a;
+    aux=*a;
     *a=*b;
     *b=aux;
 }
@@ -341,8 +358,25 @@ void ordPorSelApellido(stCliente c[], int v){
     int i=0;
 
     while(i<v-1){
-        posMenor = buscaPosMenorApellido(c, v, i);
+        posMenor=buscaPosMenorApellido(c,v,i);
         intercambiaClientes(&c[i],&c[posMenor]);
+        i++;
+    }
+}
+
+/*********************************************************************//**
+*
+* \brief Copia los dnis de un arreglo de tipo stCliente a una Pila
+* \param arreglo de stCliente
+* \param sus validos
+* \param *pila
+* \return void
+*
+**************************************************************************/
+void arregloClientes2Pila(stCliente c[], int v, Pila *p){
+    int i=0;
+    while(i<v && i<50){
+        apilar(p,c[i].dni);
         i++;
     }
 }
@@ -355,11 +389,10 @@ void ordPorSelApellido(stCliente c[], int v){
 *
 **************************************************************************/
 void guardaUnCliente(stCliente c){
-    FILE *pArchClientes = fopen(AR_CLIENTES, "ab");
-    //FILE *pArchClientes = fopen("archivoCliente.dat", "ab");
-    if(pArchClientes != NULL){  /// if(pArchClientes)
-        fwrite(&c,sizeof(stCliente),1,pArchClientes);
-        fclose(pArchClientes);
+    FILE *pArchCliente = fopen(AR_CLIENTES,"ab");
+    if(pArchCliente != NULL){  /// if(pArchCliente)
+        fwrite(&c,sizeof(stCliente),1,pArchCliente);
+        fclose(pArchCliente);
     }
 }
 
@@ -370,10 +403,9 @@ void guardaUnCliente(stCliente c){
 * \return void
 *
 **************************************************************************/
-void cargaClientesArch(){
+void cargaArchivoClientes(){
     char opcion=0;
     stCliente c;
-
     while(opcion!=27){
         system("cls");
         printf("\n Carga de Clientes \n");
@@ -395,10 +427,9 @@ void cargaClientesArch(){
 **************************************************************************/
 void muestraArchClientes(){
     stCliente c;
-    FILE *pArchClientes = fopen(AR_CLIENTES,"rb");
-
-    if(pArchClientes){
-        while(fread(&c,sizeof(stCliente),1,pArchClientes) > 0){
+    FILE *pArchCliente = fopen(AR_CLIENTES,"rb");
+    if(pArchCliente){
+        while(fread(&c,sizeof(stCliente),1,pArchCliente) > 0){
             muestraUnCliente(c);
         }
     }
@@ -415,14 +446,14 @@ void muestraArchClientes(){
 int buscaUnClienteDNIArchivo(int dni){
     int flag = 0;
     stCliente c;
-    FILE *pArchClientes = fopen(AR_CLIENTES,"rb");
-    if(pArchClientes){
-        while(fread(&c,sizeof(stCliente),1,pArchClientes) > 0 && flag == 0){
-            if(c.dni == dni){
+    FILE *pArchCliente = fopen(AR_CLIENTES, "rb");
+    if(pArchCliente){
+        while(flag == 0 && fread(&c, sizeof(stCliente),1,pArchCliente) > 0){
+            if(c.dni==dni){
                 flag=1;
             }
         }
-        fclose(pArchClientes);
+        fclose(pArchCliente);
     }
 
     return flag;
@@ -432,20 +463,20 @@ int buscaUnClienteDNIArchivo(int dni){
 *
 * \brief Busca en un archivo de tipo stCliente un apellido
 * \param char apellido[]
-* \return stCliente (con valor -1 en campo id si no existe)
+* \return stCliente (con valor -1 en campo if si no existe)
 *
 **************************************************************************/
 stCliente buscaUnClienteApellidoArchivo(char apellido[]){
-    int flag=0;
     stCliente c;
-    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
-    if(pArchClientes){
-        while(flag == 0 && fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
-            if(strcmp(c.apellido,apellido) == 0){
+    int flag=0;
+    FILE *pArchCliente = fopen(AR_CLIENTES,"rb");
+    if(pArchCliente){
+        while( flag == 0 && fread(&c, sizeof(stCliente), 1, pArchCliente) > 0){
+            if(strcmp(c.apellido, apellido) == 0){
                 flag=1;
             }
         }
-        fclose(pArchClientes);
+        fclose(pArchCliente);
     }
     if(flag==0){
         c.id=-1;
@@ -462,12 +493,13 @@ stCliente buscaUnClienteApellidoArchivo(char apellido[]){
 * \return int cantidad de registros
 *
 **************************************************************************/
-int cuentaRegistros(char nombreArchivo[], int dato){
+int cuentaRegistros(char nombreArchivo[],int dato){
     int total=0;
     FILE *pArch = fopen(nombreArchivo,"rb");
-    if(pArch){
+    if(pArch){ /// (pArch!=NULL)
         fseek(pArch,0,SEEK_END);
         total=ftell(pArch)/dato;
+        fclose(pArch);
     }
 
     return total;
@@ -482,13 +514,13 @@ int cuentaRegistros(char nombreArchivo[], int dato){
 int buscaUltimoId(){
     stCliente c;
     int id=-1;
-    FILE *pArchClientes=fopen(AR_CLIENTES, "rb");
-    if(pArchClientes){
-        fseek(pArchClientes, sizeof(stCliente)*(-1),SEEK_END);
-        if(fread(&c,sizeof(stCliente),1,pArchClientes) > 0){
-            id=c.nroCliente;
+    FILE *pArchCliente = fopen(AR_CLIENTES,"rb");
+    if(pArchCliente){
+        fseek(pArchCliente, sizeof(stCliente)*(-1),SEEK_END);
+        if(fread(&c,sizeof(stCliente),1,pArchCliente) > 0){
+            id=c.id;
         }
-        fclose(pArchClientes);
+        fclose(pArchCliente);
     }
     return id;
 }
@@ -499,13 +531,13 @@ int buscaUltimoId(){
 * \return stCliente (con valor -1 en campo id si no existe)
 *
 **************************************************************************/
-stCliente BuscaDNIMenorArchivo(){
-    stCliente menor;
-    menor.id = -1;
+stCliente buscaMenorDNIArchivo(){
     stCliente c;
-    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
-    if(pArchClientes){   /// (pArchClientes != NULL)
-        if(fread(&menor, sizeof(stCliente), 1, pArchClientes) > 0){
+    stCliente menor;
+    menor.id=-1;
+    FILE *pArchClientes = fopen(AR_CLIENTES,"rb");
+    if(pArchClientes){
+        if(fread(&menor, sizeof(stCliente), 1, pArchClientes)>0){
             while(fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
                 if(c.dni < menor.dni){
                     menor = c;
@@ -514,6 +546,7 @@ stCliente BuscaDNIMenorArchivo(){
         }
         fclose(pArchClientes);
     }
+
     return menor;
 }
 
@@ -526,11 +559,11 @@ stCliente BuscaDNIMenorArchivo(){
 * \return void
 *
 **************************************************************************/
-void arreglo2ArchivoConFiltro(stCliente a[], int v, int t){
-    FILE *pArchClientes = fopen(AR_CLIENTES,"ab");
+void arreglo2Archivo(stCliente a[], int v, int t){
+    FILE *pArchClientes = fopen(AR_CLIENTES, "ab");
     if(pArchClientes){
-        for(int i=0;i<v;i++){
-            if(a[i].dni % 10 == t){
+        for(int i=0; i<v; i++){
+            if((a[i].dni % 10) == t){
                 fwrite(&a[i], sizeof(stCliente), 1, pArchClientes);
             }
         }
@@ -546,7 +579,7 @@ void arreglo2ArchivoConFiltro(stCliente a[], int v, int t){
 * \return void
 *
 **************************************************************************/
-void arreglo2Archivo(stCliente a[], int v){
+void arreglo2ArchivoCompleto(stCliente a[], int v){
     FILE *pArchClientes = fopen(AR_CLIENTES, "ab");
     if(pArchClientes){
         fwrite(a, sizeof(stCliente), v, pArchClientes);
@@ -561,14 +594,83 @@ void arreglo2Archivo(stCliente a[], int v){
 * \return void
 *
 **************************************************************************/
-void modifRegistro(stCliente c){
-    int pos=0;
-///    pos = buscaPosicion(c.id);  /// linea comentada hasta que hagan la función que falta
+void modificaRegistro(stCliente c){
+    int pos = 0;
+    pos = buscaPos(c.id);
     FILE *pArchClientes = fopen(AR_CLIENTES, "r+b");
     if(pArchClientes){
-        fseek(pArchClientes, sizeof(stCliente)*pos, SEEK_SET); /// depende de lo que retorne buscaPosicion()
+        fseek(pArchClientes, sizeof(stCliente)*pos, SEEK_SET);
         fwrite(&c, sizeof(stCliente), 1, pArchClientes);
         fclose(pArchClientes);
     }
 }
 
+/*********************************************************************//**
+*
+* \brief Busca la posicion en el archivo de un determinado cliente por su id
+* \param int id
+* \return int posicion
+*
+**************************************************************************/
+int buscaPos(int id){
+    int pos = -1;
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
+    if(pArchClientes){
+        while(pos==-1 && fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+            if(c.id == id){
+                pos = ftell(pArchClientes)/sizeof(stCliente)-1;
+            }
+        }
+        fclose(pArchClientes);
+    }
+
+    return pos;
+}
+
+/*********************************************************************//**
+*
+* \brief Copia los clientes activos a un archivo de activos
+* \brief y los eliminados al archivo de eliminados
+* \return void
+*
+**************************************************************************/
+void archi2archis(){
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
+    FILE *pArchCliActivos = fopen(AR_CLI_ACTIVOS, "wb");
+    FILE *pArchCliBaja = fopen(AR_CLI_BAJA, "wb");
+    if(pArchClientes && pArchCliActivos && pArchCliBaja){
+        while(fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+            if(c.baja){
+                fwrite(&c, sizeof(stCliente), 1, pArchCliBaja);
+            }
+            else{
+                fwrite(&c, sizeof(stCliente), 1, pArchCliActivos);
+            }
+        }
+        fclose(pArchClientes);
+        fclose(pArchCliActivos);
+        fclose(pArchCliBaja);
+    }
+}
+
+/*********************************************************************//**
+*
+* \brief Copia los dni de los clientes activos
+* \param Pila *
+* \return void
+*
+**************************************************************************/
+void arch2Pila(Pila *p){
+    stCliente c;
+    FILE *pArchClientes = fopen(AR_CLIENTES, "rb");
+    if(pArchClientes){
+        while(fread(&c, sizeof(stCliente), 1, pArchClientes) > 0){
+            if(c.baja==0){ /// if(!c.baja)
+                apilar(p, c.dni);
+            }
+        }
+        fclose(pArchClientes);
+    }
+}
