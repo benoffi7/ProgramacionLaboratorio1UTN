@@ -21,7 +21,9 @@ void agregaElementoAlFinalDelArchivo(char nombre_archivo[], int dato)
     if(archi!=NULL)
     {
         fwrite(&dato, sizeof(int), 1, archi);
-        fclose(archi);
+
+
+        cerrarArchivo(archi);
     }
 }
 
@@ -42,7 +44,7 @@ void mostrarArchivoBinario(char nombre_archivo[])
             if(fread(&aux, sizeof(int),1,archi)>0)
                 printf("%d ", aux);
         }
-        fclose(archi);
+        cerrarArchivo(archi);
     }
 }
 
@@ -62,13 +64,13 @@ int cuentaElementosArchivo(char nombre_archivo[])
             rta++;
         }
 
-        fclose(archi);
+        cerrarArchivo(archi);
     }
     return rta;
 }
 
 
-void pruebaFseek(char nombre_archivo[])
+void pruebaFseek(char nombre_archivo[], int pos)
 {
 
     FILE *archi;
@@ -78,9 +80,9 @@ void pruebaFseek(char nombre_archivo[])
     if(archi!=NULL)
     {
 
-    /// saltamos dos bloques desde el inicio
+        /// saltamos dos bloques desde el inicio
 
-        fseek(archi, sizeof(int)*2, SEEK_SET);
+        fseek(archi, sizeof(int)*pos, SEEK_SET);
 
         fread(&aux, sizeof(int),1,archi);
 
@@ -106,11 +108,15 @@ void buscaAlumnoMayorEdad(char nombreArchivo[])
             fread(&mayor, sizeof(alumno), 1, archi);
 
 
-            while(fread(&aux, sizeof(alumno), 1, archi)>0)
+            while(!feof(archi))
             {
-                if(aux.edad>mayor.edad)
+                fread(&aux, sizeof(alumno), 1, archi);
+                if(!feof(archi))
                 {
-                    mayor=aux;
+                    if(aux.edad>mayor.edad)
+                    {
+                        mayor=aux;
+                    }
                 }
             }
 
@@ -186,7 +192,7 @@ void cerrarArchivo(FILE * archi)
 
     if(estado!=0)
     {
-         printf("Ocurrio un error al cerrar el archivo");
+        printf("Ocurrio un error al cerrar el archivo");
     }
 }
 
@@ -220,7 +226,7 @@ int pasarArregloToArchivoConFiltro(char nombreArchivo[], alumno listado[], int v
 
     if(archi!=NULL)
     {
-        for(i=0; i<validos;i++)
+        for(i=0; i<validos; i++)
         {
             aux=listado[i];
             if(aux.anio==1)
@@ -246,12 +252,13 @@ void modificarUnRegistro(char nombreArchivo[], int legajo)
     if(archi!=NULL)
     {
         /// busco el alumno
-                           /// !flag
+        /// !flag
         while(!feof(archi)&& flag==0)
         {
             if(fread(&aux,sizeof(alumno),1, archi)>0)
             {
-                if(aux.legajo==legajo){
+                if(aux.legajo==legajo)
+                {
                     flag=1;
                 }
             }
@@ -278,6 +285,42 @@ void modificarUnRegistro(char nombreArchivo[], int legajo)
 
 }
 
+
+void invierteArchivo(char nombreArchivo[])
+{
+    int i=0;
+
+    int u=cuentaRegistrosGenericos(nombreArchivo, sizeof(alumno))-1;
+
+    alumno inicio, fin;
+
+    FILE * archi=fopen(nombreArchivo, "r+b");
+
+    if(archi!=NULL)
+    {
+        while(i<u)
+        {
+
+      /// idea para hacer la inversion del archivo... falta completar
+
+            fread(/// en el inicio);
+
+            fread(/// final);
+
+            fwrite(/// inicio---- del dato leido en el final);
+
+            fwrite(/// final----- del dato leido en inicio)
+
+            i++;
+
+            u--;
+        }
+
+        fclose(archi);
+
+    }
+
+}
 
 int main()
 {
