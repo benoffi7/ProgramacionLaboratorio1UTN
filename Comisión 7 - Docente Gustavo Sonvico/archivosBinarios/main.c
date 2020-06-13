@@ -302,14 +302,17 @@ void invierteArchivo(char nombreArchivo[])
         {
 
       /// idea para hacer la inversion del archivo... falta completar
+            fseek(archi, i*sizeof(alumno), SEEK_SET);
+            fread(&inicio, sizeof(alumno), 1, archi);
 
-            fread(/// en el inicio);
+            fseek(archi, u*sizeof(alumno), SEEK_SET);
+            fread(&fin, sizeof(alumno), 1, archi);
 
-            fread(/// final);
+            fseek(archi, i*sizeof(alumno), SEEK_SET);
+            fwrite(&fin, sizeof(alumno), 1, archi);
 
-            fwrite(/// inicio---- del dato leido en el final);
-
-            fwrite(/// final----- del dato leido en inicio)
+            fseek(archi, u*sizeof(alumno), SEEK_SET);
+            fwrite(&inicio, sizeof(alumno), 1, archi);
 
             i++;
 
