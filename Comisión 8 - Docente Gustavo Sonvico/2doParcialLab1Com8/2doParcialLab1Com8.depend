@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1592600426 source:c:\users\gsonv\documents\01 - catedras\01 - laboratorio 1\2do\2doparciallab1com8\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
