@@ -207,6 +207,7 @@ int cantidadRegistro(char nombreArchivo[])
     {
         fseek(archi, 0, SEEK_END);
         cantidad=ftell(archi)/sizeof(stJugador);
+        fclose(archi);
     }
     return cantidad;
 }
@@ -229,6 +230,7 @@ float porcentajeArchivo(char nombreArchivo[], int edad, int total)
                 cantidadEdad++;
             }
         }
+        fclose(archi);
         /// total         100
         /// cantiEdad      x
         porcentaje=((float)cantidadEdad*100)/(float)total;
