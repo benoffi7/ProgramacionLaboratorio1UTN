@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+Un maestro desea saber qué porcentaje de hombres y que porcentaje de mujeres hay en un grupo de estudiantes.
+*/
 int main()
 {
     int hombres = 0;
@@ -15,10 +18,8 @@ int main()
     printf("Ingrese el total de mujeres \n");
     scanf("%d",&mujeres);
 
-    printf("Ingrese el total de hombres \n");
-    scanf("%d",&hombres);
+    hombres=totalAlumnos-mujeres;
 
-    totalAlumnos=hombres+mujeres;
     porcentajeHombres=(float)hombres*100/totalAlumnos;
     porcentajeMujeres=(float)mujeres*100/totalAlumnos;
 
