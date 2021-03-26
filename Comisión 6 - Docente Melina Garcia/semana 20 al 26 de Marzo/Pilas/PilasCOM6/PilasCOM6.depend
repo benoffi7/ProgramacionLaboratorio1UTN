@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1616528167 source:c:\users\cmajo\onedrive - utn frmdp\escritorio\melipasar\utn\programacion i\pilascom6\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
+1490112217 c:\users\cmajo\onedrive - utn frmdp\escritorio\melipasar\utn\programacion i\pilascom6\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1490112217 source:c:\users\cmajo\onedrive - utn frmdp\escritorio\melipasar\utn\programacion i\pilascom6\pila.c
+	"pila.h"
+
