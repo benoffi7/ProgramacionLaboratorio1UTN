@@ -27,42 +27,42 @@ int main()
     printf("\n Ingrese dos numeros: ");
     scanf("%d", &n1);
     scanf("%d", &n2);
-/*
-    if(n1 == n2)
-    {
-        total = n1 * n2;
-        op = 'x';
-    }
-    else
-    {
-        if(n1 > n2)
+    /*
+        if(n1 == n2)
         {
-            total = n1 - n2;
-            op = '-';
+            total = n1 * n2;
+            op = 'x';
         }
         else
         {
-            total = n1 + n2;
-            op = '+';
+            if(n1 > n2)
+            {
+                total = n1 - n2;
+                op = '-';
+            }
+            else
+            {
+                total = n1 + n2;
+                op = '+';
+            }
         }
-    }
-*/
+    */
     if(n1 == n2)
     {
         total = n1 * n2;
         op = 'x';
     }
     else if(n1 > n2)
-        {
-            total = n1 - n2;
-            op = '-';
-        }
-        else
-        {
-            total = n1 + n2;
-            op = '+';
-        }
+    {
+        total = n1 - n2;
+        op = '-';
     }
+    else
+    {
+        total = n1 + n2;
+        op = '+';
+    }
+
 
     printf("\n El resultado de %d %c %d = %d", n1, op, n2, total);
     return 0;
