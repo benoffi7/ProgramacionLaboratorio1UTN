@@ -1,7 +1,8 @@
 /**
     UTN
     Tecnicatura Universitaria en Programacion
-    Laboratorio de Programacion 1
+    Programacion 1 y Laboratorio de computacion 1
+    Comision 110
     Prof. Matias Pascual
 
     IMPORTANTE:
@@ -29,7 +30,6 @@
 /// ------------------------------------------------------------------------
 
 /// INTRODUCCION A LA SINTAXIS DE C
-/// -------------------------------
 /**
     . C es un lenguaje de programacion case sensitive, esto significa que para C,
     la misma palabra escrita de una forma diferente, es otra palabra.
@@ -78,12 +78,10 @@
 /// ------------------------------------------------------------------------
 
 /// FUNCION main
-/// ------------
-
 /**
     Es la funcion principal del programa.
 
-    Lo minimo que nuestro codigo tiene que tener para funcionar, es una funcion main.
+    Lo minimo que nuestro codigo tiene que tener para funcionar es una funcion main.
 
     La funcion main es por donde comienza nuestro programa. Sin esta funcion, la
     computadora no sabria donde iniciar la ejecucion de lo que estamos creando.
@@ -106,10 +104,9 @@
 
     IMPORTANTE: Solo debe haber una unica funcion main en cada programa que
                 estamos creando.
-
 */
 
-/// esta es la funcion main de nuestro programa
+/// este es el comienzo de la funcion main de nuestro programa
 int main()
 {
 
@@ -134,7 +131,7 @@ int main()
     /// ------------------------------------------------------------------------
 
     /// ASIGNACION
-    /**     Es cuando le damos un valor a una variable  */
+    /** Es cuando le damos un valor a una variable */
 
     numerosEnteros = 10;
     numerosReales = 10.5F; /// ponemos una F al final para indicarle a la computadora que
@@ -150,7 +147,7 @@ int main()
     /// ------------------------------------------------------------------------
 
     /// INICIALIZAR UNA VARIABLE
-    /**     Es darle un valor a una variable al momento de su declaracion   */
+    /** Es darle un valor a una variable al momento de su declaracion */
 
     int miVariableA = 10;
     float otraVariable = 0.5F;
@@ -160,12 +157,11 @@ int main()
     /// ------------------------------------------------------------------------
 
     /// CONSTANTES
-
-    /** Es un tipo especial de variable al que se le deba dar un valor inicial y no
+    /**
+        Es un tipo especial de variable al que se le deba dar un valor inicial y no
         puede cambiarse este valor en ninguna parte de nuestro programa.
 
         Se acosumbra a escribirlas en MAYUSCULAS
-
     */
 
     const float FUERZA_DE_GRAVEDAD = 9.8F;
@@ -179,7 +175,7 @@ int main()
     /**
         Podemos hacer operaciones matematicas con las variables.
 
-        Por ejemplom, para sumarle un valor a una variable, escribimos:
+        Por ejemplo, para sumarle un valor a una variable, escribimos:
 
             miVariableA = miVariableA + 10;
 
@@ -214,11 +210,11 @@ int main()
         Utilizamos la funcion printf()
 
         Esta funcion tiene dos parametros:
-            . Entre comillas, el texto que vamos a mostrar y, si vamos a mostrar
+            Entre comillas, el texto que vamos a mostrar y, si vamos a mostrar
             una variable, un simbolo que representa el tipo de dato de la
             variable.
 
-            . La o las variables que queremos mostrar.
+            Las variables que queremos mostrar. Pueden ser una, muchas o ninguna.
     */
 
     /// Ejemplos
@@ -239,15 +235,15 @@ int main()
     printf("%f", mostrandoUnFloat);
 
     double mostrandoUnDouble = 0.25;
-    printf("%f", mostrandoUnDouble);
+    printf("%lf", mostrandoUnDouble);
 
-    /// Tambien podemos mostrar valores literales. Es importante respetar el tipo de dato,
-    /// igual que como hacemos con las variables.
+    /// Tambien podemos mostrar valores literales.
+    /// Es importante respetar el tipo de dato, igual que como hacemos con las variables.
 
     printf("%d", 50);       /// int
     printf("%c", 'A');      /// char
     printf("%f", 10.05F);   /// float
-    printf("%f", 0.0001);   /// double
+    printf("%lf", 0.0001);   /// double
 
     /// Mostrando un texto y un valor
     printf("Estoy estudiando programacion y mi numero preferido es el %d", 33);
@@ -263,11 +259,11 @@ int main()
     double variableF = 70.98;
 
     /// Asi se pueden combinar variables, valores literales y texto.
-    printf("Variables: %d, %f, %c, %f. Valores %d, %c", variableC, variableD, variableE, variableF, 10, 'C');
+    printf("Variables: %d, %f, %c, %lf. Valores %d, %c", variableC, variableD, variableE, variableF, 10, 'C');
 
     /// ------------------------------------------------------------------------
 
-    /// TOMANDO DATOS DESDE EL USUARIO
+    /// TOMANDO DATOS INGRESADOS POR EL USUARIO
     /**
         Para tomar datos del usuario, utilizamos la funcion scanf()
 
@@ -298,7 +294,7 @@ int main()
 
     double guardoUnDouble;
     scanf("%lf", &guardoUnDouble);      /// para diferenciar un float de un double,
-                                        /// se usa LF en lugar de F
+                                        /// se usa lf (LF) en lugar de f
 
     /// ------------------------------------------------------------------------
 

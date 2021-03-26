@@ -1,3 +1,21 @@
+/**
+    UTN
+    Tecnicatura Universitaria en Programacion
+    Programacion 1 y Laboratorio de computacion 1
+    Comision 110
+    Prof. Matias Pascual
+*/
+
+/**
+    CLASE 5:
+        . EJEMPLO DEL OPERADOR MODULO
+        . EJEMPLO DE MODULO USANDO PILA
+        . COMO QUITAR UN NUMERO DE LA PILA
+        . IDEM. EL USUARIO INGRESA EL NUMERO A SACAR DE LA PILA
+*/
+
+/// ------------------------------------------------------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Librerias/pila.h"
@@ -48,6 +66,7 @@ int main()
     /// -----------------------------------------------------------
 
     /// EJEMPLO: quitar de la pila el numero 30
+
     Pila pila2;
     inicpila(&pila2);
 

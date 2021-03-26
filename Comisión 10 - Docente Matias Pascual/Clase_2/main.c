@@ -1,7 +1,8 @@
 /**
     UTN
     Tecnicatura Universitaria en Programacion
-    Laboratorio de Programacion 1
+    Programacion 1 y Laboratorio de computacion 1
+    Comision 110
     Prof. Matias Pascual
 */
 
@@ -61,6 +62,8 @@ int main()
         printf("la variable A es positiva");
     }
 
+    /// ------------------------------------------------------------------------
+
     /// EJEMPLO DE IF, ELSE IF Y ELSE
 
     int variableB = 10;
@@ -78,8 +81,10 @@ int main()
         printf("la variable B no es cero ni es igual a la variable A");
     }
 
+    /// ------------------------------------------------------------------------
+
     /// EJEMPLPO DE IF ANIDADOS
-    /// AVERIGUAR SI LA VARIABLE C ES LA MAS GRANDE, LA MENOR O LA DEL MEDIO
+    /** Averiguar si la variable c es la mas grande, la menor o la del medio */
 
     variableA = 0;
     variableB = 10;
@@ -115,6 +120,8 @@ int main()
         }
     }
 
+    /// ------------------------------------------------------------------------
+
     /// EJEMPLO DE SWITCH
     char tecla = '0';
 
@@ -139,15 +146,20 @@ int main()
         printf("no se reconoce la tecla presionada");
     }
 
-    /// EJEMPLO DE SWITCH TERNARIO
+    /// ------------------------------------------------------------------------
+
+    /// EJEMPLO DE IF TERNARIO
+
+    int variableD = (variableA == 0) ? variableA : variableB;
 
     /**
-        si el valor de la variable A es 0, entonces asignar a la variable D
-        el valor de la variable A, si no, asignarle el valor de la variable B
+        Esto se lee de la siguiente manera:
+            si el valor de la variable A es 0,
+            entonces asignar a la variable D el valor de la variable A,
+            si no, asignarle el valor de la variable B
     */
 
-    int variableD = (variableA == 0) ? variableA ? variableB;
-
+    /// ------------------------------------------------------------------------
 
     /// OPERADORES RELACIONALES
     /**
@@ -190,6 +202,8 @@ int main()
         /// se ejecuta este codigo
     }
 
+    /// ------------------------------------------------------------------------
+
     /// OPERADORES LOGICOS
     /**
         permiten realizar comparaciones logicas
@@ -226,6 +240,7 @@ int main()
         como condicion de corte) y el codigo que se va a ejecutar
     */
 
+    /// ------------------------------------------------------------------------
 
     /// EJEMPLO WHILE
     int contador = 0;
@@ -238,6 +253,7 @@ int main()
 
     printf("fin del while \n");
 
+    /// ------------------------------------------------------------------------
 
     /// EJEMPLO DO WHILE
     /// el do while se ejecuta siempre al menos una vez
@@ -252,6 +268,7 @@ int main()
 
     printf("fin del while \n");
 
+    /// ------------------------------------------------------------------------
 
     /// EJEMPLO FOR
     /// en el for ponemos el contador, el condicional y el incremento del contador,
