@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1490112217 source:d:\matias\proyectos\utn\dandoclasesc\programacionlaboratorio1utn\comisión 10 - docente matias pascual\clase_5\librerias\pila.c
+	"pila.h"
+
+1616532196 d:\matias\proyectos\utn\dandoclasesc\programacionlaboratorio1utn\comisión 10 - docente matias pascual\clase_5\librerias\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1616714914 source:d:\matias\proyectos\utn\dandoclasesc\programacionlaboratorio1utn\comisión 10 - docente matias pascual\clase_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Librerias/pila.h"
+
