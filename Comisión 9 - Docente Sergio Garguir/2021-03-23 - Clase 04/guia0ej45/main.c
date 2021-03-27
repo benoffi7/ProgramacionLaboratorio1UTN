@@ -10,24 +10,35 @@ Realizar un algoritmo para calcular la calificación promedio y la calificación m
 
 int main()
 {
-    int nota;
-    int min;
-    int max;
+    int nota=0;
+    int min=0;
+    int max=0;
     int suma = 0;
     int i = 0;
     float promedio;
 
-    printf("\n Ingrese la nota nro %d: ", i);
+    printf("\n Ingrese la nota nro %d: ", i+1);
     scanf("%d", &nota);
+
     i = i + 1;
     suma = suma + nota;
     min = nota;
     max = nota;
 
     while(i < CANT_MAX){
-        printf("\n Ingrese la nota nro %d: ", i+1);
 
-        scanf("%d", &nota);
+        do{
+            printf("\n Ingrese la nota nro %d: ", i+1);
+            scanf("%d", &nota);
+            if(nota < 1 || nota > 10){
+                printf("\n\t <<< ERROR >>> \n");
+                printf("La nota ingresada no es correcta\n");
+                system("pause");
+                system("cls");
+            }
+        }
+        while(nota < 1 || nota > 10);
+
         i = i + 1;
         suma = suma + nota;
 
