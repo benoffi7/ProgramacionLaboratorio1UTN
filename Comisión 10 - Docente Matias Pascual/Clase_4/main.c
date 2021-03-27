@@ -1,14 +1,15 @@
 /**
     UTN
     Tecnicatura Universitaria en Programacion
-    Laboratorio de Programacion 1
+    Programacion 1 y Laboratorio de computacion 1
+    Comision 110
     Prof. Matias Pascual
 */
 
 /**
     CLASE 4:
         . INTRODUCCION A LA ESTRUCTURA DE DATOS PILA
-        . COMO AGREGAR UNA PILA AL PROYECTO (visto en clase)
+        . COMO AGREGAR LA ESTRUCTURA PILA AL PROYECTO
         . UTILIZACION
             CREAR
             INICIALIZAR
@@ -23,17 +24,16 @@
         . EJERCICIO 1 DE LA GUIA DE PILAS
 */
 
+/// ------------------------------------------------------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "Librerias/pila.h" /// incluimos el encabezado
+#include "Librerias/pila.h" /// incluimos el archivo pila.h que esta dentro
+                            /// de la carpeta librerias
 
 int main()
 {
-    borrador();
-
     /// INTRODUCCION A LA ESTRUCTURA DE DATOS PILA
-    /// ------------------------------------------
-
     /**
         Utiliza el modo de acceso LIFO (Last in first out),
         es decir El ultimo que llega es el primer que sale.
@@ -41,12 +41,10 @@ int main()
         Igual que una pila de platos o la ropa en un canasto.
     */
 
-
-    /// UTILIZACION
-    /// -----------
+    /// --------------------------------------------------------------------------
 
     /**
-        PILA
+        PILA como tipo de dato
         Creando una variable de tipo Pila
     */
 
@@ -117,6 +115,8 @@ int main()
 
     apilar(&pila, desapilar(&otraPila));
 
+    /// --------------------------------------------------------------------------
+
     /**
         TOPE
         Nos da el valor del elemento que esta en el tope de la pila, sin
@@ -125,6 +125,7 @@ int main()
 
     int valorDelTope = tope(&pila);
 
+    /// --------------------------------------------------------------------------
 
     /**
         PILA VACIA
@@ -140,6 +141,8 @@ int main()
         printf("la pila aun contiene elementos");
     }
 
+    /// --------------------------------------------------------------------------
+
     /**
         MOSTRAR
         muestra los elementos de la pila
@@ -147,9 +150,9 @@ int main()
 
     mostrar(&pila);
 
+    /// --------------------------------------------
 
     /// EJEMPLO: como pasar datos de una pila a otra
-    /// --------------------------------------------
 
     Pila pilaA;
     inicpila(&pilaA);
@@ -173,9 +176,6 @@ int main()
             apilar en la pila B,
             lo que desapilo de la pila A.
     */
-
-    /// EJERCICIO 1 DE LA GUIA DE PILAS
-    ejercicio1();
 
     return 0;
 }

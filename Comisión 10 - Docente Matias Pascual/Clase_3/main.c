@@ -1,7 +1,8 @@
 /**
     UTN
     Tecnicatura Universitaria en Programacion
-    Laboratorio de Programacion 1
+    Programacion 1 y Laboratorio de computacion 1
+    Comision 110
     Prof. Matias Pascual
 */
 
@@ -14,6 +15,7 @@
         . EJEMPLO DE CLS y SLEEP()
 */
 
+/// ------------------------------------------------------------------------
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,21 +28,32 @@
 #define FALSO 0
 #define BORRAR_PANTALLA system("cls");
 
-/// prototipo de funciones (de momento, ignoren esta parte)
+/// prototipo de funciones (de momento ignoren esta parte)
 void ejemploVariablesLocales();
 void ejemploSleep();
 void ejemploFlag();
 void ejemploIteracionConGetch();
 void ejemploCapturandoCadenaDeCaracteres();
 
+/// ------------------------------------------------------------------------
+
 int main()
 {
+    /// ejemploVariablesLocales();
+    /// ejemploSleep();
+    /// ejemploFlag();
+    /// ejemploIteracionConGetch();
+    /// ejemploCapturandoCadenaDeCaracteres();
 
     return 0;
 }
 
+/// ------------------------------------------------------------------------
+
 void ejemploVariablesLocales()
 {
+    /// EJEMPLO CON IF
+
     int numero = 0;
 
     if (numero < 0)
@@ -65,6 +78,10 @@ void ejemploVariablesLocales()
     printf("%d", variableA); /// error: la variableA no fue declarada en este scope
     printf("%d", variableB); /// error: la variableB no fue declarada en este scope
 
+    /// ------------------------------------------------------------------------
+
+    /// EJEMPLO CON WHILE
+
     int i = 0;
     while(i < 10)
     {
@@ -76,6 +93,9 @@ void ejemploVariablesLocales()
 
     printf("%d", variableW); /// error: la variableW no fue declarada en este scope
 
+    /// ------------------------------------------------------------------------
+
+    /// EJEMPLO USANDO SOLO LLAVES
 
     {
         int a = 10;
@@ -91,6 +111,8 @@ void ejemploVariablesLocales()
     a = 10; /// error
     b = 10; /// error
 }
+
+/// ------------------------------------------------------------------------
 
 void ejemploIteracionConGetch()
 {
@@ -127,6 +149,8 @@ void ejemploIteracionConGetch()
     printf("la suma total fue: %d", sumaTotal);
 }
 
+/// ------------------------------------------------------------------------
+
 void ejemploFlag()
 {
     /// int flag = 0;
@@ -143,9 +167,11 @@ void ejemploFlag()
 
         printf("contador: %d \n", contador);
 
-        /// flag = (contador > 10) ? VERDADERO : FALSO; // breve explicacion
+        /// flag = (contador > 10) ? VERDADERO : FALSO; // breve explicacion en clase
     }
 }
+
+/// ------------------------------------------------------------------------
 
 void ejemploSleep()
 {
@@ -155,6 +181,8 @@ void ejemploSleep()
         printf("%d\n", i);
     }
 }
+
+/// ------------------------------------------------------------------------
 
 void ejemploCapturandoCadenaDeCaracteres()
 {
