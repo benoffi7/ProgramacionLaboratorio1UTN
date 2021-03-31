@@ -23,6 +23,7 @@
                             /// debemos agregar las lineas 5, 6 y 28 escritas
                             /// en Librerias/pila.h de esta version utilizada
                             /// en la clase.
+#include <windows.h>
 
 void sumarElementosDePila()
 {
@@ -91,7 +92,7 @@ void buscarElementoYFinalizar()
     apilar(&pila, 40);
     apilar(&pila, 50);
 
-    int elementoBuscado = 40;
+    int elementoBuscado = 2;
     int flag = 0;   /// otros nombres correctos podrian ser:
                     ///     elementoEncontrado
                     ///     flagElementoEncontrado
@@ -99,6 +100,10 @@ void buscarElementoYFinalizar()
 
     while(!pilavacia(&pila) && flag == 0)
     {
+        mostrar(&pila);
+        mostrar(&aux);
+        Sleep(500);
+
         if (tope(&pila) == elementoBuscado)
         {
             flag = 1;   /// recordemos que el while analiza tambien que flag sea 0 para continuar
@@ -134,4 +139,7 @@ void buscarElementoYFinalizar()
     {
         apilar(&pila, desapilar(&aux));
     }
+
+    mostrar(&pila);
+    mostrar(&aux);
 }
