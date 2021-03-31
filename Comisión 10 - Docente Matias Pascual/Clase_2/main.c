@@ -2,7 +2,7 @@
     UTN
     Tecnicatura Universitaria en Programacion
     Programacion 1 y Laboratorio de computacion 1
-    Comision 110
+    Comision 10
     Prof. Matias Pascual
 */
 

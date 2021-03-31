@@ -1,7 +1,7 @@
 UTN
 Tecnicatura Universitaria en Programacion
 Programacion 1 y Laboratorio de computacion 1
-Comision 110
+Comision 10
 Prof. Matias Pascual
 
 En esta seccion encontrara los contenidos trabajados en 
@@ -81,3 +81,10 @@ CLASE 6:
         . EJEMPLO: buscar elemento y finalizar la busqueda al encontrarlo
         . UTILIZACION DE ARCHIVOS .C PARA ORGANIZAR EJERCICIOS
         . BREVE EXPLICACION DE ARCHIVOS .H
+
+CLASE 7:
+        . COMO COPIAR EL CONTENIDO DE UNA PILA EN OTRA PILA
+	. QUE PASA SI USAMOS PILA_A = PILA_B
+	. COMO SABER SI UNA PILA ES CAPICUA
+        . RAND Y SRAND. PROPUESTO POR ALUMNO
+	. RESOLUCION DEL EJERCICIO 1 DE LA GUIA 0. PROPUESTO POR ALUMNO
