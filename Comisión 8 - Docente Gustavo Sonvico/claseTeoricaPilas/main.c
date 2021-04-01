@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "pila.h"
 
 int main()
@@ -40,25 +41,33 @@ int main()
 //    leer(&pilita);
 
 
+/// debemos incluir la libreria #include <time.h>
+/// seteamos la semilla para modifcar la secuencia random generada
+    srand(time(NULL));
 
     int i=0, aux;
 
-    for(i=0;i<5;i++)
+    for(i=0;i<50;i++)
     {
-        leer(&pilita);
+        apilar(&pilita, rand()%100);  /// entre 0 y 99
     }
+
+    /// no esta permitido igualar (copiar) pilas de la siguiente manera
+  //  pilota=pilita;
+  /// pedorro en extremo
+
 
     printf("Contenido de pilita\n");
     mostrar(&pilita);
+
+    system("pause");
 
     printf("Contenido de pilota\n");
     mostrar(&pilota);
 
     while(!pilavacia(&pilita))
     {
-        aux=desapilar(&pilita);
-
-        apilar(&pilota, aux);
+        apilar(&pilota, desapilar(&pilita));
     }
 
     printf("Contenido de pilita\n");
