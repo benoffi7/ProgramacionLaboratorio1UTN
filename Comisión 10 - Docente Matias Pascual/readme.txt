@@ -7,6 +7,10 @@ Prof. Matias Pascual
 En esta seccion encontrara los contenidos trabajados en 
 cada clase.
 
+RESOLUCIONES:
+	. En esta carpeta iremos agregando las soluciones
+	de las guias en la medida que las vayamos terminando
+
 CLASE 1:
 	. INTRODUCCION A LA SINTAXIS DE C
         . LIBRERIAS

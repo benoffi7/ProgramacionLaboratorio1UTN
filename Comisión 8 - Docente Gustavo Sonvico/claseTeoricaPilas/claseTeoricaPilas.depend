@@ -6,8 +6,9 @@
 	<stdio.h>
 	<malloc.h>
 
-1616796832 source:c:\users\gsonv\desktop\ejemplos clase\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\claseteoricapilas\main.c
+1617236737 source:c:\users\gsonv\desktop\ejemplos clase\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\claseteoricapilas\main.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
 	"pila.h"
 
