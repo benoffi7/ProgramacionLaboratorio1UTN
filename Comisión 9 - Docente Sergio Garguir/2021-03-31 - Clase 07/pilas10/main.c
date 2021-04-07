@@ -19,6 +19,7 @@ int main()
     apilar(&a, 1);
     apilar(&a, 1);
     apilar(&a, 1);
+
     apilar(&b, 1);
     apilar(&b, 1);
     apilar(&b, 1);
@@ -31,7 +32,7 @@ int main()
     printf("\n Pila b reci%cn cargada ", 130);
     mostrar(&b);
 
-    while(!pilavacia(&a) && !pilavacia(&b)&&flag==0){
+    while(!pilavacia(&a) && !pilavacia(&b) && flag=0){
         if(tope(&a)==tope(&b)){
             apilar(&auxA, desapilar(&a));
             apilar(&auxB, desapilar(&b));
