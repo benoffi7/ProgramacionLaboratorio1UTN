@@ -47,14 +47,14 @@ int main()
 
     int i=0, aux;
 
-    for(i=0;i<50;i++)
+    for(i=0; i<50; i++)
     {
         apilar(&pilita, rand()%100);  /// entre 0 y 99
     }
 
     /// no esta permitido igualar (copiar) pilas de la siguiente manera
-  //  pilota=pilita;
-  /// pedorro en extremo
+    //  pilota=pilita;
+    /// pedorro en extremo
 
 
     printf("Contenido de pilita\n");
@@ -77,6 +77,65 @@ int main()
     mostrar(&pilota);
 
 
+    system("pause");
+    Pila mazo, jugador1, jugador2;
+
+    inicpila(&mazo);
+
+    inicpila(&jugador1);
+
+    inicpila(&jugador2);
+
+    int limite = 50;//cantidad de cartas
+
+    srand(time(NULL));//setear la semilla
+
+
+
+    for(int i = 0;  i < limite;  i++)
+    {
+
+        apilar(&mazo, rand()%(20 - 2 + 1)+ 2);//el rango esta entre 2 y 20
+
+    }
+
+
+
+    printf("\n Pila MAZO ..........");
+
+    mostrar(&mazo);
+
+    system("pause");
+
+    while(!pilavacia(&mazo))
+    {
+
+
+
+        apilar(&jugador1, desapilar(&mazo));
+
+
+
+        if(!pilavacia(&mazo))
+        {
+
+
+
+            apilar(&jugador2, desapilar(&mazo));
+
+        }
+
+    }
+
+
+
+    printf("mazo Jugador 1");
+
+    mostrar(&jugador1);
+
+    printf("mazo Jugador 2");
+
+    mostrar(&jugador2);
 
     return 0;
 }
