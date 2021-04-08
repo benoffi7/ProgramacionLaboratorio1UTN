@@ -92,3 +92,42 @@ CLASE 7:
 	. COMO SABER SI UNA PILA ES CAPICUA
         . RAND Y SRAND. PROPUESTO POR ALUMNO
 	. RESOLUCION DEL EJERCICIO 1 DE LA GUIA 0. PROPUESTO POR ALUMNO
+
+CLASE 8:
+        . FUNCIONES (primera parte)
+        . DEFINICION
+        . TIPOS DE FUNCIONES
+
+        . ¿CUANDO UTILIZAR UNA FUNCION?
+            _ Evitar codigo duplicado
+            _ Disminuir cantidad de lineas de codigo
+            _ Reducir complejidad del programa
+            _ Mejorar la legibilidad del codigo
+
+        . PROTOTIPADO DE FUNCIONES
+            _ Declaracion vs Definicion
+
+        . PARAMETROS
+            _ Formales
+            _ Actuales
+
+        . PASAJE DE PARAMETROS
+            _ Por valor
+            _ Por referencia
+
+        . BREVE INTRODUCCION A PUNTEROS
+            (necesario para entender el pasaje de parametros
+             por referencia)
+
+        . AMBITO DE VIDA DE LAS VARIABLES EN FUNCIONES
+            _ Variables locales a la funcion
+            _ Variables globales
+
+        . UTILIZACION DE FUNCIONES CON PILAS
+
+        . ALGORITMOS
+            _ codigo de ejemplo de busqueda
+            _ codigo de ejemplo de pila capicua
+
+            _ explicacion de ordenamiento por seleccion (hablado en clase)
+            _ explicacion de ordenamiento por insercion (hablado en clase)
