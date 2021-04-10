@@ -131,3 +131,46 @@ CLASE 8:
 
             _ explicacion de ordenamiento por seleccion (hablado en clase)
             _ explicacion de ordenamiento por insercion (hablado en clase)
+
+CLASE 9:
+        . FUNCIONES (segunda parte)
+        . EJEMPLO DE NOMBRES DE FUNCIONES
+            _ adecuados
+            _ ambiguos
+
+        . ORDEN DE LOS PARAMETROS
+            _ ejemplo de orden en los parametros
+            _ ejemplo de parametros ambiguos
+
+        . CODIGO DE EJEMPLO DE ORDENAR UNA PILA
+            _ en seccion "pasos para escribir un subprograma"
+
+        . PASOS PARA ESCRIBIR UN SUBPROGRAMA
+            _ definir el problema a resolver
+            _ nombrar el subprograma (funcion) correctamente
+            _ testear su funcionamiento
+            _ escribir la cabecera de la funcion (prototipado o declaracion)
+            _ buscar el algoritmo adecuado para su funcionamiento
+            _ escribir comentarios de los pasos principales
+            _ escribir el codigo de cada comentario
+            _ revisar el codigo
+
+CLASE 10:
+        . FUNCIONES (tercera parte)
+
+        . ACOMPLAMIENTO
+            _ de datos
+            _ de control
+            _ acoplamiento externo
+            _ patologico (explicado en clase)
+
+        . COHESION
+            _ ejemplo de cohesion aceptable
+            _ ejemplo de cohesion poco aceptable
+
+        . CODIGO DE EJEMPLO DE ORDENAMIENTO POR INSERCION
+
+        . BREVE EXPLICACION DE PARAMETROS ILIMITADOS
+            _ ejemplo de sumar muchos numeros
+
+        . BREVE EXPLICACION DE ARREGLOS
