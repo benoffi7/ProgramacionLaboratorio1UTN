@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pila.h"
-///1. Hacer una función que permita ingresar varios elementos a una Pila, tantos como quiera el usuario
+///1. Hacer una funciÃ³n que permita ingresar varios elementos a una Pila, tantos como quiera el usuario
 
 ///prototipado
 void cargaPila(Pila*); /// funcion que carga una pila hasta que quiera el usuario
@@ -51,7 +51,7 @@ void cargaPila(Pila* p)// p = 0x44 /// p = &a
     while(continuar == 's');
 }
 
-
+///Esto no se puede hacer por que la dir de p deja de existir dentro de la funcion
 Pila* crearYCargar()
 {
     Pila p;/// &p 0x23
