@@ -2,8 +2,6 @@
 
 //{ TIPOS DE FUNCIONES
 
-/// TIPOS DE FUNCIONES
-
 /// sin retorno y sin parametros
 void saludar()
 {

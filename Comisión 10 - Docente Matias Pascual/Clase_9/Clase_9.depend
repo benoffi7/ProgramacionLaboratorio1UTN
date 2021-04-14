@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1617929234 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Librerias/pila.h"
+
+1617914175 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\nombresfunciones.c
+
+1617914160 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\parametros.c
+
+1617752071 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\librerias\pila.c
+	"pila.h"
+
+1617746533 d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\librerias\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1617926774 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\pasosescribirsubprograma.c
+	"Librerias/pila.h"
+
+1617927235 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\ordenarseleccion.c
+	"Librerias/pila.h"
+
+1617929377 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_9\ejemplo.c
+	"Librerias/pila.h"
+

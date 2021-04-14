@@ -161,7 +161,7 @@ int main()
         Es un tipo especial de variable al que se le deba dar un valor inicial y no
         puede cambiarse este valor en ninguna parte de nuestro programa.
 
-        Se acosumbra a escribirlas en MAYUSCULAS
+        Se acostumbra a escribirlas en MAYUSCULAS
     */
 
     const float FUERZA_DE_GRAVEDAD = 9.8F;
