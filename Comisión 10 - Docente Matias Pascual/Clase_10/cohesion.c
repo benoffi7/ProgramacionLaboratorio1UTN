@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include <stdarg.h> /// para usar parametros infinitos.
-                    /// solo es un ejemplo, no los usamos en ningun examen
-                    /// ni trabajo practico
 
 /// EJEMPLOS DE COHESION FUERTE
 int sumarNumeros(int primerNumero, int segundoNumero)
@@ -9,25 +6,16 @@ int sumarNumeros(int primerNumero, int segundoNumero)
     return primerNumero + segundoNumero;
 }
 
-/// Esta es la misma funcion que esta en acoplamiento.c
-/// Le cambie el nombre para poder mostrarla en este archivo tambien
-void cargarNombreApellido_v2(char* nombre, char* apellido)
-{
-    cargarNombre(nombre);
-
-    printf("\n");
-
-    cargarApellido(apellido);
-}
-
 /// EJEMPLOS DE COHESION DEBIL
 /**
-    si la funcion dice que suma dos numeros,
+    Si la funcion dice que suma dos numeros,
     no deberia borrar la pantalla,
     luego cambiar el color y despues decirme que
-    presione una tecla para continuar
+    presione una tecla para continuar.
+
+    Deberia sumar numeros y devolvere el resultado
 */
-void sumarNumeros_v2(int primerNumero, int segundoNumero)
+void sumarNumeros(int primerNumero, int segundoNumero)
 {
     system("cls");
     system("color 1f");
@@ -40,39 +28,14 @@ void sumarNumeros_v2(int primerNumero, int segundoNumero)
 }
 
 /**
-    los ... son para pasar argumentos sin limite,
-    esto es solo un ejemplo para que vean como se escriben
-    este tipo de funciones
+    La siguiente funcion calcula la suma de muchos numeros, pero si quisiera cambiar
+    la forma en que se comunica con el usuario (por ejemplo si fuera para usuarios en Francia),
+    tendria que modificar la funcion para escribir todos los printf en Frances.
+
+    Si la funcion dice que suma muchos numeros, lo correcto seria que hiciera
+    solo eso. Dejando la interaccion con el usuario en otra funcion o en el main.
 */
-
-/// esta funcion suma muchos numeros y devuelve el resultado
-int sumarMuchosNumeros(int cantidadNumeros, ...)
-{
-    int total = 0;
-    va_list numeros;
-
-    va_start(numeros, cantidadNumeros);
-
-    for(int i = 0; i < cantidadNumeros; i++)
-    {
-        total += va_arg(numeros, int);
-    }
-
-    va_end(numeros);
-
-    return total;
-}
-
-/**
-    esta funcion tambien calcula la suma de muchos numeros, pero si quisiera
-    cambiar la forma en que se comunica con el usuario, tendria que modificar
-    la funcion
-
-    si la funcion dice que suma muchos numeros, lo correcto seria que hiciera
-    solo eso
-*/
-
-int sumarMuchosNumeros_v2()
+int sumarMuchosNumeros()
 {
     int cantidadNumeros = 0;
     int numero = 0;

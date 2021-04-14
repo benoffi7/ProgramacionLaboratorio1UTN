@@ -1,0 +1,71 @@
+#include "Librerias/pila.h"
+
+float division(int suma, int cantidad);
+
+void promedio(Pila pfloat* resultado)
+{   
+    /// suma de los elementos
+    int suma = sumarElementos(pila);
+
+    /// cantidad elementos
+    int cantidad = cantidadElementos(pila);
+
+    /// division
+    resultado = division(suma, cantidad);
+
+    /// devolver el resultado*/
+    *resultado = 10.5f;
+}
+
+int sumarElementos(Pila* pila)
+{
+    int suma = 0;
+
+    Pila aux;
+    inicpila(&aux);
+
+    while(!pilavacia(pila))
+    {
+        suma += tope(pila);
+        apilar(&aux, desapilar(pila));
+    }
+
+    while(!pilavacia(&aux))
+    {
+        apilar(pila, desapilar(&aux));
+    }
+
+    return suma;
+}
+
+int cantidadElementos(Pila* pila)
+{
+    int cantidad = 0;
+
+    Pila aux;
+    inicpila(&aux);
+
+    while(!pilavacia(pila))
+    {
+        apilar(&aux, desapilar(pila));
+        cantidad++;
+    }
+
+    while(!pilavacia(&aux))
+    {
+        apilar(pila, desapilar(&aux));
+    }
+
+    return cantidad;
+}
+
+float division(int suma, int cantidad)
+{
+    float resultado = (float) suma / cantidad;
+
+    return resultado;
+}
+
+
+
+

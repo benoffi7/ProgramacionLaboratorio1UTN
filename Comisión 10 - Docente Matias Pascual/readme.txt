@@ -82,9 +82,7 @@ CLASE 5:
 CLASE 6:
         . UTILIZACION DE PILAS CON VARIABLES
         . EJEMPLO: sumar elementos de una pila
-        . EJEMPLO: buscar elemento y finalizar la busqueda al encontrarlo
-        . UTILIZACION DE ARCHIVOS .C PARA ORGANIZAR EJERCICIOS
-        . BREVE EXPLICACION DE ARCHIVOS .H
+        . EJEMPLO: buscar elemento y finalizar la busqueda al encontrarlo       
 
 CLASE 7:
         . COMO COPIAR EL CONTENIDO DE UNA PILA EN OTRA PILA
@@ -142,9 +140,7 @@ CLASE 9:
             _ ejemplo de orden en los parametros
             _ ejemplo de parametros ambiguos
 
-        . CODIGO DE EJEMPLO DE ORDENAR UNA PILA
-            _ en seccion "pasos para escribir un subprograma"
-
+        . CODIGO DE EJEMPLO DE ORDENAR UNA PILA 
         . PASOS PARA ESCRIBIR UN SUBPROGRAMA
             _ definir el problema a resolver
             _ nombrar el subprograma (funcion) correctamente
@@ -169,8 +165,5 @@ CLASE 10:
             _ ejemplo de cohesion poco aceptable
 
         . CODIGO DE EJEMPLO DE ORDENAMIENTO POR INSERCION
-
-        . BREVE EXPLICACION DE PARAMETROS ILIMITADOS
-            _ ejemplo de sumar muchos numeros
 
         . BREVE EXPLICACION DE ARREGLOS
