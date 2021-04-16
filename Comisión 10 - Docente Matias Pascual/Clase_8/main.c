@@ -81,6 +81,14 @@ int variableGlobal = 30;
 /// FUNCION MAIN
 int main()
 {
+    int variable = 10;
+
+    printf("%d", variable);
+
+
+
+
+    //{ oculto
     /// PARAMETROS ACTUALES DE UNA FUNCION
 
     /// en este ejemplo, 10.5F y 1.0F son los parametros actuales
@@ -143,7 +151,7 @@ int main()
     /// EJEMPLO DE CARGA DE PILAS CON FUNCIONES
 
     cargarPilaUsandoTeclaSalir(&pilaA);
-    cargarElementosEnPila(4, &pila);
+//    cargarElementosEnPila(4, &pila);
 
     /// ---------------------------------------------------------
 
@@ -152,14 +160,15 @@ int main()
     Pila pilaNueva;
     inicpila(&pilaNueva);
 
-    cargarPila(&pilaNueva);
+//    cargarPila(&pilaNueva);
     mostrar(&pilaNueva);
 
     /// estas funciones no estan definidas, son solo un ejemplo
-    pedirNombre();
-    saludarUsuario();
-    finalizar();
+//    pedirNombre();
+//    saludarUsuario();
+//    finalizar();
 
+    //}
     return 0;
 }
 /// FIN DEL MAIN

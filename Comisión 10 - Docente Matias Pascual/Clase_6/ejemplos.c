@@ -1,28 +1,6 @@
-/// ESTE ARCHIVO CONTIENE FUNCIONES
-/**
-    Al igual que la funcion main, las funciones nos permiten escribir codigos
-    que luego seran ejecutados cuando llamemos a esa funcion.
+/// Este archivo contiene funciones utilizadas durante las clases
 
-    Para llamar a esa funcion tenemos que escribir su nombre seguido de ();
-
-    Funciones es un tema que veremos mas adelante en las clases. De momento
-    vamos a utilizar funciones simples para entrar en tema y organizar
-    los ejercicios que vayamos haciendo.
-
-    A diferencia de los archivos .h , los archivos .c no es necesario incluirlos
-    utilizando #include. Pero si debemos agregarlos al proyecto usando Proyect/Add Files
-    o crearlos usando File/New File y seleccionando C/C++ source.
-
-    Recuerden marcar las opciones DEBUG y RELEASE.
-
-    Importante: prestar atencion a donde guardaremos el archivo en el proyecto.
-    Al lado del main seria, en esta etapa de aprendizaje, lo ideal.
-*/
-
-#include "Librerias/pila.h" /// IMPORTANTE: para que esto no genere error
-                            /// debemos agregar las lineas 5, 6 y 28 escritas
-                            /// en Librerias/pila.h de esta version utilizada
-                            /// en la clase.
+#include "Librerias/pila.h" 
 #include <windows.h>
 
 void sumarElementosDePila()

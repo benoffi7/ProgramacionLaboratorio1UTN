@@ -44,28 +44,17 @@ int variableGlobal = 0;
 
 int main()
 {
-    //ejemploIngresarEnOrder();
-    //ejemploArreglo();
-    //ejemploAcoplamiento();
-    //ejemploAcoplamiento_2();
-    //ejemploCohesion();
-
-    /*
-    int total = sumarMuchosNumeros(5,4,3,2,1,2);
-
-    printf("%d", total);*/
-
     return 0;
 }
 
 void ejemploAcoplamiento()
 {
-    /// de momento ignoren esta parte, aun no vimos arreglos
+    /// estos dos arreglos nos permiten ingresar guardar un nombre y un apellido
     char nombre[50] = "";
     char apellido[50] = "";
 
-    /// pasar el & en un arreglo es redundante (lo explico en clase)
-    /// pero vamos a dejar el & porque aun no vimos arreglos
+    /// pasar el & en un arreglo es redundante (explicado en clase)
+    /// pero de momento vamos a dejar el &
     cargarNombreApellido(&nombre, &apellido);
 
     printf("\n\nUsted es: %s %s \n\n", nombre, apellido);
