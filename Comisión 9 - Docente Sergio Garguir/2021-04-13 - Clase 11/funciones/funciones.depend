@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1490112217 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-04-13 - clase 11\funciones\pila.c
+	"pila.h"
+
+1490112217 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-04-13 - clase 11\funciones\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1618620642 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-04-13 - clase 11\funciones\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"pila.h"
+
