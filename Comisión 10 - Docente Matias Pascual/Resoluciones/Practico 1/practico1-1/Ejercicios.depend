@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1268835622 source:d:\mis documentos\documentos 2009\utn2010\materias\programación 1\ejercicios resueltos\ejercicios\eje1.c
+	"..\Librerias\pila.h"
+
+1238076008 d:\mis documentos\documentos 2009\utn2010\materias\programación 1\ejercicios resueltos\librerias\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1238076000 source:d:\mis documentos\documentos 2009\utn2010\materias\programación 1\ejercicios resueltos\librerias\pila.c
+	"pila.h"
+
+1238076000 source:h:\utn 2012\laboratorio 1 - practicas\practico1-1\pila.c
+	"pila.h"
+
+1238076008 h:\utn 2012\laboratorio 1 - practicas\practico1-1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1238076000 source:c:\users\sonvicofamily\documents\utn catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\pila.c
+	"pila.h"
+
+1238076008 c:\users\sonvicofamily\documents\utn catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1238076000 source:c:\users\sonvicofamily\documents\01 - utn catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\pila.c
+	"pila.h"
+
+1238076008 c:\users\sonvicofamily\documents\01 - utn catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1363212620 source:c:\users\sonvicofamily\documents\01 - utn catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
+1363212620 source:c:\users\gustavo\documents\01 - catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
+1238076008 c:\users\gustavo\documents\01 - catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1238076000 source:c:\users\gustavo\documents\01 - catedras\01 - laboratorio 1\practicos resueltos\practico 1\practico1-1\pila.c
+	"pila.h"
+

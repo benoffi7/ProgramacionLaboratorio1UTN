@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1238076000 source:h:\utn 2012\laboratorio 1 - practicas\pila.c
+	"pila.h"
+
+1238076008 h:\utn 2012\laboratorio 1 - practicas\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1331412536 source:h:\utn 2012\laboratorio 1 - practicas\practico1-14\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../pila.h"
+
+1238076000 source:f:\utn 2012\laboratorio 1\practicos resueltos\pila.c
+	"pila.h"
+
+1238076008 f:\utn 2012\laboratorio 1\practicos resueltos\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1332982264 source:f:\utn 2012\laboratorio 1\practicos resueltos\practico1-14\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../pila.h"
+

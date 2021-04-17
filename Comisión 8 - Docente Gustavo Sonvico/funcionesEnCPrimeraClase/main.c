@@ -8,12 +8,14 @@ const int unaConstanteInt=1000;
 
 /// prototipado de la funcion
 
-int sumarDosEnteros(int valor1, int valor2);
+int sumarDosEnteros(int , int );
+
+void fnQueSaluda();
 
 int main()
 {
-    printf("Hello funciones!\n");
 
+    fnQueSaluda();
 
     /// suma, a y b son locales al main
     int suma = 0;
@@ -50,4 +52,11 @@ int sumarDosEnteros(int valor1, int valor2)  /// valor1 y valor2 son locales a l
 
 
     return resultado;
+}
+
+void fnQueSaluda()
+{
+     printf("Hello funciones!\n");
+     printf("Como andan?\n");
+     printf("Seguro todos leyeron el libro de joyanes no?\n");
 }
