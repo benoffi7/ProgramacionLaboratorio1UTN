@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1618937764 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_14\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1618937075 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_14\arreglos.c
+
+1618921972 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_14\cadenascaracteres.c
+	<stdio.h>
+	<stdlib.h>
+
+1618936953 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_14\ejercicios.c
+	<conio.h>
+	<stdio.h>
+
+1618938862 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_14\algoritmos.c
+
