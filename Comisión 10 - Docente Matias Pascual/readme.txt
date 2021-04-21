@@ -167,3 +167,51 @@ CLASE 10:
         . CODIGO DE EJEMPLO DE ORDENAMIENTO POR INSERCION
 
         . BREVE EXPLICACION DE ARREGLOS
+
+CLASE 11:
+        . FUNCIONES CON PILAS
+        . EJEMPLOS DE FUNCIONES CON PILAS
+        . EJERCICIO 9 DE GUIA DE FUNCIONES
+        . FUNCIONES QUE LLAMAN A OTRAS FUNCIONES
+
+CLASE 12:
+	. RESOLUCION DE EJERCICIOS
+        . GUIA DE FUNCIONES CON PILAS
+        . EJEMPLOS DE FUNCIONES SIMPLES
+
+CLASE 13:
+        . RESOLUCION DE EJERCICIOS CON FUNCIONES Y PILAS
+        . ALGORITMIA vs MODULARIZACION
+
+CLASE 14:
+        . ARREGLOS
+            _ concepto
+            _ declaracion
+            _ inicializacion
+
+        . RECORRIENDO ARREGLOS
+            _ orden de recorrido
+            _ posiciones del arreglo
+            _ bucles de iteracion
+
+        . CADENAS DE CARACTERES
+            _ inicializacion
+            _ capturando string
+            _ mostrar por pantalla
+
+        . PASAJE DE ARREGLOS COMO PARAMETROS
+
+        . ALGORITMOS CLASICOS SOBRE ARREGLOS
+            _ saber en que posicion esta un valor
+
+            _ buscar la posicion del menor elemento del arreglo
+            _ buscar la posicion del mayor elemento del arreglo
+
+            _ buscar la posicion del menor elemento a partir de una posicion del arreglo
+            _ buscar la posicion del mayor elemento a partir de una posicion del arreglo
+
+            _ ordenamiento por seleccion en arreglos
+            _ ordenamiento por insercion en arreglos
+
+        . RESOLUCION DE EJERCICIOS
+            TP 4 - Ejercicio 1

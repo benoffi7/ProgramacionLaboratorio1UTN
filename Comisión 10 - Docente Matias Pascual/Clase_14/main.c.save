@@ -1,0 +1,160 @@
+/**
+    UTN
+    Tecnicatura Universitaria en Programacion
+    Programacion 1 y Laboratorio de computacion 1
+    Comision 10
+    Prof. Matias Pascual
+*/
+
+/**
+    CLASE 14:
+        . ARREGLOS
+            _ concepto
+            _ declaracion
+            _ inicializacion
+
+        . RECORRIENDO ARREGLOS
+            _ orden de recorrido
+            _ posiciones del arreglo
+            _ bucles de iteracion
+
+        . CADENAS DE CARACTERES
+            _ inicializacion
+            _ capturando string
+            _ mostrar por pantalla
+
+        . PASAJE DE ARREGLOS COMO PARAMETROS
+
+        . ALGORITMOS CLASICOS SOBRE ARREGLOS
+            _ saber en que posicion esta un valor
+            _ buscar la posicion del menor elemento de arreglo
+            _ buscar la posicion del menor elemento a partir de una posicion del arreglo
+
+        . RESOLUCION DE EJERCICIOS
+            TP 4 - Ejercicio 1
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/// prototipado de funciones
+
+int cargarNumeros(int arreglo[], int dimension);
+void ejercicio_1();
+void buscarPosicionDelMenor();
+void ejercicio_cargarNumerosEnArreglo();
+void algoritmosConArreglos();
+
+/// -------------------------------------------
+
+int main()
+{
+    //explicandoArreglos();
+    //explicandoArreglos_2();
+    //explicandoCadenasCaracteres();
+    //capturandoString();
+    //buscarPosicionDelMenor();
+    //ejercicio_cargarNumerosEnArreglo();
+    algoritmosConArreglos();
+
+    return 0;
+}
+
+void ejercicio_cargarNumerosEnArreglo()
+{
+    const int DIMENSION = 20;
+
+    int arreglo[DIMENSION];
+
+    int elementosCargados = 0;
+
+    int validos = cargarNumerosEnArreglo(arreglo, DIMENSION, &elementosCargados);
+
+    printf("\n\n");
+    printf("validos: %d \n", validos);
+    printf("cantidad de elementos cargados: %d \n", elementosCargados);
+
+    for (int i = 0; i < validos; i++)
+    {
+        printf("%d \n", arreglo[i]);
+    }
+}
+
+void buscarPosicionDelMenor()
+{
+    /// BUSCAR POSICION DEL MENOR ELEMENTO
+    int arreglo[10] = {
+        1, 2, 3, -40, 2,
+        10, 32, 2, 5, -14
+    };
+
+    int posicionDelMenor = posicionMenorElemento(arreglo, 10);
+
+    printf("posicion del menor: %d \n", posicionDelMenor);
+    printf("valor del menor elemento: %d \n", arreglo[posicionDelMenor]);
+
+    /// -----------------------------------------------------------------
+
+    /// BUSCANDO DESDE UNA POSICION INICIAL
+    posicionDelMenor = posicionMenorDesdePosicionInicial(arreglo, 10, 6);
+
+    printf("\nposicion del menor: %d \n", posicionDelMenor);
+    printf("valor del menor elemento: %d \n", arreglo[posicionDelMenor]);
+}
+
+void ejercicio_1()
+{
+    /// EJERCICIO 1
+    const int DIMENSION = 10;
+    int arregloNumerosEnteros[DIMENSION];
+
+    int validos = cargarNumeros(arregloNumerosEnteros, DIMENSION);
+
+    printf("\n");
+
+    mostrarArreglo(arregloNumerosEnteros, validos);
+
+    /// ----------------------------------------------------------
+
+    /// igual pero con un puntero
+
+    validos = 0; /// reiniciamos el valor de validos
+
+    cargarNumerosConPuntero(arregloNumerosEnteros, DIMENSION, &validos);
+
+    printf("\n");
+
+    mostrarArreglo(arregloNumerosEnteros, validos);
+}
+
+void algoritmosConArreglos()
+{
+    int arreglo[10] = {
+        10 , 55, 30, 2, 10
+        -20, 30, -10, 40, 20
+    };
+
+    /// mostrando valor y posicion del menor y mayor
+    /// elemento del arreglo
+
+    int posicionDelMayor = posicionMayorElemento(arreglo, 10);
+    int posicionDelMenor = posicionMenorElemento(arreglo, 10);
+
+    int menorElemento = arreglo[posicionDelMenor];
+    int mayorElemento = arreglo[posicionDelMayor];
+
+    printf("menor elemento: %d \n", menorElemento);
+    printf("posicion del menor: %d \n\n", posicionDelMenor);
+
+    printf("mayor elemento: %d \n", mayorElemento);
+    printf("posicion del mayor: %d \n\n", posicionDelMayor);
+
+    printf("arreglo: \n");
+    mostrarArreglo(arreglo, 10);
+
+    /// -----------------------------------------------------
+
+    posicionDelMayor = posicionMayorDesdePosicionInicial(arreglo, 5, 10);
+    posicionDelMenor = posicionMenorDesdePosicionInicial(arreglo, )
+}

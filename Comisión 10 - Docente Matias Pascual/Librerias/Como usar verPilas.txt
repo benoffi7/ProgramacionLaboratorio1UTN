@@ -1,0 +1,9 @@
+El primer parametro es la cantidad de pilas. Luego van las pilas, separadas por comas y con el & adelante. 
+
+Ejemplo:
+	verPilas(4, &pila1, &pila2, &pila3, &pila4);
+
+Las pilas deberan estar inicializadas antes de usar la funcion.
+
+No hay un limite para la cantidad de que pilas que podemos pasar por parametros, pero si ponemos un numero superior a 8, 
+las mostrara mal acomodadas en la pantalla.

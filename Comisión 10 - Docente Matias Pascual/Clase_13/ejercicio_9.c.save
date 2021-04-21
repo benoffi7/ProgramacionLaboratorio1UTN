@@ -1,0 +1,18 @@
+#include "Librerias/pila.h"
+
+/// SACAR PROMEDIO
+/// SUMABA NUMEROS
+/// CONTABA CANTIDAD
+/// CALCULABA SUMA / CANTIDAD
+
+float promedio()
+{
+    float promedioCalculado;
+    
+    return     
+}
+
+
+
+
+
