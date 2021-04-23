@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="practico3- 8" />
+		<Option title="practico3 Algoritmos de ordenacion" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
