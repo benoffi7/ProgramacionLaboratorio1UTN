@@ -7,6 +7,11 @@
 
 int main()
 {
+    Pila d, aux;
+    inicpila(&d);
+    inicpila(&aux);
+
+    int cont[10]={0};
     int dnis[DIM_DNIS];
     int notas[DIM_NOTAS];
     int validosNotas=0;
@@ -14,18 +19,18 @@ int main()
 
     validosNotas = cargaArregloUsuario(notas, validosNotas, DIM_NOTAS);
 
-    printf("\n Arreglo de Notas");
+    printf("\n Arreglo de Notas\n");
     muestraArreglo(notas, validosNotas);
 
     system("pause");
 
     validosNotas=cargaArregloRandom(notas, validosNotas, DIM_NOTAS);
-    validosDnis=cargaArregloRandom(dnis, validosDnis, DIM_DNIS);
+    validosDnis=cargaArregloRandomConLimite(dnis, validosDnis, DIM_DNIS, 40, 5100000, 50000000);
 
-    printf("\n Arreglo de Notas");
+    printf("\n Arreglo de Notas\n");
     muestraArreglo(notas, validosNotas);
 
-    printf("\n Arreglo de DNIs");
+    printf("\n Arreglo de DNIs\n");
     muestraArreglo(dnis, validosDnis);
 
     int buscado = buscaNota(notas, validosNotas, 9);
@@ -35,8 +40,29 @@ int main()
         printf("\n La nota no existe!!!");
     }
 
+    arreglo2pila(dnis, validosDnis, &d);
+
+    printf("\n <<<<<<<<<<<<<<<< DNIs terminados en 1 - 3 y 5 >>>>>>>>>>>>>>>");
+    while(!pilavacia(&d)){
+        printf("\n DNI: %d", dnis[tope(&d)]);
+        apilar(&aux, desapilar(&d));
+    }
+
+    cuentaDNIs(dnis, validosDnis, cont);
+
+    printf("\n Cantidad de dnis \n");
+    for(int i=0;i<10;i++){
+        printf("\n DNIs terminados en %d: %d", i, cont[i]);
+    }
+
+    muestraArregloHasta(dnis, validosDnis, tope(&d));
+
     printf("\nHello world!\n");
     return 0;
+}
+
+int randomRango(int min, int max){
+    return rand()%(max-min) + min;
 }
 
 int cargaArregloRandom(int arreglo[], int validos, int dim){
@@ -47,19 +73,30 @@ int cargaArregloRandom(int arreglo[], int validos, int dim){
     return i;
 }
 
-int cargaArregloRandomConLimite(int arreglo[], int v, int dim, int cant){
+int cargaArregloRandomConLimite(int arreglo[], int v, int dim, int cant, int min, int max){
     int limite=v+cant;
     if((v+cant) < dim){
         for(;v<limite;v++){
-            arreglo[v]=rand()%1000;
+            arreglo[v]=randomRango(min, max);
         }
     }
-
     return v;
 }
 
 void muestraArreglo(int arreglo[], int v){
     for(int i=0;i<v;i++){
+        printf("%d - ", arreglo[i]);
+    }
+}
+
+void muestraArregloHasta(int arreglo[], int v, int hasta){
+    int i=0;
+    int flag=0;
+
+    while(i < v && flag==0){
+        if(arreglo[i] != hasta){
+            flag = 1;
+        }
         printf("%d - ", arreglo[i]);
     }
 }
@@ -91,3 +128,20 @@ int cargaArregloUsuario(int a[], int v, int dim){
     return v;
 }
 
+void arreglo2pila(int a[], int v, Pila *p){
+    int i=0;
+    while(i < v){
+        if(a[i]%10==1 || a[i]%10==3 || a[i]%10==5){
+            apilar(p, i);
+        }
+        i++;
+    }
+}
+
+void cuentaDNIs(int d[], int v, int cont[]){
+    int indice;
+    for(int i=0;i<v;i++){
+        indice=d[i]%10;
+        cont[indice]++;
+    }
+}
