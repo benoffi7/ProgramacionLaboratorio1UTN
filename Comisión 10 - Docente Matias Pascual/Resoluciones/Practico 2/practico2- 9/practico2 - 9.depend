@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1366732011 source:c:\users\sonvicofamily\desktop\practico2 - 9\pila.c
+	"pila.h"
+
+1238076008 c:\users\sonvicofamily\desktop\practico2 - 9\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1366732011 source:c:\users\sonvicofamily\documents\01 - utn catedras\01 - laboratorio 1\practicos resueltos\practico 2\practico2- 9\pila.c
+	"pila.h"
+
+1238076008 c:\users\sonvicofamily\documents\01 - utn catedras\01 - laboratorio 1\practicos resueltos\practico 2\practico2- 9\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1397051294 source:c:\users\sonvicofamily\documents\01 - utn catedras\01 - laboratorio 1\practicos resueltos\practico 2\practico2- 9\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+

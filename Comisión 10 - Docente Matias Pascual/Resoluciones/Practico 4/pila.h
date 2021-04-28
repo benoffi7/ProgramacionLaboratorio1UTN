@@ -1,10 +1,3 @@
-/// Las dos primeras lineas que dicen #ifndef y #define, y la ultima que dice #endif,
-/// estan incluidas para poder trabajar con el archivo de ejemplo del ejercicio 1.
-/// Uds no necesitan hacer esto para resolver la guia.
-
-#ifndef PILA_H_INCLUDED
-#define PILA_H_INCLUDED
-
 #include <stdio.h>
 #include <malloc.h>
 #define Pila struct _Pila
@@ -24,5 +17,5 @@ int tope(P_Pila p);
 int pilavacia(P_Pila p);
 void leer (P_Pila p);
 void mostrar(P_Pila p);
+void intercalar(P_Pila p1, P_Pila p2, P_Pila p3);
 
-#endif // PILA_H_INCLUDED

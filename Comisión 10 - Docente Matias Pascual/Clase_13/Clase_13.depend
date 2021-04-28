@@ -30,3 +30,26 @@
 1618929621 source:d:\matias\proyectos\utn\dandoclasesc\comisión 10 - docente matias pascual\clase_13\ejercicio_9.c
 	"Librerias/pila.h"
 
+1618929621 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_13\ejercicio_9.c
+	"Librerias/pila.h"
+
+1617746533 d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_13\librerias\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1617752071 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_13\librerias\pila.c
+	"pila.h"
+
+1618930661 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_13\librerias\verpilas.c
+	"verPilas.h"
+
+1618929777 d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_13\librerias\verpilas.h
+	"pila.h"
+	<stdarg.h>
+	<windows.h>
+
+1619031221 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_13\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Librerias/pila.h"
+

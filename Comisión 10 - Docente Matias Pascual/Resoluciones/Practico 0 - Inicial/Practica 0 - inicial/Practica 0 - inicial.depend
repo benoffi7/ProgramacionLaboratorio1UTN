@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1459181730 source:c:\users\gustavo\documents\01 - catedras\01 - laboratorio 1\practicos resueltos\practico 0 - inicial\practica 0 - inicial\main.c
+	<stdio.h>
+	<stdlib.h>
+

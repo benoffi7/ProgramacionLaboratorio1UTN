@@ -55,12 +55,13 @@ void ejemplo_matriz()
 
     printf("el elemento de la posicion 0,0 es: %d \n", matriz_1[0][0]);
     printf("el elemento de la posicion 2,2 es: %d \n", matriz_1[2][2]);
-    printf("el elemento de la posicion 1,3 es: %d \n", matriz_1[1][3]);
+    printf("el elemento de la posicion 1,2 es: %d \n", matriz_1[1][2]);
 
     /// -----------------------------------------------------------
     printf("\n");
 
     /// recorriendo una matriz
+
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++)

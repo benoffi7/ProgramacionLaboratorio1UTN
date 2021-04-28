@@ -39,7 +39,10 @@ int main()
     apilar(&pila, 57);
     apilar(&pila, 50);
 
-    printf("%d", devuelveMenor(&pila));
+    Pila pila2;
+    inicpila(&pila2);
+
+    pasarPila(&pila, &pila2);
 
     return 0;
 }

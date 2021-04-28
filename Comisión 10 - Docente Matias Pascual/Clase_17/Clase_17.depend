@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1619571240 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_17\main.c
+	<stdio.h>
+	<stdlib.h>
+
