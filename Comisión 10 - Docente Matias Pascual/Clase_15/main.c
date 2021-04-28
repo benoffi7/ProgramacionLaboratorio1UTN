@@ -25,12 +25,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void cambiarVariable(int* localA)
+{/// localA = &mainA
+    *localA = 10;
+}
+
 int main()
 {
+    int mainA = 30;
+    cambiarVariable(&mainA);
+
+    printf("%d", mainA);
+
     //ejemplo_matriz();
     //ejemplo_string();
     //ejemplo_operacionesConString();
-    ejemplo_arreglosString();
+    //ejemplo_arreglosString();
 
     return 0;
 }

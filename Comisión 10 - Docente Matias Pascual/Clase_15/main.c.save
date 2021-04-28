@@ -25,28 +25,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int ingresarEnPila(Pila* pila)
+{
+    int numero;
+    int cantidadElementos = 0;
+
+    char salir = '0';    
+    while(salir != 's')        
+    {
+        printf("ingrese un numero \n");    
+        scanf("%d", &numero);
+        
+        apilar(pila,numero); 
+        
+        cantidadElementos++;        
+        
+        /// para salir...       
+    }
+    
+    return cantidadElementos;    
+}
+
 int main()
 {
+    Pila pila;
+    inicpila(&pila);
+    
+    int cantidadElementosPila = 0;
+    
+    leer(&pila);
+    mostrar(&pila);
+    apilar(&pila, 10);
+    
+    cantidadElementosPila += ingresarEnPila(&pila);
+
     //ejemplo_matriz();
     //ejemplo_string();
     //ejemplo_operacionesConString();
-    ejemplo_arreglosString();
-
-    Pila a;
-    inicpila(&a);
-
-    Pila b;
-    inicpila(&b);
-
-    mainA = copiar(mainA);
+    //ejemplo_arreglosString();
 
     return 0;
 }
 
-Pila copiar(Pila localA = mainA)
-{
-    desapilar(&a):
-    
-    
-    return c;
-}

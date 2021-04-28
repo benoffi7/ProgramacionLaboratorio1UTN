@@ -37,7 +37,7 @@ void ejemplo_operacionesConString()
     char frase_0[] = "buenos dias 2";
     char frase_1[] = "buenos dias 2";
 
-    char frase_2[] = "buenos dias 3";
+    char frase_2[] = "buenos dias 1";
 
     printf("frases 0 y 1: %d \n", strcmp(frase_0, frase_1));
     printf("frases 1 y 2: %d \n", strcmp(frase_1, frase_2));
