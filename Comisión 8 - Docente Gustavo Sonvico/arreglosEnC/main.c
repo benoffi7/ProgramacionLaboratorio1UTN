@@ -5,63 +5,158 @@ int cargarArregloInt(int [], int);
 
 void mostrarArregloInt(int [], int);
 
+int existeDato(int [], int, int );
+
+int posicionDelDato(int [], int, int );
+
+int buscaPosMayor(int [], int, int);
+
 int main()
 {
     printf("Hello arreglos!\n");
 
-    int cantMax=20;
+    int cantMax=20, aux, posiMayor;
 
-    int unArreglo[cantMax];  /// arreglo estatico
-    int validosA=0;
+    int unArreglo[20]= {45,23,45,67,12,67}; /// arreglo estatico
+    int validosA=6;
 
-  /*
-  /// arreglo dinamico, no se mentan con esto todavia
+    /*
+    /// arreglo dinamico, no se mentan con esto todavia
 
-    int * unArreglo = malloc(cantMax * sizeof(int));
+      int * unArreglo = malloc(cantMax * sizeof(int));
 
-    realloc();
-    calloc();
+      realloc();
+      calloc();
 
-    /// ejemplos pedorros
+      /// ejemplos pedorros
 
-    printf("%p\n", unArreglo);
+      printf("%p\n", unArreglo);
 
-    unArreglo[0]=12345;
-    validosA++;
+      unArreglo[0]=12345;
+      validosA++;
 
-    printf("%p\n", &unArreglo[0]);
-    printf("%d\n", unArreglo[0]);
+      printf("%p\n", &unArreglo[0]);
+      printf("%d\n", unArreglo[0]);
 
-    unArreglo[1]=6789;
-    validosA++;
+      unArreglo[1]=6789;
+      validosA++;
 
-    printf("%p\n", &unArreglo[1]);
-    printf("%d\n", unArreglo[1]);*/
+      printf("%p\n", &unArreglo[1]);
+      printf("%d\n", unArreglo[1]);*/
 
-   /*
+    /*
 
-   int i=0;
+    int i=0;
 
-    /// estoy cargando el arreglo
-    for(i=0; i<cantMax; i++)
-    {
-        unArreglo[i]=i+1;
-    }
+     /// estoy cargando el arreglo
+     for(i=0; i<cantMax; i++)
+     {
+         unArreglo[i]=i+1;
+     }
 
-    /// estoy mostrando el arreglo
-    for(i=0; i<validosA;i++)
-    {
-        printf("%d - ", unArreglo[i]);
-    }*/
+     /// estoy mostrando el arreglo
+     for(i=0; i<validosA;i++)
+     {
+         printf("%d - ", unArreglo[i]);
+     }*/
 
-    validosA=cargarArregloInt(unArreglo, cantMax);
-
-
+//   validosA=cargarArregloInt(unArreglo, cantMax);
 
     mostrarArregloInt(unArreglo, validosA);
 
 
+    /* system("pause");
+
+     /// existeDato(unArreglo, validosA, 8)==1
+
+     if(existeDato(unArreglo, validosA, 8))
+         printf("el valor se encuentra en el arreglo\n");
+     else
+         printf("el valor NO se encuentra en el arreglo\n");
+
+     system("pause");
+
+     int posi=posicionDelDato(unArreglo, validosA, 8);
+
+     if(posi!=-1)
+     {
+         printf("el valor se encuentra en el arreglo en la posicion %d\n", posi);
+         printf("%d", unArreglo[posi]);
+     }
+     else
+     {
+         printf("el valor NO se encuentra en el arreglo\n");
+     }*/
+/// primera pasada
+    system("pause");
+
+    posiMayor=buscaPosMayor(unArreglo, validosA, 0);
+
+    printf("\nel valor mayor se encuentra en el arreglo en la posicion %d\n", posiMayor);
+    printf("\n%d", unArreglo[posiMayor]);
+
+    aux = unArreglo[posiMayor];
+    unArreglo[posiMayor]=unArreglo[0];
+    unArreglo[0]=aux;
+
+    system("pause");
+    mostrarArregloInt(unArreglo, validosA);
+
+/// segunda pasada
+    system("pause");
+
+    posiMayor=buscaPosMayor(unArreglo, validosA, 1);
+
+    printf("\nel valor mayor se encuentra en el arreglo en la posicion %d\n", posiMayor);
+    printf("\n%d", unArreglo[posiMayor]);
+
+    aux = unArreglo[posiMayor];
+    unArreglo[posiMayor]=unArreglo[1];
+    unArreglo[1]=aux;
+
+    system("pause");
+    mostrarArregloInt(unArreglo, validosA);
     return 0;
+}
+
+/// retorá 1 si el dato existe o 0 si no existe
+int existeDato(int a[], int validos, int dato)
+{
+    int flag=0;  /// false
+    int i=0;
+
+    while(i<validos && !flag) /// flag ==0
+    {
+        if(a[i]==dato)
+        {
+            flag=1; /// true
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return flag;
+}
+
+/// retorá las posicion del dato o -1 si no lo encuentra
+int posicionDelDato(int a[], int validos, int dato)
+{
+    int pos=-1;
+    int i=0;
+
+    while(i<validos && pos==-1)
+    {
+        if(a[i]==dato)
+        {
+            pos=i;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return pos;
 }
 
 int cargarArregloInt(int a[], int dim)
@@ -96,8 +191,31 @@ void mostrarArregloInt(int a[], int validos)
 
     printf("Mostrando el arreglo de int \n");
 
-    for(i=0; i<validos;i++)
+    for(i=0; i<validos; i++)
     {
         printf("[%d]", a[i]);
     }
+}
+
+/// invocar a esta fn si el arreglo tiene un elemento o mas
+
+/// esto es el nucleo de la ordenacion por seleccion
+int buscaPosMayor(int arreglo[], int validos, int posLimite)
+{
+    int i=posLimite; /// posicion inicial de trabajo
+
+    /// inicializa los datos del mayor con el primer elemento del arreglo
+    int mayorElemento=arreglo[i];
+    int posDelMayor=i;
+    ///
+
+    for(i=posLimite+1; i<validos; i++)
+    {
+        if(arreglo[i]>mayorElemento)
+        {
+            mayorElemento=arreglo[i];
+            posDelMayor=i;
+        }
+    }
+    return posDelMayor;
 }
