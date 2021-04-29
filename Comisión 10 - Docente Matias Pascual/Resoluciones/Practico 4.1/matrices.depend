@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1462463206 source:c:\users\ara\desktop\matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1462842187 source:c:\users\gustavo\documents\01 - catedras\01 - laboratorio 1\practicos resueltos\practico 4.1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+

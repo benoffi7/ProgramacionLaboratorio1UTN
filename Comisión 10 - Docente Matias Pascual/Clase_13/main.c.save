@@ -39,9 +39,9 @@ int main()
     apilar(&pila, 57);
     apilar(&pila, 50);
 
-    printf("%d", devuelveMenor(&pila));    
     
-    verPilas(20, )
+    
+    printf("%d", devuelveMenor(&pila));
 
     return 0;
 }
@@ -51,6 +51,7 @@ void pasarPila (Pila *origen, Pila *destino)
     while (!pilavacia(origen))
     {
         apilar(destino, desapilar(origen));
+        verPilas(2, destino, origen);
     }
 }
 
