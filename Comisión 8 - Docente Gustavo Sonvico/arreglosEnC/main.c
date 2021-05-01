@@ -219,3 +219,18 @@ int buscaPosMayor(int arreglo[], int validos, int posLimite)
     }
     return posDelMayor;
 }
+
+int  insertaEnOrden(int arreglo[], int validos, int aInsertar) {
+	int u =validos-1;
+
+	while(u>=0 && aInsertar< arreglo[u]){
+		arreglo[u+1]=arreglo[u];
+		u--;
+
+	}
+
+	arreglo[u+1]=aInsertar;
+
+	return validos+1;
+}
+
