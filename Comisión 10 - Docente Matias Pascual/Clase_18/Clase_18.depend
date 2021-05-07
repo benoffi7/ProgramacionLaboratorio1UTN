@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1620347693 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_18\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1620345583 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_18\arreglosdinamicos.c
+	<stdio.h>
+	<string.h>
+
+1620344742 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_18\estructuras.c
+

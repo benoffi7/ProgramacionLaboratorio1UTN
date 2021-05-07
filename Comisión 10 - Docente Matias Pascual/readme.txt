@@ -228,3 +228,15 @@ CLASE 15:
 
         MATRICES y STRINGS
             * Entendiendo los arreglos de strings
+
+-------------------------
+(CLASE 16 Y 17: EXAMENES)
+-------------------------
+
+CLASE 18:
+        * Arreglos dinamicos
+        * Arreglos paralelos
+        * Estructuras
+
+        * PARA RESOLVER EN CLASE:
+            _ Crear una funcion que muestre los datos de una persona pasada por parametro.
