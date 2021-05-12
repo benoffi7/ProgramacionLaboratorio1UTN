@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1620776192 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-05-11 - clase 23\ordenacionarreglos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
