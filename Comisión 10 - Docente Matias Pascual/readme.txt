@@ -240,3 +240,14 @@ CLASE 18:
 
         * PARA RESOLVER EN CLASE:
             _ Crear una funcion que muestre los datos de una persona pasada por parametro.
+
+CLASE 19:
+        * Resolucion de ejercicios de la guia 4.1 : matrices
+        * Cargar matriz
+        * Mostrar matriz
+        * Cargar matriz con numeros aleatorios (resolver en clase)
+
+CLASE 20:
+        * Organizacion del Trabajo Practico Final
+        * Utilizacion de funciones gotoxy() y color()
+        * Resolucion de ejercicios en clase

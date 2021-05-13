@@ -4,6 +4,7 @@
 void ejemplo_arreglosDinamicos()
 {
     /// su tamaño es definido en tiempo de ejecucion
+
     int cantidad = 10;
     int* arregloDinamico = (int*) malloc(cantidad * sizeof(int));
 

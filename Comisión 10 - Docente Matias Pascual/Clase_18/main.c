@@ -24,13 +24,20 @@ void ejemplo_arreglosParalelos();
 void ejemplo_estructuras();
 void usandoTypeDef();
 
+
+void funcion(unsigned long int variable)
+{
+    printf("%d", sizeof(variable));
+}
+
+
 int main()
 {
     //ejemplo_arreglosDinamicos();
     //ejemplo_arreglosParalelos();
     //ejemplo_estructuras();
     //usandoTypeDef();
-    ejemplo_persona();
+    //ejemplo_persona();
 
     return 0;
 }
