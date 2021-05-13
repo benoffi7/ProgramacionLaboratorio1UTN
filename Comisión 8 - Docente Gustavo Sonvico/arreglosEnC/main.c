@@ -17,9 +17,15 @@ int main()
 
     int cantMax=20, aux, posiMayor;
 
-    int unArreglo[20]= {45,23,45,67,12,67}; /// arreglo estatico
+    int unArreglo[20]={45,23,45,67,12,67}; /// arreglo estatico
+
     int validosA=6;
 
+    int * unArrayDinamico = malloc(20*sizeof(int));
+
+    int otroValido=cargarArregloInt(unArrayDinamico, 20);
+
+    mostrarArregloInt(unArrayDinamico, otroValido);
     /*
     /// arreglo dinamico, no se mentan con esto todavia
 
@@ -156,6 +162,7 @@ int posicionDelDato(int a[], int validos, int dato)
             i++;
         }
     }
+
     return pos;
 }
 
@@ -220,17 +227,53 @@ int buscaPosMayor(int arreglo[], int validos, int posLimite)
     return posDelMayor;
 }
 
-int  insertaEnOrden(int arreglo[], int validos, int aInsertar) {
+int insertaEnOrden(int arreglo[], int validos, int aInsertar) {
 	int u =validos-1;
 
 	while(u>=0 && aInsertar< arreglo[u]){
 		arreglo[u+1]=arreglo[u];
 		u--;
-
 	}
 
 	arreglo[u+1]=aInsertar;
 
 	return validos+1;
+}
+
+/// si queres ver ordenacion por burbujeo, pagina 358 del libro prog en c
+/// buscar tb algoritmo burbuja mejorado
+
+///    1. Ord x Selección.
+int posicionMenor (int A[], int pos, int c)
+{
+    int menor = A[pos];
+    int posmenor = pos;
+    int i = pos +1;
+    while (i<c)
+    {
+        if (menor > A[i])
+        {
+            menor = A[i];
+            posmenor = i;
+        }
+        i++;
+    }
+    return posmenor;
+}
+
+void ordenacionSeleccion (int A[], int c)
+{
+    int posmenor;
+    int aux;
+    int i = 0;
+    while (i<c-1)
+    {
+        posmenor = posicionMenor(A,i,c);
+
+        aux = A[posmenor];
+        A[posmenor]=A[i];
+        A[i]= aux;
+        i++;
+    }
 }
 
