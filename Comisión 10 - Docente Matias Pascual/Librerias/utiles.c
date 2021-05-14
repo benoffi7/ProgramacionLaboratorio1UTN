@@ -19,7 +19,7 @@ void getColors()
     for(int i = 0; i < 255; i++)
     {
         color(i);
-        printf("  ABCDE abcde 1234 |@#&   \n");
+        printf("%i :  ABCDE abcde 1234 |@#&          \n", i);
     }
 
     color(7);

@@ -251,3 +251,15 @@ CLASE 20:
         * Organizacion del Trabajo Practico Final
         * Utilizacion de funciones gotoxy() y color()
         * Resolucion de ejercicios en clase
+
+
+CLASE 21:
+        * Archivos. Primera parte
+            _ Archivos y tipos de datos primitivos
+            _ Archivos y tipos de datos definidos por el usuario
+
+        * Hilos en C (solo para los grupos que lo solicitaron,
+                      no se evalua en ningun examen ni final ni trabajo practico)
+
+        Referencias de hilos:
+        https://www.youtube.com/watch?v=NAKrOZCcJ4A&ab_channel=WhileTrueThenDream
