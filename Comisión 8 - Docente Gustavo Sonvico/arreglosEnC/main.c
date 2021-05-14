@@ -177,10 +177,11 @@ int cargarArregloInt(int a[], int dim)
     {
         printf("Ingrese un valor entero: ");
 
-        ///scanf("%d", &aux);
-        ///a[i]=aux;
+        scanf("%d", &aux);
+        //a[i]=aux;
 
-        scanf("%d", &a[i]);
+        /// insertarEnOrden();
+    //    scanf("%d", &a[i]);
 
         printf("Desea continuar? s/n \n");
         fflush(stdin);
