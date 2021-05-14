@@ -142,7 +142,7 @@ void cargaMatriz(int fil, int col, int m[fil][col]){
 void muestraMatriz(int fil, int col, int m[fil][col]){
     for(int i=0;i<fil;i++){
         for(int j=0;j<col;j++){
-            printf("[%d]", m[i][j]);
+            printf("[%i]", m[i][j]);
         }
         printf("\n");
     }

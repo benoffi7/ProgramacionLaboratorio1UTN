@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1620952340 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\2021-05-13\matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
