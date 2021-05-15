@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1491400449 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-05-14 - clase 25\arreglosparalelos\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
