@@ -13,8 +13,8 @@ int main()
     char nombres[DIM][30];
     int validos = 0;
     int pos;
-
-    music();
+    //music();
+    //colores();
 
     validos = cargaAlumnos(legajos, dnis, apellidos, nombres, DIM);
     muestraAlumnos(legajos, dnis, apellidos, nombres, validos);
@@ -22,7 +22,7 @@ int main()
     pos = buscaPorDni(dnis, validos, 121212);
     if(pos>-1){
         system("cls");
-        muestraAlumno(legajos[pos], dnis[pos], apellidos[pos], nombres[pos]);
+        muestraUnAlumno(legajos[pos], dnis[pos], apellidos[pos], nombres[pos]);
     }
 
     printf("\n\nHello world!\n");
@@ -43,31 +43,16 @@ int cargaAlumnos(int leg[], int dnis[], char ape[][30], char nom[][30], int dim)
     while(i<dim && opcion!=27){
         mostrarFormulario();
         hidecursor(1);
+        color(112);
         gotoxy(30,2);
-        scanf("%d", &leg[i]);void muestraAlumnos(int leg[], int dnis[], char ape[][30], char nom[][30], int v){
-    system("cls");
-    int y=1;
-    for(int i=0;i<v;i++){
-        gotoxy(10,y+2);
-        printf("Legajo............: %d", leg[i]);
-        gotoxy(10,y+3);
-        printf("DNI...............: %d", dnis[i]);
-        gotoxy(10,y+4);
-        printf("Apellido..........: %s", ape[i]);
-        gotoxy(10,y+5);
-        printf("Nombres...........: %s", nom[i]);
-        gotoxy(5,y+6);
-        printf("----------------------------------------------------------------------");
-        y=y+5;
-    }
-}
+        scanf("%5d", &leg[i]);
         gotoxy(30,3);
-        scanf("%d", &dnis[i]);
+        scanf("%8d", &dnis[i]);
         gotoxy(30,4);
         scanf("%s", ape[i]);
         gotoxy(30,5);
         scanf("%s", nom[i]);
-
+        color(7);
         i++;
         hidecursor(0);
         opcion=getch();
@@ -78,51 +63,52 @@ int cargaAlumnos(int leg[], int dnis[], char ape[][30], char nom[][30], int dim)
 }
 
 void mostrarFormulario(){
-    color(184);
     gotoxy(10,2);
-    printf("Legajo............:");
+    printf("Legajo............: ");
+    replicante(219,5);
     gotoxy(10,3);
-    printf("DNI...............:");
+    printf("DNI...............: ");
+    replicante(219,10);
     gotoxy(10,4);
-    printf("Apellido..........:");
+    printf("Apellido..........: ");
+    replicante(219,30);
     gotoxy(10,5);
-    printf("Nombres...........:");
-    color(11);
+    printf("Nombres...........: ");
+    replicante(219,30);
     gotoxy(15,7);
     printf("ESC para salir - cualquier tecla para continuar");
 }
 
 void muestraAlumnos(int leg[], int dnis[], char ape[][30], char nom[][30], int v){
     system("cls");
+    int x=2;
     int y=1;
     for(int i=0;i<v;i++){
-        gotoxy(10,y+2);
-        printf("Legajo............: %d", leg[i]);
-        gotoxy(10,y+3);
-        printf("DNI...............: %d", dnis[i]);
-        gotoxy(10,y+4);
-        printf("Apellido..........: %s", ape[i]);
-        gotoxy(10,y+5);
-        printf("Nombres...........: %s", nom[i]);
-        gotoxy(5,y+6);
-        printf("----------------------------------------------------------------------");
+        gotoxy(x,y);
+        muestraUnAlumno(leg[i], dnis[i], ape[i], nom[i]);
         y=y+5;
     }
 }
 
-void muestraAlumno(int leg, int dni, char ape[], char nom[]){
-    int y=1;
-        gotoxy(10,y+2);
-        printf("Legajo............: %d", leg);
-        gotoxy(10,y+3);
-        printf("DNI...............: %d", dni);
-        gotoxy(10,y+4);
-        printf("Apellido..........: %s", ape);
-        gotoxy(10,y+5);
-        printf("Nombres...........: %s", nom);
-        gotoxy(5,y+6);
-        printf("----------------------------------------------------------------------");
-        y=y+5;
+void muestraUnAlumno(int leg, int dni, char ape[], char nom[]){
+    int x=whereX();
+    int y=whereY();
+    gotoxy(x,y);
+    y++;
+    printf("Legajo............: %d", leg);
+    gotoxy(x,y);
+    y++;
+    printf("DNI...............: %d", dni);
+    gotoxy(x,y);
+    y++;
+    printf("Apellido..........: %s", ape);
+    gotoxy(x,y);
+    y++;
+    printf("Nombres...........: %s", nom);
+    gotoxy(x,y);
+    y++;
+    replicante('-',40);
+    y++;
 }
 
 int buscaPorDni(int dnis[], int v, int dni){
@@ -158,4 +144,12 @@ void music(){
             i=1;
          }
     }
+}
+
+void replicante(char c, int n){
+    hidecursor(0);
+    for(int i=0;i<n;i++){
+        printf("%c",c);
+    }
+    hidecursor(1);
 }
