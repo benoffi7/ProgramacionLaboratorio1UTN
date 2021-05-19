@@ -24,6 +24,10 @@ int main()
     int vAlumnos=0;
     stAlumno a;
 
+    printf("\n________________ %d", sizeof(stAlumno));
+    system("pause");
+    exit(0);
+
     vAlumnos = cargaAlumnos(alumnos, DIM);
 
     printf("\nMuestra Alumnos\n");
@@ -93,6 +97,20 @@ stAlumno buscaAlumno(stAlumno a[], int v, int legajo){
         i++;
     }
     return alumno;
+}
+
+int buscaAlumnoPuntero(stAlumno a[], int v, stAlumno *al, int legajo){
+    int flag=0;
+    int i = 0;
+
+    while(i<v && flag == 0){
+        if(a[i].legajo == legajo){
+            (*al) = a[i];
+            flag=1;
+        }
+        i++;
+    }
+    return flag;
 }
 
 void muestraAlumnosConTeminacion(stAlumno a[], int v, char c){
