@@ -4,11 +4,27 @@
 
 typedef struct
 {
+    char calle[25];
+    int numero;
+    int piso;
+    char dpto[4];
+} stDireccion;
+
+typedef struct
+{
     int matricula;
     char nombreApellido[40];
     char genero;
+    stDireccion direccion;
 } stAlumno;
 
+/// fns manejo struct direccion
+stDireccion cargarDireccion();
+void mostrarDireccion(stDireccion dir);
+
+
+
+///
 int cargarArregloInt(int A[], int dim);
 
 /// pensarla
@@ -23,8 +39,12 @@ void mostraArregloAlumno(stAlumno listadoDeAlumnos[], int validos);
 
 int main()
 {
+
     printf("Hello structs!\n");
     int unVariable=0;
+
+   /* stDireccion miDir=cargarDireccion();
+    mostrarDireccion(miDir);*/
 
     /// como creamos una variable de tipo stAlumno
 
@@ -124,6 +144,8 @@ int cargarArregloAlumnos(stAlumno listadoDeAlumnos[], int dim)
         fflush(stdin);
         gets(unAlumno.nombreApellido);
 
+        unAlumno.direccion=cargarDireccion();
+
         /// valido los datos
         listadoDeAlumnos[i]=unAlumno;
 
@@ -148,6 +170,40 @@ void mostraArregloAlumno(stAlumno listadoDeAlumnos[], int validos)
         printf("\n         Matricula: %d", listadoDeAlumnos[i].matricula);
         printf("\n Nombre y Apellido: %s", listadoDeAlumnos[i].nombreApellido);
         printf("\n            Genero: %c", listadoDeAlumnos[i].genero);
+        printf("\n         Direccion:");
+        mostrarDireccion(listadoDeAlumnos[i].direccion);
         printf("\n----------------------------------");
     }
+}
+
+stDireccion cargarDireccion()
+{
+    stDireccion aux;
+    printf("Ingrese los datos de la direccion: \n");
+
+    printf("Ingrese su calle: ");
+    fflush(stdin);
+    gets(aux.calle);
+
+    printf("Ingrese la altura: ");
+    scanf("%d", &aux.numero);
+
+    printf("Ingrese el piso: ");
+    scanf("%d", &aux.piso);
+
+    printf("Ingrese el depto: ");
+    fflush(stdin);
+    gets(aux.dpto);
+
+    return aux;
+}
+
+void mostrarDireccion(stDireccion dir)
+{
+    printf("\n-------------------");
+    printf("\n Calle: %s", dir.calle);
+    printf("\nAltura: %d", dir.numero);
+    printf("\n  Piso: %d", dir.piso);
+    printf("\n Depto: %s", dir.dpto);
+    printf("\n-------------------");
 }
