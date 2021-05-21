@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1621555722 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\2021-05-20 - estructuras\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
