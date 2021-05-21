@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1621550621 source:c:\users\gsonv\desktop\ejemplos clase\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\estructurasdedatoscom8\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
