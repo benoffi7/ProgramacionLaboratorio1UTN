@@ -15,14 +15,22 @@ typedef struct {
 void cargaArchivoAlumnos(char archivo[]);
 void muestraArchivoAlumnos(char archivo[]);
 void muestraUnAlumno(stAlumno a);
-
+void muestraArregloAlumnos(stAlumno a[], int v);
+int cargaArregloConFiltro(char nombreArchivo[], stAlumno a[], int dim, char letra);
 
 int main()
 {
+    stAlumno arregloAlumnos[100];
+    int vAlumnos = 0;
+
     cargaArchivoAlumnos("alumnos.dat");
 
     printf("\n\t\tListado de Alumnos!\n");
     muestraArchivoAlumnos("alumnos.dat");
+
+    vAlumnos = cargaArregloConFiltro("alumnos.dat", arregloAlumnos, 100, 'A');
+    printf("\n Arreglo de Alumnos\n");
+    muestraArregloAlumnos(arregloAlumnos, vAlumnos);
 
     return 0;
 }
@@ -81,13 +89,29 @@ void muestraUnAlumno(stAlumno a){
     printf("\n--------------------------------------");
 }
 
+void muestraArregloAlumnos(stAlumno a[], int v){
+    for(int i=0;i<v;i++){
+        muestraUnAlumno(a[i]);
+    }
+}
 
+int cargaArregloConFiltro(char nombreArchivo[], stAlumno a[], int dim, char letra){
+    stAlumno alumno;
+    int i=0;
 
+    FILE *pArchi = fopen(nombreArchivo, "rb");
 
-
-
-
-
+    if(pArchi != NULL){
+        while(i<dim && fread(&alumno, sizeof(stAlumno), 1, pArchi) > 0){
+            if(alumno.apellido[0]==letra){
+                a[i] = alumno;
+                i++;
+            }
+        }
+        fclose(pArchi);
+    }
+    return i;
+}
 
 
 

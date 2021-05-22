@@ -146,7 +146,7 @@ int buscaCalle(stAlumno a[], int v, int calle){
     return flag;
 }
 
-int buscaApellidoP(stAlumno a[], int v, stAlumno *alu; char ape[]){
+int buscaApellidoP(stAlumno a[], int v, stAlumno *alu, char ape[]){
     int flag=0;
     int i=0;
 
