@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1621640445 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_24\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"personas.h"
+
+1621643578 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_24\personas.c
+	"personas.h"
+
+1621640918 d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_24\personas.h
+	<stdio.h>
+

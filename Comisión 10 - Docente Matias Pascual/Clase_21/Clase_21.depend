@@ -1,18 +1,21 @@
 # depslib dependency file v1.0
-1621026752 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\main.c
+1621343008 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\main.c
 	<stdio.h>
 	<stdlib.h>
 
-1621024991 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\archivos.c
+1621342892 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\archivos.c
 	<stdio.h>
 	<string.h>
 
-1620939285 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\librerias\utiles.c
+1621027283 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\librerias\utiles.c
 	<windows.h>
 
-1621026126 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\hilos.c
+1621036967 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\hilos.c
 	<pthread.h>
+	<windows.h>
 	"../Librerias/utiles.h"
 
 1620939241 d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\librerias\utiles.h
+
+1621039275 source:d:\matias\proyectos\utn\dandoclasesc\mi repositorio\utn-laboratorio-programacion-1-2021\clase_21\testing.c
 

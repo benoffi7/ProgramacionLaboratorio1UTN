@@ -263,3 +263,26 @@ CLASE 21:
 
         Referencias de hilos:
         https://www.youtube.com/watch?v=NAKrOZCcJ4A&ab_channel=WhileTrueThenDream
+
+CLASE 22:
+        * Archivos. Segunda parte
+            _ guardando datos desde un arreglo
+            _ mostrando datos con modularizacion
+            _ fseek()
+            _ ftell()
+
+            _ Para resolver en clase: buscar una persona en un archivo
+
+CLASE 23:
+        * Ejemplos de uso de archivos con arreglos y pilas
+        * Ejemplos de uso de funciones y archivos
+        * Resolucion de ejercicios
+
+CLASE 24:
+        * Borrando registros de un archivo
+        * Funciones de ejemplo para trabajar con estructuras
+            - inicPersona
+            - mostrarPersona
+            - mostrarValidos
+
+        * Uso de -> para acceder a los datos de un puntero a persona

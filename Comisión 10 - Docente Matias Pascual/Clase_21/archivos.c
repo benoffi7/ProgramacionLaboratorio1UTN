@@ -15,7 +15,7 @@ void write_archivos()
     /** primero usamos fopen para abrir el archivo
         el archivio es abierto en modo escritura */
 
-    FILE* archivo = fopen("miArchivo.txt", "w");
+    FILE* archivo = fopen("miArchivo_tosini.txt", "w");
 
     /// siempre comprobamos que el archivo haya sido abierto con exito
     if (archivo != NULL)
@@ -33,7 +33,8 @@ void write_archivos()
 
 void write_archivos_2()
 {
-    const char* rutaArchivo = "miArchivo.txt";
+    const char rutaArchivo[] = "miArchivo_tosini.txt";
+
     FILE* fArchivo = fopen(rutaArchivo, "a");
 
     char frase[] = ", buenas\n noches!";
@@ -46,7 +47,7 @@ void write_archivos_2()
     }
 }
 
-#define RUTA_ARCHIVO "miArchivo.dat"
+#define RUTA_ARCHIVO "miArchivo_tosini.dat"
 
 void write_archivos_3()
 {
@@ -75,13 +76,19 @@ void write_archivos_4()
 
     if(fArchivo != NULL)
     {
+        /// persona
         stPersona persona;
-
         persona.dni = 20123321;
-
         strcpy(persona.nombre, "Ricardita");
 
         fwrite(&persona, sizeof(persona), 1, fArchivo);
+
+        /// persona 2
+        stPersona persona2;
+        persona2.dni = 45678945;
+        strcpy(persona2.nombre, "Claudia");
+
+        fwrite(&persona2, sizeof(persona2), 1, fArchivo);
 
         fclose(fArchivo);
     }
@@ -103,10 +110,7 @@ void read_archivos()
 
         while(fread(&caracter, sizeof(caracter), 1, fArchivo) > 0)
         {
-            //printf("%c", caracter);
-
             palabras[contadorCaracteres++] = caracter;
-
         }
 
         for(int i = 0; i < contadorCaracteres; i++)
@@ -118,7 +122,7 @@ void read_archivos()
     }
 }
 
-#define RUTA_ARCHIVO_LECTURA_DAT "miArchivo.dat"
+#define RUTA_ARCHIVO_LECTURA_DAT "miArchivo_tosini.dat"
 
 void read_archivos_2()
 {
@@ -126,14 +130,18 @@ void read_archivos_2()
 
     if(fArchivo != NULL)
     {
-        stPersona persona;
+        stPersona personas[10];
+        int i = 0;
 
-        while(fread(&persona, sizeof(persona), 1, fArchivo) > 0)
+        while(fread(&personas[i++], sizeof(personas[0]), 1, fArchivo) > 0)
         {
-
+            //i++;
         }
 
-        printf("- nombre: %s \n- dni: %i", persona.nombre, persona.dni);
+        for(int j = 0; j < i - 1; j++)
+        {
+            printf("- nombre: %s \n- dni: %i \n", personas[j].nombre, personas[j].dni);
+        }
 
         fclose(fArchivo);
     }

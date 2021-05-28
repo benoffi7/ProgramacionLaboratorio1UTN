@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Clase_21" />
+		<Option title="Clase_24" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Clase_21" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Clase_24" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Clase_21" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Clase_24" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,22 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../Librerias/utiles.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../Librerias/utiles.h" />
-		<Unit filename="archivos.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="hilos.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="testing.c">
+		<Unit filename="personas.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="personas.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
