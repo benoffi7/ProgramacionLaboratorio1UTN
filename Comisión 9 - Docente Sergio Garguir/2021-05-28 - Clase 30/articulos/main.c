@@ -98,6 +98,7 @@ void muestraArchiMarca(char archivo[], char marca[]){
 void aumentaPrecios(char archivo[], int aumento){
     stArticulo a;
     FILE *pArchi = fopen(archivo, "r+b");
+    int cont=0;
 
     if(pArchi){
         while(fread(&a, sizeof(stArticulo), 1, pArchi)>0){
@@ -105,6 +106,8 @@ void aumentaPrecios(char archivo[], int aumento){
 
             fseek(pArchi, -1 * sizeof(stArticulo), SEEK_CUR);
             fwrite(&a, sizeof(stArticulo), 1, pArchi);
+            cont++;
+            fseek(pArchi, sizeof(stArticulo)*cont, SEEK_SET);
         }
         fclose(pArchi);
     }
