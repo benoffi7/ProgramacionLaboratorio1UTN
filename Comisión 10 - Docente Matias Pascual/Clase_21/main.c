@@ -29,12 +29,12 @@ int main()
     //write_archivos_3();
     //write_archivos_4();
 
-    //read_archivos();
+    read_archivos();
     //read_archivos_2();
 
-    /// hilos -------------------------
+    //funcionPrincipal();
 
-    funcionPrincipal();
+    //funcion();
 
     return 0;
 }
