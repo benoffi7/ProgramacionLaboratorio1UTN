@@ -1,5 +1,15 @@
 # depslib dependency file v1.0
-1622245080 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-05-28 - clase 30\articulos\main.c
+1622583337 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-05-28 - clase 30\articulos\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	"articulo.h"
+
+1622583339 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-05-28 - clase 30\articulos\articulo.c
+	"articulo.h"
+
+1622583641 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-05-28 - clase 30\articulos\articulo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

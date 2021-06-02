@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "articulo.h"
 
 const char AR_ART[]="articulos.dat";
 
-typedef struct{
-    int id;
-    int codigo;
-    int rubro; /// 1 - Televisores / 2 - Lavarropas / 3 - Cocinas / 4 - Calefactores
-    char marca[30];
-    char modelo[30];
-    float precio;
-} stArticulo;
+void muestraArchivo(char archivo[]);
+void muestraArchiRubro(char archivo[], int rubro);
+void muestraArchiMarca(char archivo[], char marca[]);
+void aumentaPrecios(char archivo[], int aumento);
 
 int main()
 {
@@ -42,31 +40,6 @@ void muestraArchivo(char archivo[]){
     }
 }
 
-void muestraUnArticulo(stArticulo a){
-    char rubro[15];
-    getRubro(a.rubro, rubro);
-
-    printf("\n Id...................: %d", a.id);
-    printf("\n Codigo...............: %d", a.codigo);
-    printf("\n Rubro................: %d (%s)", a.rubro, rubro);
-    printf("\n Marca................: %s", a.marca);
-    printf("\n Modelo...............: %s", a.modelo);
-    printf("\n Precio...............: %.2f", a.precio);
-    printf("\n------------------------------------------------");
-}
-
-void getRubro(int nro, char rubro[]){
-    switch(nro){
-        case 1: strcpy(rubro, "Televisores");
-                break;
-        case 2: strcpy(rubro, "Lavarropas");
-                break;
-        case 3: strcpy(rubro, "Cocinas");
-                break;
-        case 4: strcpy(rubro, "Calefactores");
-    }
-}
-
 void muestraArchiRubro(char archivo[], int rubro){
     stArticulo a;
     FILE *pArchi = fopen(archivo, "rb");
@@ -87,7 +60,7 @@ void muestraArchiMarca(char archivo[], char marca[]){
 
     if(pArchi){
         while(fread(&a, sizeof(stArticulo), 1, pArchi)>0){
-            if (strcmp(a.marca,marca)==0){
+            if (strcmp(a.marca, marca)==0){
                muestraUnArticulo(a);
             }
         }
@@ -113,10 +86,51 @@ void aumentaPrecios(char archivo[], int aumento){
     }
 }
 
+stArticulo buscaArtMenorPrecio(char archivo[]){
+    stArticulo a;
+    stArticulo menorPrecio;
+    FILE *pArchi = fopen(archivo, "rb");
 
+    if(pArchi){
+        if(fread(&menorPrecio, sizeof(stArticulo), 1, pArchi)>0){}
 
+        while(fread(&a, sizeof(stArticulo), 1, pArchi)>0){
+            if(a.precio < menorPrecio.precio){
+                menorPrecio = a;
+            }
+        }
+        fclose(pArchi);
+    }
 
+    return menorPrecio;
+}
 
+stArticulo retornaArticulo(char archivo[], int pos){
+    stArticulo a;
+    FILE *pArch = fopen(archivo, "rb");
+
+    if(pArch && pos >= 0 && pos <= cuentaRegistros(archivo, sizeof(stArticulo))){
+        fseek(pArch, sizeof(stArticulo)*pos, 0);
+        fread(&a, sizeof(stArticulo), 1, pArch);
+
+        fclose(pArch);
+    }
+
+    return a;
+}
+
+int cuentaRegistros(char archivo[], int tamanio){
+    int cant = 0;
+    FILE *pArch = fopen(archivo, "rb");
+
+    if(pArch){
+        fseek(pArch, 0, SEEK_END);
+        cant = ftell(pArch)/tamanio; /// tamanio es sizeof(stArticulo)
+
+        fclose(pArch);
+    }
+    return cant;
+}
 
 
 
