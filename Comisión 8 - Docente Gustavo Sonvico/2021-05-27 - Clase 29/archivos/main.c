@@ -15,6 +15,8 @@ typedef struct{
 
 int main()
 {
+
+
     cargaAlumnos(ARCH_ALUMNOS);
 
     printf("\nListado de alumnos! cantidad: %d\n", cuentaRegistros(ARCH_ALUMNOS, sizeof(stAlumno)));

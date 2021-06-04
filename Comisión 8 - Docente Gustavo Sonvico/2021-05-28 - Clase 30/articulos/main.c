@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct{
     int id;
@@ -10,10 +11,23 @@ typedef struct{
     float precio;
 } stArticulo;
 
+int artToString(char archivo[], char toString[][200], int dim);
+void impToString(char toString[][200], int v);
+
 int main()
 {
-    printf("Listado de articulos!\n");
+    char marcaModelo[100][70];
+    int validos=0;
+    char toString[100][200];
+    int vToString=0;
+
+
+   /* printf("Listado de articulos! \n");
     muestraArchivo("articulos.dat");
+*/
+    vToString = artToString("articulos.dat", toString, 200);
+    impToString(toString, vToString);
+
     return 0;
 }
 
@@ -56,6 +70,7 @@ void getRubro(int codigo, char rubro[]){
 
 void aumentaPrecios(char archivo[], int aumento){
     stArticulo a;
+
     FILE *pArchi = fopen(archivo, "r+b");
     int cont=0;
 
@@ -89,3 +104,63 @@ stArticulo buscaArticuloMasBarato(char archivo[]){
 
     return masBarato;
 }
+
+int concatenar (char archivo[],char marcaModel[][200], int dim)
+{
+    stArticulo a;
+    int v=0;
+    FILE *pArch = fopen(archivo, "rb");
+    if (pArch)
+    {
+        while(v<dim && fread(&a,sizeof(stArticulo),1,pArch)>0)
+        {
+            strcat(marcaModel[v],a.marca);
+            strcat(marcaModel[v]," - ");
+            strcat(marcaModel[v],a.modelo);
+            v++;
+        }
+        fclose(pArch);
+    }
+    return v;
+}
+
+int artToString(char archivo[], char toString[][200], int dim){
+    int i=0;
+    stArticulo a;
+    char rubro[15];
+    FILE *pArch = fopen(archivo, "rb");
+
+    if(pArch){
+        while(i<dim && fread(&a, sizeof(stArticulo), 1, pArch)>0){
+            getRubro(a.rubro, rubro);
+            sprintf(toString[i],"\nId: %3d - Codigo: %4d - Rubro: %2d (%10s) - Marca: %-20s - Modelo: %-8s - Precio: %8.2f", a.id, a.codigo, a.rubro, rubro, a.marca, a.modelo, a.precio);
+            i++;
+        }
+
+        fclose(pArch);
+    }
+    return i;
+}
+
+void impToString(char toString[][200], int v){
+    for(int i=0;i<v;i++){
+        printf(toString[i]);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
