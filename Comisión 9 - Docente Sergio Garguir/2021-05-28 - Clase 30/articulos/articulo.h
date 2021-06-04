@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+char articulosString[100][200];
+
 typedef struct{
     int id;
     int codigo;

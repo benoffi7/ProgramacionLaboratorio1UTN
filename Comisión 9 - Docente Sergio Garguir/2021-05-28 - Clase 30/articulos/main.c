@@ -9,10 +9,18 @@ void muestraArchivo(char archivo[]);
 void muestraArchiRubro(char archivo[], int rubro);
 void muestraArchiMarca(char archivo[], char marca[]);
 void aumentaPrecios(char archivo[], int aumento);
+int articulosToString(char archivo[], char toString[][200], int dim);
+void muestraArregloToString(char toString[][200], int v);
 
 int main()
 {
-    printf("\nListado de articulos!\n");
+    char artToString[100][200];
+    int vArt=0;
+
+    char marcaModelo[100][200];
+    int vMarcaModelo=0;
+
+    printf("\nListado de articulos! %d\n", sizeof(stArticulo));
     muestraArchivo(AR_ART);
 
     aumentaPrecios(AR_ART, 10);
@@ -24,6 +32,13 @@ int main()
     muestraArchiRubro(AR_ART, 3);
     printf("\nListado de articulos de la marca Bosch!\n");
     muestraArchiMarca(AR_ART, "Bosch");
+
+    vArt = articulosToString(AR_ART, artToString, 100);
+    muestraArregloToString(artToString, vArt);
+
+    vMarcaModelo = marcaModeloToString(AR_ART, marcaModelo, 100);
+    muestraArregloToString(marcaModelo, vArt);
+
     return 0;
 }
 
@@ -132,10 +147,53 @@ int cuentaRegistros(char archivo[], int tamanio){
     return cant;
 }
 
+int articulosToString(char archivo[], char toString[][200], int dim){
+    stArticulo a;
+    char rubro[20];
+    int i=0;
+    FILE *pArchi = fopen(archivo, "rb");
 
+    if(pArchi){  /// if(pArchi!=NULL)
+        while(i<dim && fread(&a, sizeof(stArticulo), 1, pArchi)>0){
+       /*
+          strcat(toString[i], "Id: ");
+          strcat(toString[i], itoa(a.id);
+          strcat(toString[i], " Codigo: ");
+        */
+            getRubro(a.rubro, rubro);
+            sprintf(toString[i],"Id: %4d, Codigo: %5d, Rubro: %d - %-15s, Marca: %-15s, Modelo: %-10s, Precio: %6.2f",a.id, a.codigo, a.rubro, rubro, a.marca, a.modelo, a.precio);
+            i++;
+        }
 
+        fclose(pArchi);
+    }
+    return i;
+}
 
+void muestraArregloToString(char toString[][200], int v){
+    for(int i=0;i<v;i++){
+        printf("\n %s", toString[i]);
+    }
+}
 
+int marcaModeloToString(char archivo[], char toString[][200], int dim){
+    stArticulo a;
+    int i=0;
+    FILE *pArchi = fopen(archivo, "rb");
+
+    if(pArchi){  /// if(pArchi!=NULL)
+        while(i<dim && fread(&a, sizeof(stArticulo), 1, pArchi)>0){
+          strcat(toString[i], "Marca: ");
+          strcat(toString[i], a.marca);
+          strcat(toString[i], " Modelo: ");
+          strcat(toString[i], a.modelo);
+          i++;
+        }
+
+        fclose(pArchi);
+    }
+    return i;
+}
 
 
 
