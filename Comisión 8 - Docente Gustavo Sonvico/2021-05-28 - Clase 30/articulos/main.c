@@ -133,7 +133,7 @@ int artToString(char archivo[], char toString[][200], int dim){
     if(pArch){
         while(i<dim && fread(&a, sizeof(stArticulo), 1, pArch)>0){
             getRubro(a.rubro, rubro);
-            sprintf(toString[i],"\nId: %3d - Codigo: %4d - Rubro: %2d (%10s) - Marca: %-20s - Modelo: %-8s - Precio: %8.2f", a.id, a.codigo, a.rubro, rubro, a.marca, a.modelo, a.precio);
+            sprintf(toString[i],"\nId: %3d - Codigo: %4d - Rubro: %2d (%-13s) - Marca: %-20s - Modelo: %-8s - Precio: %8.2f", a.id, a.codigo, a.rubro, rubro, a.marca, a.modelo, a.precio);
             i++;
         }
 
