@@ -23,7 +23,7 @@ void lectura_arreglo(int arr2[], int validos)
     FILE* fp = fopen(ARRARCH,"rb");
     if (fp != NULL)
     {
-        fread(&arr2,sizeof(int),validos,fp);
+        fread(arr2,sizeof(int),validos,fp);
         fclose(fp);
 
         for (int i = 0 ; i < validos ; i++)
@@ -62,7 +62,7 @@ void escritura_arreglo(int arr[], int validos)
     FILE* fp = fopen(ARRARCH,"wb"); //si no existe lo crea
     if (fp != NULL)
     {
-        fwrite(&arr,sizeof(int),validos,fp);
+        fwrite(arr,sizeof(int),validos,fp);
         fclose(fp);
     }
 
