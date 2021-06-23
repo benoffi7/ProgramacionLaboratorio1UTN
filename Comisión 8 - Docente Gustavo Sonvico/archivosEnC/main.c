@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "miLibreria.h"
+
 
 void cargarArchivoIntConUsr(char nombreArchivo[]);
 
@@ -9,25 +9,33 @@ void mostrarUnInt(int v);
 
 void pruebaFseek(char nombre_archivo[], int pos);
 
+int cuentaRegistroArchivo(char nombre_archivo[], long tamanioBloqueEnBytes);
+
+void invierteArchivoInt(char nombre_archivo[]);
+
 
 int main()
 {
 
-    stAlumno alumnos[100];
+
 
     printf("Hello Files!\n");
 
     char nombreDeMiArchivo[]= {"miArchivoDeInts.dat"};
 
-    //  cargarArchivoIntConUsr(nombreDeMiArchivo);
+    cargarArchivoIntConUsr(nombreDeMiArchivo);
 
-    // system("pause");
+    system("pause");
 
     mostrarArchivoInt(nombreDeMiArchivo);
 
     system("pause");
 
-    pruebaFseek(nombreDeMiArchivo, 3);
+//   pruebaFseek(nombreDeMiArchivo, 3);
+
+/// invertir el archivo
+
+    invierteArchivoInt(nombreDeMiArchivo);
 
     system("pause");
     mostrarArchivoInt(nombreDeMiArchivo);
@@ -44,7 +52,7 @@ void cargarArchivoIntConUsr(char nombreArchivo[])
     FILE * pFile;
 
     /// abrimos en modo escritura (sobreescribe)
-    pFile = fopen(nombreArchivo, "ab");
+    pFile = fopen(nombreArchivo, "wb");
 
     if(pFile!=NULL)
     {
@@ -128,6 +136,70 @@ void pruebaFseek(char nombre_archivo[], int pos)
 
             /// sobre escribimos el dato
             fwrite(&aux, sizeof(int),1,archi);
+        }
+
+        fclose(archi);
+    }
+
+}
+
+int cuentaRegistroArchivo(char nombre_archivo[], long tamanioBloqueEnBytes)
+{
+    int cantidad =0;
+    FILE * archi;
+
+    archi = fopen(nombre_archivo,"rb");
+    if(archi!=NULL)
+    {
+        /// me posiciono al final del archivo
+        fseek(archi,0,SEEK_END);
+
+        /// divido la cantidad de bytes del archivo por la cantidad de
+        /// bytes de un registro de alumnos
+        cantidad = ftell(archi)/tamanioBloqueEnBytes;
+        fclose(archi);
+    }
+
+    return cantidad;
+}
+
+void invierteArchivoInt(char nombre_archivo[])
+{
+
+    int datoInicio;
+    int datoFin;
+
+    int inicio=0;
+    int fin=cuentaRegistroArchivo(nombre_archivo, sizeof(int) )-1;
+
+    FILE * archi=fopen(nombre_archivo, "r+b");
+
+    if(archi!=NULL)
+    {
+        while(inicio<fin)
+        {
+            /// me paro al inicio
+            fseek(archi, inicio*sizeof(int), SEEK_SET);
+            /// leo el inicio
+            fread(&datoInicio, sizeof(int), 1, archi);
+
+            /// me paro al final
+            fseek(archi, fin*sizeof(int), SEEK_SET);
+            /// leo el final
+            fread(&datoFin, sizeof(int), 1, archi);
+
+            /// me paro al inicio
+            fseek(archi, inicio*sizeof(int), SEEK_SET);
+            /// sobreescribo en el inicio el valor del final
+            fwrite(&datoFin, sizeof(int), 1, archi);
+
+            /// me paro al final
+            fseek(archi, fin*sizeof(int), SEEK_SET);
+            /// sobreescribo en el final el valor del inicio
+            fwrite(&datoInicio, sizeof(int), 1, archi);
+
+            inicio++;
+            fin--;
         }
 
         fclose(archi);
