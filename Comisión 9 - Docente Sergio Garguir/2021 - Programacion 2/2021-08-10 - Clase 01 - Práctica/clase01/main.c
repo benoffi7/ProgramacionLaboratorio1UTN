@@ -13,6 +13,7 @@ void muestraToJsonDomicilios(stDomicilio d[], int v);
 char * agregaEnString(char *a, char *b);
 char * agregaEnStringP(char **a, char *b);
 void domicilios2archivo(stDomicilio d[], int v, char archivo[]);
+int cuentaRegistros(char archivo[], int tamanioDato);
 
 int main()
 {
@@ -120,4 +121,27 @@ void domicilios2archivo(stDomicilio d[], int v, char archivo[]){
         }
         fclose(archi);
     }
+}
+
+int cuentaRegistros(char archivo[], int tamanioDato){
+    int cant = 0;
+    FILE *archi = fopen(archivo, "rb");
+    if(archi){
+        fseek(archi, 0, SEEK_END);
+        cant = ftell(archi) / tamanioDato;
+
+        fclose(archi);
+    }
+    return cant;
+}
+
+char* cargaArreglo(char archivo[], int *v){
+    int cantReg = cuentaRegistros(archivo, sizeof(stDomicilio));
+    stDomicilio* d = (stDomicilio*)malloc(sizeof(stDomicilio)*cantReg);
+    FILE* archi = fopen(archivo, "rb");
+    if(archi){
+        fread(d, sizeof(stDomicilio), cantReg, archi);
+    }
+    (*v)=cantReg;
+    return d;
 }
