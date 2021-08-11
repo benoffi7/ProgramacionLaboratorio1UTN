@@ -10,8 +10,7 @@ void muestraToStringDomiciliosPuntero(stDomicilio d[], int v);
 void muestraToCsvDomicilios(stDomicilio d[], int v);
 void domiciliosToArch(stDomicilio d[], int v);
 void muestraToJsonDomicilios(stDomicilio d[], int v);
-char * agregaEnString(char *a, char *b);
-char * agregaEnStringP(char **a, char *b);
+char * agregaEnString(char **a, char *b);
 void domicilios2archivo(stDomicilio d[], int v, char archivo[]);
 int cuentaRegistros(char archivo[], int tamanioDato);
 
@@ -23,6 +22,18 @@ int main()
     stDomicilio* d = (stDomicilio*)malloc(sizeof(stDomicilio)*cantRegistros);
     fread(d, sizeof(stDomicilio), cantRegistros, pArchi);
  */
+    char* s=NULL;
+    s=agregaEnString(&s, "Algo");
+    printf("\n %s", s);
+
+    s=agregaEnString(&s, " + Otra cosa");
+    printf("\n %s", s);
+
+    s=agregaEnString(&s, " + Otra cosa mas");
+    printf("\n %s", s);
+
+    s=agregaEnString(&s, " + Otra mas");
+    printf("\n %s", s);
 
     stDomicilio domicilios[100];
     int vDomicilios = 0;
@@ -144,4 +155,15 @@ char* cargaArreglo(char archivo[], int *v){
     }
     (*v)=cantReg;
     return d;
+}
+
+char * agregaEnString(char** a, char* b){
+    if((*a)){ /// if((*a)!=NULL)
+        (*a)=(char*)realloc((*a), sizeof(char)*(strlen(b)+strlen(*a)+1));
+        strcat((*a), b);
+    }else{
+        (*a)=(char*)malloc(sizeof(char)*(strlen(b)+1));
+        strcpy((*a),b);
+    }
+    return (*a);
 }
