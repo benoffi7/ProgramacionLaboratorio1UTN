@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "domicilio.h"
-//#include "persona.h"
+#include <time.h>
 #include "empleado.h"
+#include "autoCargaEmpleados.h"
 
 stEmpleado cargaUnEmpleado();
 
@@ -11,7 +11,23 @@ int main()
 {
     srand(time(NULL));
 
+    char *s = NULL;
+
+    agregaString(&s, " Algo ");
+    printf("\n -- %s", s);
+
+    agregaString(&s, " Otra cosa ");
+    printf("\n -- %s", s);
+
+    agregaString(&s, " algo mas ");
+    printf("\n -- %s", s);
+
+    agregaString(&s, getCargo());
+    printf("\n -- %s", s);
+
     stEmpleado empleado = cargaUnEmpleado();
+
+    strcpy(empleado.cargo, (char*)getCargo());
 
     muestraUnEmpleado(empleado);
 
@@ -43,3 +59,24 @@ stEmpleado cargaUnEmpleado(){
 
     return e;
 }
+
+void agregaString(char **a, char *b){
+    if(*a){
+        (*a) = (char*)realloc((*a), strlen(*a)+strlen(b)+1);
+        strcat((*a), b);
+    }else{
+        (*a) = (char*)malloc(sizeof(b)+1);
+        strcpy((*a), b);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -8,11 +8,8 @@
 
 1628718723 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\domicilio.h
 
-1628720121 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\empleado.c
+1628803484 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\empleado.c
 	<stdio.h>
-	<string.h>
-	<string.h>
-	<malloc.h>
 	"empleado.h"
 
 1628721816 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\empleado.h
@@ -21,11 +18,13 @@
 1628720879 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\persona.h
 	"domicilio.h"
 
-1628722418 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
+1628803662 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<time.h>
 	"empleado.h"
+	"autoCargaEmpleados.h"
 
 1628721043 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\persona.c
 	<stdio.h>
@@ -35,13 +34,13 @@
 	"domicilio.h"
 	"persona.h"
 
-1628722342 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
+1628803712 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
 	<stdio.h>
 	<string.h>
 	<string.h>
 	<malloc.h>
 	"autoCargaEmpleados.h"
 
-1628722011 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.h
+1628803616 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.h
 	"empleado.h"
 

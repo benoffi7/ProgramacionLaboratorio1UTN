@@ -3,7 +3,9 @@
 
 #include "empleado.h"
 
-
-
+int getId();
+int getLegajo();
+char* getCargo();
+char* getNombre();
 
 #endif // AUTOCARGAEMPLEADOS_H_INCLUDED

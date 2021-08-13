@@ -17,8 +17,10 @@ int getLegajo(){
 }
 
 char *getCargo(){
-    char cargos[][20]={"Developer","Developer Full Stack","Developer Front-End","Developer Java","Developer Back-End","Developer C"};
-    return cargos[rand()%(sizeof(cargos)/20)];
+    char *cargo = (char*)malloc(sizeof(char)*22);
+    char cargos[][22]={"Developer","Developer Full Stack","Developer Front-End","Developer Java","Developer Back-End","Developer C"};
+    strcpy(cargo, cargos[rand()%(sizeof(cargos)/22)]);
+    return cargo;
 }
 
 char *getNombre(){
