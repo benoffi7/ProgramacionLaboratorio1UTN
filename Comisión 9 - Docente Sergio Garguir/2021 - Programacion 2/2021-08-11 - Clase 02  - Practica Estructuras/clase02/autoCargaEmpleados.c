@@ -138,3 +138,18 @@ int eliminoDatoArray(int a[], int v, int nro){
     }
     return v;
 }
+
+int potencia(int x, int factor){
+    int rta=1;
+    if(factor>0){
+        rta=x*potencia(x,factor-1);
+    }
+    return rta;
+}
+
+void muestraArregloRecursivo1(int A[], int i, int cant){
+    if(i<cant)
+        printf(" %d", A[i]);
+        muestraArregloRecursivo1(A, i+1, cant);
+    }
+}
