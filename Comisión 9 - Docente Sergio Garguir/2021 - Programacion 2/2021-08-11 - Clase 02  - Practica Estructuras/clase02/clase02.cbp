@@ -50,6 +50,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="persona.h" />
+		<Unit filename="pilaEmpleados.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pilaEmpleados.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -12,5 +12,6 @@ typedef struct{
 }stEmpleado;
 
 void muestraUnEmpleado(stEmpleado e);
+stEmpleado cargaUnEmpleado();
 
 #endif // EMPLEADO_H_INCLUDED
