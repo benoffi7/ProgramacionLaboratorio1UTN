@@ -23,12 +23,12 @@ stEmpleado cargaUnEmpleado(){
     strcpy(e.persona.nombre, getNombre());
     strcpy(e.persona.apellido, "Argento");
     e.persona.genero = 'M';
-    strcpy(e.persona.domicilio.calle, "San Lorenzo");
+    strcpy(e.persona.domicilio.calle, getCalleBis());
     strcpy(e.persona.domicilio.nro, "1536");
     strcpy(e.persona.domicilio.cpos, "7600");
     strcpy(e.persona.domicilio.localidad, "Mar del Plata");
     strcpy(e.persona.domicilio.provincia, "Buenos Aires");
-    strcpy(e.domicilioLaboral.calle, "Belgrano");
+    strcpy(e.domicilioLaboral.calle, getCalleBis());
     strcpy(e.domicilioLaboral.nro, "3625");
     strcpy(e.domicilioLaboral.cpos, "7600");
     strcpy(e.domicilioLaboral.localidad, "Mar del Plata");

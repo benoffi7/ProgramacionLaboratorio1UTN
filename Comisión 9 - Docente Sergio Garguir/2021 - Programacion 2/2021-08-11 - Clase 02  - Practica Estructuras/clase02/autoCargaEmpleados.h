@@ -6,6 +6,8 @@
 int getId();
 int getLegajo();
 char* getCargo();
+char* getCalle();
+char* getCalleBis();
 char* getNombre();
 int csv2arreglo(int col, char archivo[], char n[][col], int dim);
 int csv2arregloBis(int col, char archivo[], char n[][col], int dim);

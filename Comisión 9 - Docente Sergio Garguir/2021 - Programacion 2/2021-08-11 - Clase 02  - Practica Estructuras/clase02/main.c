@@ -16,6 +16,12 @@ int main()
 
     srand(time(NULL));
 
+    printf("\n--- Factorial de 5 = %d ---", factorial(5));
+    printf("\n--- Factorial de 6 = %d ---", factorial1(6));
+    printf("\n--- Factorial de 7 = %d ---", factorial2(7));
+    printf("\n--- 2 elevado a 4 = %d ---", potencia(2, 4));
+    printf("\n--- 3 elevado a 4 = %d ---", potencia1(2, 4));
+
     char *s = NULL;
 
     agregaString(&s, " Algo ");
@@ -34,9 +40,18 @@ int main()
 
     printf("\n Pila de empleados");
     apilar(&pilita, empleado);
-
+    empleado = cargaUnEmpleado();
+    apilar(&pilita, empleado);
 
     muestraPilaEmpleados(pilita);
+
+    printf("\n_________________________________________________");
+    muestraUnEmpleado(desapilar(&pilita));
+    printf("\n_________________________________________________");
+    muestraUnEmpleado(desapilar(&pilita));
+    printf("\n_________________________________________________");
+    muestraUnEmpleado(desapilar(&pilita));
+    printf("\n_________________________________________________");
 
     strcpy(empleado.cargo, (char*)getCargo());
 
@@ -67,10 +82,48 @@ void muestraPilaEmpleados(Pila p){
     }
 }
 
+/// Funciones Recursivas
 
+int factorial(int x){
+    int rta;
+    if(x==0){
+        rta=1;
+    }else{
+        rta=x*factorial(x-1);
+    }
+    return rta;
+}
 
+int factorial1(int x){
+    int rta=1;
+    if(x>0){
+        rta=x*factorial1(x-1);
+    }
+    return rta;
+}
 
+int factorial2(int x){
+    return (x>0)?x*factorial2(x-1):1;
+}
 
+int potencia(int x, int factor){
+    int rta=1;
+    if(factor>0){
+        rta=x*potencia(x,factor-1);
+    }
+    return rta;
+}
+
+int potencia1(int x, int factor){
+    return (factor>0)?x*potencia1(x, factor-1):1;
+}
+
+void muestraArregloRecursivo1(int A[], int i, int cant){
+    if(i<cant){
+        printf(" %d", A[i]);
+        muestraArregloRecursivo1(A, i+1, cant);
+    }
+}
 
 
 

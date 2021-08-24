@@ -24,12 +24,32 @@ char *getCargo(){
     return cargo;
 }
 
+char *getCalle(){
+    char *calle = (char*)malloc(sizeof(char)*30);
+    char calles[][30]={"San Lorenzo","Rivadavia","Roca","Don Orione","Av. Constitucion","Av. Jara", "Av. Luro", "Av. Colon", "Alem"};
+
+    strcpy(calle, calles[rand()%(sizeof(calles)/30)]);
+    return calle;
+}
+
+char *getCalleBis(){
+    char *calle = (char*)malloc(sizeof(char)*30);
+    char calles[1001][30];
+    int v=0;
+
+    v = csv2arregloBis(30, "mocks/calles.csv", calles, 1001);
+
+    strcpy(calle, calles[rand()%v]);
+
+    return calle;
+}
+
 char *getNombre(){
     char *nombre = (char*)malloc(sizeof(char)*30);
     char nombres[1000][30];
     int vNombres=0;
 
-    vNombres = csv2arregloBis(30, "nombres.csv", nombres, 1000);
+    vNombres = csv2arregloBis(30, "mocks/nombres.csv", nombres, 1000);
 
     strcpy(nombre, nombres[rand()%vNombres]);
 
@@ -53,7 +73,7 @@ int csv2arregloBis(int col, char archivo[], char n[][col], int dim){
     FILE* archi = fopen(archivo, "r");
     int i=0;
     if(archi){
-        while((fscanf(archi, "%s",&n[i])==1) && (i<dim)){
+        while((fscanf(archi, "%[^\n]",&n[i])==1) && (i<dim)){
             i++;
         }
         fclose(archi);
@@ -137,19 +157,4 @@ int eliminoDatoArray(int a[], int v, int nro){
         }
     }
     return v;
-}
-
-int potencia(int x, int factor){
-    int rta=1;
-    if(factor>0){
-        rta=x*potencia(x,factor-1);
-    }
-    return rta;
-}
-
-void muestraArregloRecursivo1(int A[], int i, int cant){
-    if(i<cant)
-        printf(" %d", A[i]);
-        muestraArregloRecursivo1(A, i+1, cant);
-    }
 }

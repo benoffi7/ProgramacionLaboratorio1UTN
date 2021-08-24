@@ -56,3 +56,4 @@ void csv2archi(char archivo[], stDomicilio d[], int v){
         fclose(archi);
     }
 }
+

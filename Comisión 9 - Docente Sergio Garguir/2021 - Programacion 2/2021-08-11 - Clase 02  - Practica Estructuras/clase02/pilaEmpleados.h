@@ -5,8 +5,7 @@
 #include <malloc.h>
 #include "empleado.h"
 
-typedef struct
-{
+typedef struct{
     stEmpleado *e;
     int v;
     int dim;
