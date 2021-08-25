@@ -11,10 +11,15 @@ stEmpleado cargaUnEmpleado();
 
 int main()
 {
+    char archivoEmpleados[]="empleados.dat";
     Pila pilita;
     inicpila(&pilita);
 
     srand(time(NULL));
+
+    generaArchivoEmpleados(archivoEmpleados,100);
+    muestraArchivoEmpleados(archivoEmpleados);
+
 
     printf("\n--- Factorial de 5 = %d ---", factorial(5));
     printf("\n--- Factorial de 6 = %d ---", factorial1(6));

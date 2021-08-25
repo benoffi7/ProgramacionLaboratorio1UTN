@@ -8,7 +8,7 @@
 
 1629845619 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\domicilio.h
 
-1629845619 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\empleado.c
+1629850528 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\empleado.c
 	<stdio.h>
 	"empleado.h"
 
@@ -18,7 +18,7 @@
 1629845620 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\persona.h
 	"domicilio.h"
 
-1629843488 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
+1629851234 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -35,14 +35,14 @@
 	"domicilio.h"
 	"persona.h"
 
-1629847657 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
+1629850620 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
 	<stdio.h>
 	<string.h>
 	<string.h>
 	<malloc.h>
 	"autoCargaEmpleados.h"
 
-1629845601 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.h
+1629850528 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.h
 	"empleado.h"
 
 1629240008 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\pila.h

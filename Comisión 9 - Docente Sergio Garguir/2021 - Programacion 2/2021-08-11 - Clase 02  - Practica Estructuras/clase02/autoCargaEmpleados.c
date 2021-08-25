@@ -37,7 +37,7 @@ char *getCalleBis(){
     char calles[1001][30];
     int v=0;
 
-    v = csv2arregloBis(30, "mocks/calles.csv", calles, 1001);
+    v = csv2arreglo(30, "mocks/calles.csv", calles, 1001);
 
     strcpy(calle, calles[rand()%v]);
 
@@ -47,13 +47,25 @@ char *getCalleBis(){
 char *getNombre(){
     char *nombre = (char*)malloc(sizeof(char)*30);
     char nombres[1000][30];
-    int vNombres=0;
+    int v=0;
 
-    vNombres = csv2arregloBis(30, "mocks/nombres.csv", nombres, 1000);
+    v = csv2arregloBis(30, "mocks/nombres.csv", nombres, 1000);
 
-    strcpy(nombre, nombres[rand()%vNombres]);
+    strcpy(nombre, nombres[rand()%v]);
 
     return nombre;
+}
+
+char *getApellido(){
+    char *apellido = (char*)malloc(sizeof(char)*30);
+    char apellidos[1001][30];
+    int v=0;
+
+    v = csv2arregloBis(30, "mocks/apellidos.csv", apellidos, 1001);
+
+    strcpy(apellido, apellidos[rand()%v]);
+
+    return apellido;
 }
 
 int csv2arreglo(int col, char archivo[], char n[][col], int dim){
@@ -73,7 +85,7 @@ int csv2arregloBis(int col, char archivo[], char n[][col], int dim){
     FILE* archi = fopen(archivo, "r");
     int i=0;
     if(archi){
-        while((fscanf(archi, "%[^\n]",&n[i])==1) && (i<dim)){
+        while((fscanf(archi, "%s",&n[i])==1) && (i<dim)){
             i++;
         }
         fclose(archi);
@@ -157,4 +169,27 @@ int eliminoDatoArray(int a[], int v, int nro){
         }
     }
     return v;
+}
+
+void generaArchivoEmpleados(char archivo[], int cant){
+    FILE *archi = fopen(archivo, "ab");
+    stEmpleado e;
+    if(archi){
+        for(int i=0;i<cant;i++){
+            e = cargaUnEmpleado();
+            fwrite(&e,sizeof(stEmpleado), 1, archi);
+        }
+        fclose(archi);
+    }
+}
+
+void muestraArchivoEmpleados(char archivo[]){
+    stEmpleado e;
+    FILE *arch = fopen(archivo, "rb");
+    if(arch){
+        while(fread(&e, sizeof(stEmpleado), 1, arch)>0){
+            muestraUnEmpleado(e);
+        }
+        fclose(arch);
+    }
 }

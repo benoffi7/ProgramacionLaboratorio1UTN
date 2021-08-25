@@ -21,7 +21,7 @@ stEmpleado cargaUnEmpleado(){
     strcpy(e.cargo, getCargo());
     strcpy(e.persona.dni, "42515623");
     strcpy(e.persona.nombre, getNombre());
-    strcpy(e.persona.apellido, "Argento");
+    strcpy(e.persona.apellido, getApellido());
     e.persona.genero = 'M';
     strcpy(e.persona.domicilio.calle, getCalleBis());
     strcpy(e.persona.domicilio.nro, "1536");
