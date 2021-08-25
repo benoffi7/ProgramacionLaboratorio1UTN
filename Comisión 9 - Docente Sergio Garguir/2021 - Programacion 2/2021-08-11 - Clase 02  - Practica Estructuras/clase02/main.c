@@ -35,7 +35,7 @@ int main()
     agregaString(&s, " Otra cosa ");
     printf("\n -- %s", s);
 
-    agregaString(&s, " algo mas ");
+    agregaString(&s, getApellido());
     printf("\n -- %s", s);
 
     agregaString(&s, getCargo());

@@ -44,6 +44,14 @@ char *getCalleBis(){
     return calle;
 }
 
+char *getNro(){
+    char *nro = (char*)malloc(sizeof(char)*7);
+
+    itoa(rand()%10000, nro, 10);
+
+    return nro;
+}
+
 char *getNombre(){
     char *nombre = (char*)malloc(sizeof(char)*30);
     char nombres[1000][30];
@@ -172,7 +180,7 @@ int eliminoDatoArray(int a[], int v, int nro){
 }
 
 void generaArchivoEmpleados(char archivo[], int cant){
-    FILE *archi = fopen(archivo, "ab");
+    FILE *archi = fopen(archivo, "wb");
     stEmpleado e;
     if(archi){
         for(int i=0;i<cant;i++){
