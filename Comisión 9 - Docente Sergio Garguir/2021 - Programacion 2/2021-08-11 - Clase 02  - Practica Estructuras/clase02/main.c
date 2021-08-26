@@ -5,12 +5,25 @@
 #include "empleado.h"
 #include "autoCargaEmpleados.h"
 #include "pilaEmpleados.h"
-
+#include "listaEmpleados.h"
 
 stEmpleado cargaUnEmpleado();
 
 int main()
 {
+    nodo* lista = inicLista();
+
+    nodo* nuevo = inicLista();
+
+    nuevo = crearNodo(cargaUnEmpleado());
+    lista = agregarAlPrincipio(lista, nuevo);
+
+    nuevo = crearNodo(cargaUnEmpleado());
+    lista = agregarAlPrincipio(lista, nuevo);
+
+    printf("\n Muestra lista");
+    mostrarLista(lista);
+
     char archivoEmpleados[]="empleados.dat";
     Pila pilita;
     inicpila(&pilita);

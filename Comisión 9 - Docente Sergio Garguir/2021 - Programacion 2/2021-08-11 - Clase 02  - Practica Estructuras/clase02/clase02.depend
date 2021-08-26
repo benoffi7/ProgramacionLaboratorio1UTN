@@ -18,7 +18,7 @@
 1629845620 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\persona.h
 	"domicilio.h"
 
-1629852017 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
+1629932115 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -26,6 +26,7 @@
 	"empleado.h"
 	"autoCargaEmpleados.h"
 	"pilaEmpleados.h"
+	"listaEmpleados.h"
 
 1628721043 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\persona.c
 	<stdio.h>
@@ -35,7 +36,7 @@
 	"domicilio.h"
 	"persona.h"
 
-1629851501 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
+1629852476 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
 	<stdio.h>
 	<string.h>
 	<string.h>
@@ -60,4 +61,7 @@
 
 1629843735 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\pilaempleados.c
 	"pilaEmpleados.h"
+
+1629932150 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listaempleados.h
+	"empleado.h"
 
