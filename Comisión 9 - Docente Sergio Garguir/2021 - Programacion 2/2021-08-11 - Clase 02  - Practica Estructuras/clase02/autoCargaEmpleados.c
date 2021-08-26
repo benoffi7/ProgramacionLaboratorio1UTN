@@ -54,10 +54,10 @@ char *getNro(){
 
 char *getNombre(){
     char *nombre = (char*)malloc(sizeof(char)*30);
-    char nombres[1000][30];
+    char nombres[1001][30];
     int v=0;
 
-    v = csv2arregloBis(30, "mocks/nombres.csv", nombres, 1000);
+    v = csv2arregloBis(30, "mocks/nombres.csv", nombres, 1001);
 
     strcpy(nombre, nombres[rand()%v]);
 
@@ -93,7 +93,7 @@ int csv2arregloBis(int col, char archivo[], char n[][col], int dim){
     FILE* archi = fopen(archivo, "r");
     int i=0;
     if(archi){
-        while((fscanf(archi, "%s",&n[i])==1) && (i<dim)){
+        while((fscanf(archi, "%s",n[i])==1) && (i<dim)){
             i++;
         }
         fclose(archi);
@@ -112,6 +112,13 @@ void cargaArchivoEmpleados(char archivo[], int cantidad){
             i++;
         }
         fclose(archi);
+    }
+}
+
+void muestraArregloString(char s[][30], int v, int pos){
+    if(pos < v){
+        printf("\n %s",s[pos]);
+        muestraArregloString(s,v,pos+1);
     }
 }
 

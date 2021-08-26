@@ -25,6 +25,7 @@ int main()
     mostrarLista(lista);
 
     char archivoEmpleados[]="empleados.dat";
+
     Pila pilita;
     inicpila(&pilita);
 
