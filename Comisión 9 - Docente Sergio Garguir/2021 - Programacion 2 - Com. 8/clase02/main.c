@@ -2,15 +2,24 @@
 #include <stdlib.h>
 
 #include "domicilio.h"
-
+#include "pilaDomicilios.h"
 
 int main()
 {
+    pilaDomicilios p;
+    inicPila(&p);
+
     stDomicilio domicilios[100];
     int vDomicilios = 0;
 
     vDomicilios = cargaDomicilios(domicilios, 10);
     muestraDomicilios(domicilios, vDomicilios);
+
+    for(int i=0;i<10;i++){
+        apilar(&p, domicilios[i]);
+    }
+
+    muestraPilaDomicilios(p);
 
     printf("\n DomiciliosToString\n");
     muestraDomiciliosToString(domicilios, vDomicilios);
@@ -57,3 +66,8 @@ void csv2archi(char archivo[], stDomicilio d[], int v){
     }
 }
 
+void muestraPilaDomicilios(pilaDomicilios p){
+    while(!pilavacia(&p)){
+        muestraUnDomicilio(desapilar(&p));
+    }
+}

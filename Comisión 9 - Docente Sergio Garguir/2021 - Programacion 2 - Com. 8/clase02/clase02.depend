@@ -1,14 +1,24 @@
 # depslib dependency file v1.0
-1628894740 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.c
+1630024885 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.c
+	<stdio.h>
 	"domicilio.h"
 	<string.h>
 
-1628894598 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.h
+1630024841 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.h
 
-1628893815 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\main.c
+1630023430 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\main.c
 	<stdio.h>
 	<stdlib.h>
 	"domicilio.h"
+	"pilaDomicilios.h"
 
 1628890184 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\utils.c
+
+1630023443 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\piladomicilios.h
+	"domicilio.h"
+
+1630023076 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\piladomicilios.c
+	<stdio.h>
+	<stdlib.h>
+	"pilaDomicilios.h"
 

@@ -3,9 +3,9 @@
 
 #include "empleado.h"
 
-typedef struct{
+typedef struct _nodo{
     stEmpleado dato;
-    struct nodo *siguiente;
+    struct _nodo *siguiente;
 }nodo;
 
 nodo* inicLista();

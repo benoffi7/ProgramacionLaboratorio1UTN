@@ -11,6 +11,7 @@ stEmpleado cargaUnEmpleado();
 
 int main()
 {
+
     nodo* lista = inicLista();
 
     nodo* nuevo = inicLista();

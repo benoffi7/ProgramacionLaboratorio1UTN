@@ -38,6 +38,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pilaDomicilios.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pilaDomicilios.h" />
 		<Unit filename="utils.c">
 			<Option compilerVar="CC" />
 		</Unit>

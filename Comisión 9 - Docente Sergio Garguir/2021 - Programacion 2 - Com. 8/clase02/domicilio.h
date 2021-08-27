@@ -13,6 +13,7 @@ typedef struct{
 void muestraUnDomicilio(stDomicilio d);
 stDomicilio cargaUnDomicilio();
 char* getCalle();
+char* getLocalidad();
 char* domicilioToString(stDomicilio d);
 char* domicilioToCsv(stDomicilio d);
 
