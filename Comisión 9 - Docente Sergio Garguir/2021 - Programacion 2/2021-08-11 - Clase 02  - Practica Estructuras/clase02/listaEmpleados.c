@@ -25,3 +25,32 @@ void mostrarLista(nodo* lista){
         seg = seg->siguiente;
     }
 }
+
+nodo* agregarAlFinal(nodo* lista, nodo* nuevo){
+    if(lista == NULL){
+        lista = nuevo;
+    }else{
+        nodo* ultimo = buscaUltimo(lista);
+        ultimo->siguiente = nuevo;
+    }
+
+    return lista;
+}
+
+nodo* buscaUltimo(nodo* lista){
+    nodo* seg = lista;
+    while(seg->siguiente!=NULL){
+        seg=seg->siguiente;
+    }
+    return seg;
+}
+
+int cuentaLista(nodo* lista){
+    int cont=0;
+    nodo* seg = lista;
+    while(seg!=NULL){
+        cont++;
+        seg = seg->siguiente;
+    }
+    return cont;
+}

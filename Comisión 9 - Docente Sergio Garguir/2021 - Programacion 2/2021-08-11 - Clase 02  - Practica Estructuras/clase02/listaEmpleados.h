@@ -11,5 +11,7 @@ typedef struct _nodo{
 nodo* inicLista();
 nodo* crearNodo(stEmpleado e);
 nodo* agregarAlPrincipio(nodo* lista, nodo* nuevoNodo);
+nodo* agregarAlFinal(nodo* lista, nodo* nuevo);
+nodo* buscaUltimo(nodo* lista);
 
 #endif // LISTAEMPLEADOS_H_INCLUDED

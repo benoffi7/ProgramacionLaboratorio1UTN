@@ -187,6 +187,7 @@ int eliminoDatoArray(int a[], int v, int nro){
 }
 
 void generaArchivoEmpleados(char archivo[], int cant){
+
     FILE *archi = fopen(archivo, "wb");
     stEmpleado e;
     if(archi){
