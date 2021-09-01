@@ -54,3 +54,13 @@ int cuentaLista(nodo* lista){
     }
     return cont;
 }
+
+nodo* buscaEmpleado(nodo* lista, char apellido[]){
+    nodo* seg = lista;
+
+    while(seg!=NULL && strcmp(seg->dato.persona.apellido,apellido)!=0){
+        seg = seg->siguiente;
+    }
+
+    return seg;
+}

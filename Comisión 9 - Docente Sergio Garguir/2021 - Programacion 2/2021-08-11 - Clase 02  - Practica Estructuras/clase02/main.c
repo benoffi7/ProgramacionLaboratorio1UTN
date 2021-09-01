@@ -25,6 +25,12 @@ int main()
     printf("\n Muestra lista");
     mostrarLista(lista);
 
+    nodo* nodoEmpleado = buscaEmpleado(lista, "Perez");
+
+    if(nodoEmpleado != NULL){
+        muestraUnEmpleado(nodoEmpleado->dato);
+    }
+
     char archivoEmpleados[]="empleados.dat";
 
     Pila pilita;
@@ -143,6 +149,23 @@ void muestraArregloRecursivo1(int A[], int i, int cant){
         printf(" %d", A[i]);
         muestraArregloRecursivo1(A, i+1, cant);
     }
+}
+
+nodo* archivo2lista(char archivo[]){
+    nodo* lista = inicLista();
+    FILE *archi = fopen(archivo, "rb");
+    stEmpleado e;
+    if(archi){
+        while(fread(&e, sizeof(stEmpleado), 1, archi)>0){
+            if(e.legajo<500){
+                nodo *nuevo = crearNodo(e);
+                lista = agregarAlFinal(lista, nuevo);
+            }
+        }
+        fclose(archi);
+    }
+
+    return lista;
 }
 
 

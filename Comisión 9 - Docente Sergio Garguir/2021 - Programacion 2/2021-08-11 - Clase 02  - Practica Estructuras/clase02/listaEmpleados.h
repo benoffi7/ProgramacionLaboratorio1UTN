@@ -13,5 +13,6 @@ nodo* crearNodo(stEmpleado e);
 nodo* agregarAlPrincipio(nodo* lista, nodo* nuevoNodo);
 nodo* agregarAlFinal(nodo* lista, nodo* nuevo);
 nodo* buscaUltimo(nodo* lista);
+nodo* buscaEmpleado(nodo* lista, char apellido[]);
 
 #endif // LISTAEMPLEADOS_H_INCLUDED
