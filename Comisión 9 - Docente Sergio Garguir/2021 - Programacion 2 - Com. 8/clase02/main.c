@@ -1,11 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "domicilio.h"
 #include "pilaDomicilios.h"
 
 int main()
 {
+    char *char1=NULL;
+
+
+    appendString(&char1, " Hola Andres");
+    printf("\n %s", char1);
+
+    appendString(&char1, " Chau Andres");
+    printf("\n %s", char1);
+
+    appendString(&char1, " ");
+
+    appendString(&char1, getLocalidad());
+    printf("\n %s", char1);
+
+    appendString(&char1, " ");
+
+    appendString(&char1, getCalle());
+    printf("\n %s", char1);
+
     pilaDomicilios p;
     inicPila(&p);
 
@@ -69,5 +89,15 @@ void csv2archi(char archivo[], stDomicilio d[], int v){
 void muestraPilaDomicilios(pilaDomicilios p){
     while(!pilavacia(&p)){
         muestraUnDomicilio(desapilar(&p));
+    }
+}
+
+void appendString(char **a, char *b){
+    if(*a){
+        (*a)=(char*)realloc((*a), strlen(*a)+strlen(b)+1);
+        strcat((*a), b);
+    }else{
+        (*a)=(char*)malloc(strlen(b)+1);
+        strcpy((*a), b);
     }
 }

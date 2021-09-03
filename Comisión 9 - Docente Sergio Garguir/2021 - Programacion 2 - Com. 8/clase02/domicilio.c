@@ -46,7 +46,7 @@ char* getLocalidad(){
 
     return localidad;
 }
-Rivadavia\n
+
 char* domicilioToString(stDomicilio d){
     char *toString = (char*)malloc(sizeof(char)*150);
     sprintf(toString, "\nId: %6d - Calle: %s - Nro: %s - Localidad: %s - Codigo Postal: %s - Provincia: %s", d.id, d.calle, d.nro, d.localidad, d.cpos, d.provincia);

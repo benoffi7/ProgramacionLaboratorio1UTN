@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1630024885 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.c
+1630703253 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.c
 	<stdio.h>
 	"domicilio.h"
 	<string.h>
 
 1630024841 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\domicilio.h
 
-1630023430 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\main.c
+1630703246 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2 - com. 8\clase02\main.c
 	<stdio.h>
 	<stdlib.h>
 	"domicilio.h"

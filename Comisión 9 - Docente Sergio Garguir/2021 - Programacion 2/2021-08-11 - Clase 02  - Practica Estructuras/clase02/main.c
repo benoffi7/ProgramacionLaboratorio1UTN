@@ -19,13 +19,20 @@ int main()
     nuevo = crearNodo(cargaUnEmpleado());
     lista = agregarAlPrincipio(lista, nuevo);
 
+  ///  lista = agregarAlPrincipio(lista, crearNodo(cargaUnEmpleado()));
+
     nuevo = crearNodo(cargaUnEmpleado());
     lista = agregarAlPrincipio(lista, nuevo);
 
     printf("\n Muestra lista");
     mostrarLista(lista);
 
+    //muestraUnNodo(buscaEmpleado(lista, "Juarez"));
+
     nodo* nodoEmpleado = buscaEmpleado(lista, "Perez");
+    if (nodoEmpleado){
+        muestraUnNodo(nodoEmpleado);
+    }
 
     if(nodoEmpleado != NULL){
         muestraUnEmpleado(nodoEmpleado->dato);
@@ -159,7 +166,9 @@ nodo* archivo2lista(char archivo[]){
         while(fread(&e, sizeof(stEmpleado), 1, archi)>0){
             if(e.legajo<500){
                 nodo *nuevo = crearNodo(e);
-                lista = agregarAlFinal(lista, nuevo);
+                ///lista = agregarAlFinal(lista, nuevo);
+                ///lista = agregarAlPrincipio(lista, nuevo);
+                lista = agregarEnOrdenPorLegajo(lista, nuevo);
             }
         }
         fclose(archi);
