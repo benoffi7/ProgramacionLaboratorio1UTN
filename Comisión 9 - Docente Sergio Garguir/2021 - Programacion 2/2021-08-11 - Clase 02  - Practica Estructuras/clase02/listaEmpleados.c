@@ -18,6 +18,11 @@ nodo* agregarAlPrincipio(nodo* lista, nodo* nuevoNodo){
     return nuevoNodo;
 }
 
+void agregarAlPrincipioDoble(nodo** lista, nodo* nuevoNodo){
+    nuevoNodo->siguiente = (*lista);
+    (*lista) = nuevoNodo;
+}
+
 void mostrarLista(nodo* lista){
     nodo* seg = lista;
     while(seg!=NULL){
@@ -102,3 +107,26 @@ nodo* borrarLista(nodo* lista){
     }
     return seg;
 }
+
+stEmpleado verPrimero(nodo* lista){
+    stEmpleado rta;
+    if(lista){
+        rta=lista->dato;
+    }
+    return rta;
+}
+
+stEmpleado verPrimeroT(nodo* lista){
+    stEmpleado e;
+    return (lista)?lista->dato:e;
+}
+
+nodo* borrarPrimerNodo(nodo* lista){
+    if(lista){
+        nodo* aux=lista;
+        lista = lista->siguiente;
+        free(aux);
+    }
+    return lista;
+}
+

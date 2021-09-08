@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="PilaNodoEmpleados.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="PilaNodoEmpleados.h" />
 		<Unit filename="autoCargaEmpleados.c">
 			<Option compilerVar="CC" />
 		</Unit>

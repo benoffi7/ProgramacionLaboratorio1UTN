@@ -11,7 +11,6 @@ stEmpleado cargaUnEmpleado();
 
 int main()
 {
-
     nodo* lista = inicLista();
 
     nodo* nuevo = inicLista();
@@ -19,7 +18,7 @@ int main()
     nuevo = crearNodo(cargaUnEmpleado());
     lista = agregarAlPrincipio(lista, nuevo);
 
-  ///  lista = agregarAlPrincipio(lista, crearNodo(cargaUnEmpleado()));
+//    lista = agregarAlPrincipio(lista, crearNodo(cargaUnEmpleado()));
 
     nuevo = crearNodo(cargaUnEmpleado());
     lista = agregarAlPrincipio(lista, nuevo);
