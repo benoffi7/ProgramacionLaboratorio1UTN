@@ -18,7 +18,7 @@
 1629845620 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\persona.h
 	"domicilio.h"
 
-1630449483 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
+1631665858 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -36,7 +36,7 @@
 	"domicilio.h"
 	"persona.h"
 
-1630444949 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
+1631060144 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\autocargaempleados.c
 	<stdio.h>
 	<string.h>
 	<string.h>
@@ -62,11 +62,25 @@
 1629843735 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\pilaempleados.c
 	"pilaEmpleados.h"
 
-1630457857 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listaempleados.h
+1631665133 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listaempleados.h
 	"empleado.h"
 
-1630537032 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listaempleados.c
+1631665882 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listaempleados.c
 	"stdio.h"
 	"stdlib.h"
+	"listaEmpleados.h"
+
+1631666615 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listadobleempleados.c
+	<stdio.h>
+	<stdlib.h>
+	"listaDobleEmpleados.h"
+
+1631663463 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\listadobleempleados.h
+	"empleado.h"
+
+1631665072 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\pilanodoempleados.c
+	"PilaNodoEmpleados.h"
+
+1631664043 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021 - programacion 2\2021-08-11 - clase 02  - practica estructuras\clase02\pilanodoempleados.h
 	"listaEmpleados.h"
 

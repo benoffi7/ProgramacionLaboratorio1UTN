@@ -1,7 +1,7 @@
 #ifndef PILANODOEMPLEADOS_H_INCLUDED
 #define PILANODOEMPLEADOS_H_INCLUDED
 
-#include "empleado.h"
+#include "listaEmpleados.h"
 
 #define Pila nodo*
 

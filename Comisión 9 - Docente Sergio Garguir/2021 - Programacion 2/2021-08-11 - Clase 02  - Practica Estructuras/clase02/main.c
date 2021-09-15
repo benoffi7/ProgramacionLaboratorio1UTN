@@ -6,17 +6,40 @@
 #include "autoCargaEmpleados.h"
 #include "pilaEmpleados.h"
 #include "listaEmpleados.h"
+#include "listaDobleEmpleados.h"
 
 stEmpleado cargaUnEmpleado();
+nodo* archivo2lista(nodo* lista, char archivo[]);
+nodoDoble* archivo2listaDoble(nodoDoble* lista, char archivo[]);
 
 int main()
 {
-    nodo* lista = inicLista();
+    printf("\n Sizeof(stEmpleado) %d", sizeof(stEmpleado));
+    printf("\n Sizeof(nodo) %d", sizeof(nodo));
+    printf("\n Sizeof(nodo*) %d", sizeof(nodo*));
 
+    printf("\n Sizeof(stEmpleado) %d", sizeof(stEmpleado));
+    printf("\n Sizeof(nodoDoble) %d", sizeof(nodoDoble));
+    printf("\n Sizeof(nodoDoble*) %d", sizeof(nodoDoble*));
+
+
+    nodo* lista = inicLista();
     nodo* nuevo = inicLista();
+
+    nodo* listaDoble = inicListaDoble();
 
     nuevo = crearNodo(cargaUnEmpleado());
     lista = agregarAlPrincipio(lista, nuevo);
+
+    lista = archivo2lista(lista, "empleados.dat");
+
+    printf("\n Lista de Empleados \n");
+    mostrarListaDirecciones(lista);
+
+    listaDoble = archivo2listaDoble(listaDoble, "empleados.dat");
+    printf("\n Lista Doble de Empleados \n");
+    muestraListaDobleDirecciones(listaDoble);
+
 
 //    lista = agregarAlPrincipio(lista, crearNodo(cargaUnEmpleado()));
 
@@ -157,13 +180,12 @@ void muestraArregloRecursivo1(int A[], int i, int cant){
     }
 }
 
-nodo* archivo2lista(char archivo[]){
-    nodo* lista = inicLista();
+nodo* archivo2lista(nodo* lista, char archivo[]){
     FILE *archi = fopen(archivo, "rb");
     stEmpleado e;
     if(archi){
         while(fread(&e, sizeof(stEmpleado), 1, archi)>0){
-            if(e.legajo<500){
+            if(e.legajo<50000){
                 nodo *nuevo = crearNodo(e);
                 ///lista = agregarAlFinal(lista, nuevo);
                 ///lista = agregarAlPrincipio(lista, nuevo);
@@ -176,7 +198,20 @@ nodo* archivo2lista(char archivo[]){
     return lista;
 }
 
+nodoDoble* archivo2listaDoble(nodoDoble* lista, char archivo[]){
+    FILE *archi = fopen(archivo, "rb");
+    stEmpleado e;
+    if(archi){
+        while(fread(&e, sizeof(stEmpleado), 1, archi)>0){
+            if(e.legajo<50000){
+                lista = agregarAlPrincipioDoble(lista, crearNodoDoble(e));
+            }
+        }
+        fclose(archi);
+    }
 
+    return lista;
+}
 
 
 

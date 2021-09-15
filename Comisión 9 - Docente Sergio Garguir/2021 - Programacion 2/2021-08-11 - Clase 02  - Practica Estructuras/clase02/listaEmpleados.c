@@ -17,16 +17,24 @@ nodo* agregarAlPrincipio(nodo* lista, nodo* nuevoNodo){
     nuevoNodo->siguiente = lista;
     return nuevoNodo;
 }
-
+/*
 void agregarAlPrincipioDoble(nodo** lista, nodo* nuevoNodo){
     nuevoNodo->siguiente = (*lista);
     (*lista) = nuevoNodo;
 }
-
+*/
 void mostrarLista(nodo* lista){
     nodo* seg = lista;
     while(seg!=NULL){
         muestraUnNodo(seg);
+        seg = seg->siguiente;
+    }
+}
+
+void mostrarListaDirecciones(nodo* lista){
+    nodo* seg = lista;
+    while(seg!=NULL){
+        printf("\nActual: %p - Siguiente: %p", seg, seg->siguiente);
         seg = seg->siguiente;
     }
 }

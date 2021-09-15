@@ -14,5 +14,10 @@ nodo* agregarAlPrincipio(nodo* lista, nodo* nuevoNodo);
 nodo* agregarAlFinal(nodo* lista, nodo* nuevo);
 nodo* buscaUltimo(nodo* lista);
 nodo* buscaEmpleado(nodo* lista, char apellido[]);
+void mostrarLista(nodo* lista);
+void muestraUnNodo(nodo* nodo);
+stEmpleado verPrimero(nodo* lista);
+stEmpleado verPrimeroT(nodo* lista);
+nodo* borrarPrimerNodo(nodo* lista);
 
 #endif // LISTAEMPLEADOS_H_INCLUDED

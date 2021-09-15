@@ -4,7 +4,7 @@ void inicPilaEmpleados(Pila* pila){
     (*pila)=inicLista();
 }
 
-void apilarEmpleados(Pila* pila, stEmpleado e){
+void apilarEmpleados(nodo** pila, stEmpleado e){
     (*pila)=agregarAlPrincipio((*pila),crearNodo(e));
 }
 
