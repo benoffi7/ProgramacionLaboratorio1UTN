@@ -45,3 +45,50 @@ void muestraListaDobleDirecciones(nodoDoble* lista){
     }
 }
 
+stEmpleado verPrimeroDoble(nodoDoble* lista){
+    stEmpleado rta;
+    if(lista){
+        rta=lista->dato;
+    }
+    return rta;
+}
+
+stEmpleado verPrimeroDobleT(nodoDoble* lista){
+    stEmpleado e;
+    return (lista)?lista->dato:e;
+}
+
+nodoDoble* borrarPrimerNodoDoble(nodoDoble* lista){
+    if(lista){
+        nodoDoble* aux=lista;
+        lista = lista->siguiente;
+        if(lista){
+            lista->anterior=NULL;
+        }
+        free(aux);
+    }
+    return lista;
+}
+
+nodoDoble* buscaUltimoDoble(nodoDoble* lista){
+    nodoDoble* seg = lista;
+    if(seg){
+        while(seg->siguiente!=NULL){
+            seg=seg->siguiente;
+        }
+    }
+    return seg;
+}
+
+nodoDoble* agregarAlFinalDoble(nodoDoble* lista, nodoDoble* nuevo){
+    if(lista == NULL){
+        lista = nuevo;
+    }else{
+        lista->siguiente = uilt
+        nodoDoble* ultimo = buscaUltimoDoble(lista);
+        ultimo->siguiente = nuevo;
+        nuevo->anterior = ultimo;
+    }
+
+    return lista;
+}

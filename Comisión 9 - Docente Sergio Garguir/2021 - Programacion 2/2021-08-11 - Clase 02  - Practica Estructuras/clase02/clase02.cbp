@@ -47,6 +47,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="empleado.h" />
+		<Unit filename="fila.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fila.h" />
 		<Unit filename="listaDobleEmpleados.c">
 			<Option compilerVar="CC" />
 		</Unit>
