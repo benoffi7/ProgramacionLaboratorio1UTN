@@ -84,7 +84,6 @@ nodoDoble* agregarAlFinalDoble(nodoDoble* lista, nodoDoble* nuevo){
     if(lista == NULL){
         lista = nuevo;
     }else{
-        lista->siguiente = uilt
         nodoDoble* ultimo = buscaUltimoDoble(lista);
         ultimo->siguiente = nuevo;
         nuevo->anterior = ultimo;

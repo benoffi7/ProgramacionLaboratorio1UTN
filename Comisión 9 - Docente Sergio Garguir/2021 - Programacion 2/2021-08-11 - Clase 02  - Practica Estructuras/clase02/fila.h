@@ -4,8 +4,15 @@
 #include "listaDobleEmpleados.h"
 
 typedef struct{
-    struct nodoDoble* inicio;
-    struct nodoDoble* fin;
+    struct _nodoDoble* inicio;
+    struct _nodoDoble* fin;
 }Fila;
+
+void inicFila(Fila* fila);
+void mostrarFila(Fila* fila);
+void agregar(Fila* fila, stEmpleado dato);
+stEmpleado extraer(Fila* fila);
+stEmpleado verPrimeroFila(Fila* fila);
+int filaVacia(Fila* fila);
 
 #endif // FILA_H_INCLUDED

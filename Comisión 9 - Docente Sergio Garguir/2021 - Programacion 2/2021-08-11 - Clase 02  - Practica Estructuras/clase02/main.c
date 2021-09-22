@@ -7,6 +7,7 @@
 #include "pilaEmpleados.h"
 #include "listaEmpleados.h"
 #include "listaDobleEmpleados.h"
+#include "fila.h"
 
 stEmpleado cargaUnEmpleado();
 nodo* archivo2lista(nodo* lista, char archivo[]);
@@ -14,6 +15,15 @@ nodoDoble* archivo2listaDoble(nodoDoble* lista, char archivo[]);
 
 int main()
 {
+    Fila f;
+    inicFila(&f);
+    int cont = 0;
+    while(cont < 20){
+        agregar(&f, cargaUnEmpleado());
+        cont++;
+    }
+    mostrarFila(&f);
+
     printf("\n Sizeof(stEmpleado) %d", sizeof(stEmpleado));
     printf("\n Sizeof(nodo) %d", sizeof(nodo));
     printf("\n Sizeof(nodo*) %d", sizeof(nodo*));
@@ -213,5 +223,25 @@ nodoDoble* archivo2listaDoble(nodoDoble* lista, char archivo[]){
     return lista;
 }
 
+nodo* intercalarListas(nodo* a, nodo* b, nodo* c){
+    nodo* aux = inicLista();
+    while(a && b){
+        if(a->dato.legajo < b->dato.legajo){
+            aux = a;
+            a = a->siguiente;
+        }else{
+            aux = b;
+            b = b->siguiente;
+        }
+        aux->siguiente = NULL;
+        c = agregarAlFinal(c, aux);
+    }
+    if(a){
+        c = agregarAlFinal(c, a);
+    }else{
+        c = agregarAlFinal(c, b);
+    }
 
+    return c;
+}
 
