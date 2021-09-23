@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+#include <windows.h>
 #include "empleado.h"
 #include "autoCargaEmpleados.h"
 #include "pilaEmpleados.h"
@@ -17,11 +17,8 @@ int main()
 {
     Fila f;
     inicFila(&f);
-    int cont = 0;
-    while(cont < 20){
-        agregar(&f, cargaUnEmpleado());
-        cont++;
-    }
+
+    archivo2fila(&f, "empleados.dat");
     mostrarFila(&f);
 
     printf("\n Sizeof(stEmpleado) %d", sizeof(stEmpleado));
@@ -223,6 +220,22 @@ nodoDoble* archivo2listaDoble(nodoDoble* lista, char archivo[]){
     return lista;
 }
 
+void archivo2fila(Fila* fila, char archivo[]){
+    FILE *archi = fopen(archivo, "rb");
+    stEmpleado e;
+    printf("\nCargando la fila ");
+    if(archi){
+        while(fread(&e, sizeof(stEmpleado), 1, archi)>0){
+            if(e.legajo<50000){
+                Sleep(100);
+                printf(".");
+                agregar(fila, e);
+            }
+        }
+        fclose(archi);
+    }
+}
+
 nodo* intercalarListas(nodo* a, nodo* b, nodo* c){
     nodo* aux = inicLista();
     while(a && b){
@@ -232,7 +245,20 @@ nodo* intercalarListas(nodo* a, nodo* b, nodo* c){
         }else{
             aux = b;
             b = b->siguiente;
+        }nodoDoble* archivo2listaDoble(nodoDoble* lista, char archivo[]){
+    FILE *archi = fopen(archivo, "rb");
+    stEmpleado e;
+    if(archi){
+        while(fread(&e, sizeof(stEmpleado), 1, archi)>0){
+            if(e.legajo<50000){
+                lista = agregarAlPrincipioDoble(lista, crearNodoDoble(e));
+            }
         }
+        fclose(archi);
+    }
+
+    return lista;
+}
         aux->siguiente = NULL;
         c = agregarAlFinal(c, aux);
     }
