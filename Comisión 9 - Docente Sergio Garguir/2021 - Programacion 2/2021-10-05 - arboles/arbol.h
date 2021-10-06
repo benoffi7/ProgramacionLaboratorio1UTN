@@ -14,5 +14,6 @@ nodoArbol* agregarArbolSinRepetidos(nodoArbol* arbol, nodoArbol* nuevo);
 void preOrden(nodoArbol* arbol);
 void enOrden(nodoArbol* arbol);
 void postOrden(nodoArbol* arbol);
+nodoArbol* buscaNodoArbol(nodoArbol* arbol, int dato);
 
 #endif // ARBOL_H_INCLUDED

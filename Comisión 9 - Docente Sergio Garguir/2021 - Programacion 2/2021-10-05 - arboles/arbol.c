@@ -68,3 +68,22 @@ void postOrden(nodoArbol* arbol){
         printf("%d - ", arbol->dato);
     }
 }
+
+nodoArbol* buscaNodoArbol(nodoArbol* arbol, int dato){
+    nodoArbol *respuesta = NULL;
+    if(arbol == NULL){
+        respuesta = NULL;
+    }else{
+        if(arbol->dato == dato){
+            respuesta = arbol;
+        }else{
+            if(dato < arbol->dato){
+                respuesta = buscaNodoArbol(arbol->izq, dato);
+            }else{
+                respuesta = buscaNodoArbol(arbol->der, dato);
+            }
+        }
+    }
+
+    return respuesta;
+}
