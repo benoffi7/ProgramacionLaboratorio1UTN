@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="autoCargaEmpleados.h" />
+		<Unit filename="celda.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="celda.h" />
 		<Unit filename="domicilio.c">
 			<Option compilerVar="CC" />
 		</Unit>
