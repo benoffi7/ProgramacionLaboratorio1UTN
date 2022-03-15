@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1490112217 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-04-06 - clase 08\contador\pila.c
-	"pila.h"
-
-1490112217 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2021-04-06 - clase 08\contador\pila.h
-	<stdio.h>
-	<malloc.h>
-
