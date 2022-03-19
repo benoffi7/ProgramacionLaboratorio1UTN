@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /**
 Determinar si un alumno aprueba a reprueba un curso, sabiendo que aprobara
 si su promedio de tres calificaciones es mayor o igual a 7; reprueba en caso contrario.

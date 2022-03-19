@@ -21,7 +21,7 @@ int main()
 
     ganancia = (float)((capital * INTERES) / 100) * cantidadDeMeses;
 
-    printf("Luego de %d mes/es, su ganancia es de $%.2f", cantidadDeMeses, ganancia);
+    printf("Luego de %d mes/es, su ganancia es de $%1.2f", cantidadDeMeses, ganancia);
 
     return 0;
 }
