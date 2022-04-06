@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "pila.h"
 
 
 int main()
 {
+    srand(time(NULL));
     Pila dada;
     Pila modelo;
     Pila aux;
@@ -17,10 +19,17 @@ int main()
     inicpila(&auxModelo);
     inicpila(&basura);
 
-    for(int i=0;i<10;i++){
+    int limite;
+
+    limite = rand()%25;
+    for(int i=0; i<limite; i++)
+    {
         apilar(&dada, rand()%10);
     }
-    for(int i=0;i<15;i++){
+
+    limite = rand()%20;
+    for(int i=0; i<limite; i++)
+    {
         apilar(&modelo, rand()%10);
     }
 
@@ -30,22 +39,29 @@ int main()
     printf("<<<<<<<<<<<<<<< pila modelo >>>>>>>>>>>>>>>>>>>");
     mostrar(&modelo);
 
-    while(!pilavacia(&modelo)){
-        while(!pilavacia(&dada)){
-            if(tope(&modelo)==tope(&dada)){
+    while(!pilavacia(&modelo))
+    {
+        while(!pilavacia(&dada))
+        {
+            if(tope(&modelo)==tope(&dada))
+            {
                 apilar(&basura, desapilar(&dada));
-            }else{
+            }
+            else
+            {
                 apilar(&aux, desapilar(&dada));
             }
         }
 
-        while(!pilavacia(&aux)){
+        while(!pilavacia(&aux))
+        {
             apilar(&dada, desapilar(&aux));
         }
         apilar(&auxModelo, desapilar(&modelo));
     }
 
-    while(!pilavacia(&auxModelo)){
+    while(!pilavacia(&auxModelo))
+    {
         apilar(&modelo, desapilar(&auxModelo));
     }
 
