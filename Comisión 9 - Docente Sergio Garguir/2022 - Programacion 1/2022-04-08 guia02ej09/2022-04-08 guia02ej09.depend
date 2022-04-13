@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1616233428 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-04-08 guia02ej09\pila.c
+	"pila.h"
+
+1616233428 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-04-08 guia02ej09\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1649461462 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-04-08 guia02ej09\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
