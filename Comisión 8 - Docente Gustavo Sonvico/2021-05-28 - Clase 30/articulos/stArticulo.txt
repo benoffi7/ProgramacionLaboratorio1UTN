@@ -1,8 +1,0 @@
-typedef struct{
-    int id;
-    int codigo;
-    int rubro; /// 1 - Televisores / 2 - Lavarropas / 3 - Cocinas / 4 - Calefactores
-    char marca[30];
-    char modelo[30];
-    float precio;
-} stArticulo;

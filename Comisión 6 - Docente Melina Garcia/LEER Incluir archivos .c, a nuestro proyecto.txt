@@ -1,8 +1,0 @@
-Para incluir los archivos.c que vamos subiendo al git a su proyecto facilmente:
--> hacer click derecho sobre el archivo .c
--> seleccionar "Abrir Con /Open with"
--> seleccionar "Bloc de notas" o "Notepad"
-->Luego dentro, seleccionen todo el contenido del archivo .c haciendo el juego de teclas CTRL + A, click derecho y copiar.
-->Generar un nuevo proyecto en C en codeblocks
-->borrar todo el contenido del main para pegar el del bloc de notas.
--> ahora compilar. y funciona!

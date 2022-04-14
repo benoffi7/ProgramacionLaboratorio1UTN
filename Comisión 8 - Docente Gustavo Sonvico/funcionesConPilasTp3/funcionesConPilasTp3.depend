@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1616096885 source:c:\users\gsonv\desktop\ejemplos clase\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\funcionesconpilastp3\pila.c
-	"pila.h"
-
-1616096885 c:\users\gsonv\desktop\ejemplos clase\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\funcionesconpilastp3\pila.h
-	<stdio.h>
-	<malloc.h>
-
