@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1490112217 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-04-19 funciones\pila.c
+	"pila.h"
+
+1490112217 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-04-19 funciones\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1491400450 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-04-19 funciones\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
