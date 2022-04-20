@@ -11,6 +11,8 @@ int randomRango(int min, int max);
 void cargaPilaRandomRango(Pila *p, int min, int max, int cant);
 void muestraPila(Pila c);
 void cargaPilaUsuario(Pila *p, char titulo[]);
+void muestraMenu();
+void replicaChar(char c, int cant);
 
 int main()
 {
@@ -44,7 +46,7 @@ int main()
                 }
                 break;
             case 27:
-                printf("\n Bye Bye");
+                printf("\n Bye Bye ...........");
                 break;
         }
         getch();
