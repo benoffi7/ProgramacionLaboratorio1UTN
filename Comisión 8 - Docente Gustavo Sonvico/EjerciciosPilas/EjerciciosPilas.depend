@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1490112217 source:c:\users\gsonv\desktop\ejerciciospilas\pila.c
+	"pila.h"
+
+1490112217 c:\users\gsonv\desktop\ejerciciospilas\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1648765564 source:c:\users\gsonv\desktop\ejerciciospilas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+	<time.h>
+
