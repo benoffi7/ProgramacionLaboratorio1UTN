@@ -78,3 +78,17 @@ void muestraArreglo(int a[], int v){
         printf("%d | ", a[i]);
     }
 }
+
+void intercambio(int *a, int *b){
+    int aux;
+    aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
+/// para verificar
+void intercambioSinVarAux(int *a, int *b){
+    *a = *a + *b;
+    *b = *a - *b;
+    *a = *a - *b;
+}
