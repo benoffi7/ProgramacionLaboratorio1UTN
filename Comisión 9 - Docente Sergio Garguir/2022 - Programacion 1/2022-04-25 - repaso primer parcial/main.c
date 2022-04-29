@@ -8,6 +8,7 @@ void cargaPilaRandom(Pila *p, int limite);
 int buscaMenorPila(Pila *p);
 int pila2arregloOrdenado(Pila *c, int a[], int dim);
 void muestraArreglo(int a[], int v);
+void insertaOrdenado(Pila *p, int valor);
 
 int main()
 {
@@ -65,6 +66,8 @@ int buscaMenorPila(Pila *p){
 }
 
 int pila2arregloOrdenado(Pila *c, int a[], int dim){
+    Pila algo;
+    inicpila(&algo);
     int i = 0;
     while(!pilavacia(c) && i < dim){
         a[i] = buscaMenorPila(c);
@@ -91,4 +94,17 @@ void intercambioSinVarAux(int *a, int *b){
     *a = *a + *b;
     *b = *a - *b;
     *a = *a - *b;
+}
+
+void ordenaPorInsercion(Pila *p){
+    Pila ordenada;
+    inicpila(&ordenada);
+
+    while(!pilavacia(p)){
+        insertaOrdenado(&ordenada, desapilar(p));
+    }
+
+    while(!pilavacia(&ordenada)){
+        apilar(p, desapilar(&ordenada));
+    }
 }
