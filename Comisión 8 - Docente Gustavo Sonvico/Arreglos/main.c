@@ -13,6 +13,8 @@ int main()
 
     int i=0, validos=0, otroValidos=0;
 
+    int dimUsr=0, validosUsr;
+
     int unArreglo[20];
 
     int otroArreglo[10];
