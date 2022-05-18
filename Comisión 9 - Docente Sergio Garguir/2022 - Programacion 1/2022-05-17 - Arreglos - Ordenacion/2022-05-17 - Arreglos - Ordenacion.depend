@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1652834273 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-17 - arreglos - ordenacion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+
+1652834037 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-17 - arreglos - ordenacion\alumno.h
+
+1652835062 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-17 - arreglos - ordenacion\alumno.c
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+
