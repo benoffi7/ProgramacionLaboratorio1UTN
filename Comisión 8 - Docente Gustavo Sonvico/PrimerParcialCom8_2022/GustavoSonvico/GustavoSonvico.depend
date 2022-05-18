@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1649898102 source:c:\users\gsonv\desktop\primerparcialcom8_2022\gustavosonvico\pila.c
+	"pila.h"
+
+1649898102 c:\users\gsonv\desktop\primerparcialcom8_2022\gustavosonvico\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1652315854 source:c:\users\gsonv\desktop\primerparcialcom8_2022\gustavosonvico\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"pila.h"
+
