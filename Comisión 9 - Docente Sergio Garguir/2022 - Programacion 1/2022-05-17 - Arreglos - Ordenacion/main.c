@@ -18,7 +18,15 @@ int main()
     printf("\n");
 
     ordenaArregloSeleccionStAlumnoPro(alumnos, vAlumnos);
-    printf("\n Listado de Alumnos");
+    printf("\n Listado de Alumnos Ordenado por apellido");
+    muestraAlumnos(alumnos, vAlumnos);
+
+    printf("\n");
+    system("pause");
+    printf("\n");
+
+    ordenacionPorInsercion(alumnos, vAlumnos);
+    printf("\n Listado de Alumnos Ordenado por matricula");
     muestraAlumnos(alumnos, vAlumnos);
 
     int notas[100];
@@ -167,8 +175,22 @@ void intercambioStAlumno(stAlumno *a, stAlumno *b){
     *b = aux;
 }
 
+void insertarOrdenado(stAlumno a[], int v, stAlumno dato){
+    int i = v;
+    while(i>=0 && dato.matricula < a[i].matricula){
+        a[i+1]=a[i];
+        i--;
+    }
+    a[i+1]=dato;
+}
 
-
+void ordenacionPorInsercion(stAlumno a[], int v){
+    int i = 0;
+    while(i < v-1){
+        insertarOrdenado(a, i, a[i+1]);
+        i++;
+    }
+}
 
 
 

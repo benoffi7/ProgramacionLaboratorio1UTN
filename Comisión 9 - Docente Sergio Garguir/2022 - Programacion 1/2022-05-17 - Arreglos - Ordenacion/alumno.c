@@ -31,6 +31,6 @@ void muestraUnAlumno(stAlumno alumno){
 }
 
 void getNombre(char n[]){
-    char nombres[][20]={"Pedro", "Pablo", "Ana", "etc"};
+    char nombres[][20]={"Pedro", "Pablo", "Ana"};
     strcpy(n, nombres[rand()%(sizeof(nombres)/20)]);
 }
