@@ -10,8 +10,8 @@ stAlumno cargaUnAlumno(){
 
     fflush(stdin);
     printf("Nombre..........: ");
-   // gets(a.nombre);
-    getNombre(a.nombre);
+    gets(a.nombre);
+    //getNombre(a.nombre);
 
     fflush(stdin);
     printf("Apellido........: ");

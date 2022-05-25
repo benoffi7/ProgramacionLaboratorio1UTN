@@ -3,11 +3,23 @@
 #include "alumno.h"
 
 #define DIM 100
+#define ARCHI_ALUMNOS "alumnos.dat"
+#define ARCHI_ALUMNOS_APROBADOS "alumnos_aprobados.dat"
 
 int main()
 {
     stAlumno alumnos[DIM];
     int vAlumnos = 0;
+
+    cargaArchivoAlumnos(ARCHI_ALUMNOS_APROBADOS);
+    printf("\n Archivo Alumnos \n");
+    muestraArchivoAlumnos(ARCHI_ALUMNOS);
+    printf("\n Archivo Alumnos Aprobados \n");
+    muestraArchivoAlumnos(ARCHI_ALUMNOS_APROBADOS);
+
+    printf("\n");
+    system("pause");
+    printf("\n");
 
     vAlumnos = cargaAlumnos(alumnos, DIM);
     printf("\n Listado de Alumnos sizeof stAlumno = %d", sizeof(alumnos));
@@ -192,9 +204,35 @@ void ordenacionPorInsercion(stAlumno a[], int v){
     }
 }
 
+void cargaArchivoAlumnos(char nombreArchivo[]){
+    FILE *archi = fopen(nombreArchivo, "ab");
+    stAlumno alumno;
+    char opcion;
 
+    if(archi){ /// if(archi != NULL)
+        do{
+            system("cls");
+            alumno = cargaUnAlumno();
+            fwrite(&alumno, sizeof(stAlumno), 1, archi);
 
+            printf("\n ESC para salir o cualquier tecla para continuar");
+            opcion = getch();
+        }while(opcion != 27);
+    }
+    fclose(archi);
+}
 
+void muestraArchivoAlumnos(char nombreArchivo[]){
+    FILE *archi = fopen(nombreArchivo, "rb");
+    stAlumno a;
+
+    if(archi){
+        while(fread(&a, sizeof(stAlumno), 1, archi)>0){
+            muestraUnAlumno(a);
+        }
+    }
+    fclose(archi);
+}
 
 
 
