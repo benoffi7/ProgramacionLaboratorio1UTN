@@ -224,6 +224,7 @@ void cargaArchivoAlumnos(char nombreArchivo[]){
 
 void muestraArchivoAlumnos(char nombreArchivo[]){
     FILE *archi = fopen(nombreArchivo, "rb");
+
     stAlumno a;
 
     if(archi){
