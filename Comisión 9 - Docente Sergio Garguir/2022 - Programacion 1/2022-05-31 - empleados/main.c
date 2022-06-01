@@ -61,11 +61,15 @@ void muestraArregloEmpleados(stEmpleado e[], int v){
 void cargaArchivoEmpleados(char nombreArchivo[]){
     stEmpleado e;
     char opcion;
-    FILE *archi = fopen(nombreArchivo, "ab");
+    int static id = ultimoId(nombreArchivo);
+
+    FILE *archi = fopen(nombreArchivo, "wb");
     if(archi){  /// if(archi != NULL)
         do{
             system("cls");
+            id++
             e = cargaUnEmpleado();
+            e.id = id;
             fwrite(&e, sizeof(stEmpleado), 1, archi);
 
             printf("\n ESC para salir o cualquier tecla para continuar ");
@@ -156,4 +160,30 @@ void ordenaEmpleadosPorSeleccionPorApellido(stEmpleado e[], int v){
         intercambioEmpleados(&e[posMenor],&e[i]);
         i++;
     }
+}
+
+int ultimoId(char nombreArchivo[]){
+    int id = 0;
+    stEmpleado e;
+    FILE *arch = fopen(nombreArchivo, "rb");
+    if(arch){
+        fseek(arch, -1*sizeof(stEmpleado), SEEK_END);
+        if(fread(&e, sizeof(stEmpleado), 1, arch)>0){
+            id = e.id;
+        }
+        fclose(arch);
+    }
+
+    return id;
+}
+
+int cuentaRegistros(char nombreArchivo[], int sizeSt){
+    int cantidad = 0;
+    FILE *arch = fopen(nombreArchivo, "rb");
+    if(arch){
+        fseek(arch, 0, SEEK_END);
+        cantidad = ftell(arch)/sizeSt;
+        fclose(arch);
+    }
+    return cantidad;
 }

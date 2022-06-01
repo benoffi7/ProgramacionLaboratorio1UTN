@@ -5,11 +5,6 @@
 
 stEmpleado cargaUnEmpleado(){
     stEmpleado e;
-    static int i=0;
-
-    i++;
-
-    e.id = i;
 
     printf("\n");
     printf("Legajo Nro............: ");
