@@ -5,30 +5,14 @@
 void cargaMatrizIntRandom(int filas, int columnas, int M[filas][columnas]);
 void mostraMatrizInt(int filas, int columnas, int M[filas][columnas]);
 
-void mostrarArreglo (int A[], int cantidad);
-void mostrarMatrizOtro(int filas, int columnas, int M[filas][columnas]);
-
 int cargarPalabras(int f, int c, char P[f][c]);
 void mostrarPalabras(int f, int c, char P[f][c]);
-
-int cargaArreglosParalelos (int matricula[],  char nombre[][30], int dim);
-void muestraArreglosParelelos (int matricula[], char nombre[][30], int cant);
 
 int main()
 {
     printf("Hello the matrix!\n");
 
     srand(time(NULL));
-
-    int unArreglo[10];
-
-    int * otroArreglo = malloc( sizeof(int) * 10);
-
-   /// cargo el arreglo
-
-   /// muestro el arreglo
-
-    otroArreglo = realloc(otroArreglo, sizeof(int)*20);
 
     int miMatrix[4][8];
 
@@ -38,7 +22,7 @@ int main()
 
 
     char misPalabras[10][30];
-    int validosPalabras=0;
+    int validosPalabras;
 
     validosPalabras=cargarPalabras(10, 30, misPalabras);
     mostrarPalabras(validosPalabras, 30, misPalabras);
@@ -73,38 +57,15 @@ void mostraMatrizInt(int filas, int columnas, int M[filas][columnas])
     }
 }
 
-void mostrarArreglo (int A[], int cantidad)
-{
-    int i = 0;
-
-    while (i<cantidad)
-    {
-        printf("%d ", A[i]);
-        i++;
-    }
-}
-
-void mostrarMatrizOtro(int filas, int columnas, int M[filas][columnas])
-{
-    int f, c;
-
-    for(f=0; f<filas; f++)
-    {
-        mostrarArreglo(M[f],columnas);
-        printf("\n");
-    }
-}
-
-
-int cargarPalabras(int filas, int columnas, char P[filas][columnas])
+int cargarPalabras(int f, int c, char P[f][c])
 {
     int i=0;
     char control='s';
 
     printf("Carguemos tus palabras: \n");
-    while(i<filas && control=='s')
+    while(i<f && control=='s')
     {
-        printf("Ingrese una palabra (max. %d char): ", columnas-1);
+        printf("Ingrese una palabra (max. 30 char): ");
         fflush(stdin);
 
         scanf("%s", &P[i]);
@@ -125,46 +86,5 @@ void mostrarPalabras(int f, int c, char P[f][c])
     for(i=0;i<f;i++)
     {
         printf("\t%s\n", P[i]);
-    }
-}
-
-
-/// arreglos paralelos
-
-
-///Sean los arreglos paralelos: int matricula[20], char nombre[20][30]
-
-///1. Crear una función que los cargue, hasta que el usuario lo decida */
-
-int cargaArreglosParalelos (int matricula[],  char nombre[][30], int dim)
-{
-    int i = 0;
-    char rta='s';
-
-    while(i<dim && rta=='s')
-    {
-        printf("\nIngrese matricula del alumno: ");
-        scanf("%d",&matricula[i]);
-        fflush(stdin);
-        printf("\nIngrese nombre del alumno (hasta 30 caracteres): ");
-        scanf("%s",&nombre[i]);
-        i++;
-
-        printf("\n\nDesea ingresar los datos de otro alumno? (s/n): ");
-        fflush(stdin);
-        scanf("%c",&rta);
-    }
-    return i;
-}
-
-void muestraArreglosParelelos (int matricula[], char nombre[][30], int cant)
-{
-    int i=0;
-
-    while(i<cant)
-    {
-        printf("\tMatricula: %d\n", matricula[i]);
-        printf("\tNombre:    %s\n", nombre[i]);
-        i++;
     }
 }
