@@ -9,6 +9,7 @@
 
 int main()
 {
+    srand(time(NULL));
     stEmpleado empleados[100];
     int vEmpleados = 0;
 /**
@@ -16,7 +17,7 @@ int main()
     printf("\n Arreglo de Empleados \n");
     muestraArregloEmpleados(empleados, vEmpleados);
 */
-
+/*
     vEmpleados=arch2arreglo(ARCHIVO_EMPLEADOS, empleados, 100, vEmpleados);
     printf("\n Arreglo de Empleados \n");
     muestraArregloEmpleados(empleados, vEmpleados);
@@ -28,8 +29,8 @@ int main()
     ordenaEmpleadosPorSeleccionPorApellido(empleados, vEmpleados);
     printf("\n Arreglo de Empleados por Apellido \n");
     muestraArregloEmpleados(empleados, vEmpleados);
-
-//    cargaArchivoEmpleados(ARCHIVO_EMPLEADOS);
+*/
+    cargaArchivoEmpleados(ARCHIVO_EMPLEADOS);
     printf("\n Archivo de empleados \n");
     muestraArchivoEmpleados(ARCHIVO_EMPLEADOS);
 
@@ -61,16 +62,28 @@ void muestraArregloEmpleados(stEmpleado e[], int v){
 void cargaArchivoEmpleados(char nombreArchivo[]){
     stEmpleado e;
     char opcion;
-    int static id = ultimoId(nombreArchivo);
-
-    FILE *archi = fopen(nombreArchivo, "wb");
+    int id = ultimoId(nombreArchivo);
+    int existe;
+    FILE *archi = fopen(nombreArchivo, "r+b");
+    if(!archi){
+        archi = fopen(nombreArchivo, "wb");
+        fclose(archi);
+        archi = fopen(nombreArchivo, "r+b");
+    }
     if(archi){  /// if(archi != NULL)
         do{
             system("cls");
-            id++
+            id++;
             e = cargaUnEmpleado();
             e.id = id;
-            fwrite(&e, sizeof(stEmpleado), 1, archi);
+            existe = buscaDniEnArchivo(archi, e.dni);
+
+            if(existe==1){
+                printf("error - Dni existente");
+            }else{
+                fseek(archi, 0, SEEK_END);
+                fwrite(&e, sizeof(stEmpleado), 1, archi);
+            }
 
             printf("\n ESC para salir o cualquier tecla para continuar ");
             opcion = getch();
@@ -187,3 +200,38 @@ int cuentaRegistros(char nombreArchivo[], int sizeSt){
     }
     return cantidad;
 }
+
+int arch2arregloDNIpar(char nombreArchivo[], stEmpleado e[], int dim, int v){
+    FILE *archi = fopen(nombreArchivo, "rb");
+    stEmpleado emp;
+
+    if(archi){
+        while(v<dim && fread(&emp, sizeof(stEmpleado), 1, archi) > 0){
+            if(atoi(emp.dni) %2 == 0 ){
+                e[v]=emp;
+                v++;
+            }
+        }
+        fclose(archi);
+    }
+    return v;
+}
+
+
+int buscaDniEnArchivo(FILE* arch, char dni[]){
+    stEmpleado e;
+    int flag = 0;
+    //FILE *arch = fopen(nombreArchivo, "rb");
+    rewind(arch);
+    if(arch){
+        while(flag == 0 && fread(&e, sizeof(stEmpleado), 1, arch) > 0){
+            if(strcmp(e.dni,dni)==0){
+                flag=1;
+            }
+        }
+
+        //fclose(arch);
+    }
+    return flag;
+}
+

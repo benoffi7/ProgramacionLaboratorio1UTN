@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1654036117 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-31 - empleados\empleado.c
+1654122616 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-31 - empleados\empleado.c
 	"empleado.h"
 	<stdio.h>
 	<stdlib.h>
@@ -7,9 +7,10 @@
 
 1654035996 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-31 - empleados\empleado.h
 
-1654037619 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-31 - empleados\main.c
+1654722916 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 1\2022-05-31 - empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
+	<string.h>
 	"empleado.h"
 
