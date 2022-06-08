@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1653085868 source:c:\users\gsonv\desktop\ejemplos clase\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\miarchivobinario\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
