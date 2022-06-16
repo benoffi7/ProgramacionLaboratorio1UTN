@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1655338766 source:c:\users\gsonv\documents\github\programacionlaboratorio1utn\comisión 8 - docente gustavo sonvico\2doparciallab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
