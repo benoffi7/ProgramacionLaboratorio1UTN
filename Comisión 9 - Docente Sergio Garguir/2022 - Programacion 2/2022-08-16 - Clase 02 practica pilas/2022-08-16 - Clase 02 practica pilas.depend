@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1660692718 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-16 - clase 02 practica pilas\empleado.c
+	"empleado.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1660692728 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-16 - clase 02 practica pilas\empleado.h
+
+1660695079 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-16 - clase 02 practica pilas\pilaempleados.c
+	"pilaEmpleados.h"
+	<malloc.h>
+
+1660693104 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-16 - clase 02 practica pilas\pilaempleados.h
+	"empleado.h"
+

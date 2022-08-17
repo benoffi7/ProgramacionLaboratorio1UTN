@@ -77,7 +77,6 @@ void cargaArchivoEmpleados(char nombreArchivo[]){
             e = cargaUnEmpleado();
             e.id = id;
             existe = buscaDniEnArchivo(archi, e.dni);
-
             if(existe==1){
                 printf("error - Dni existente");
             }else{
