@@ -65,3 +65,27 @@ void muestraArregloInvertido(int a[], int v, int i){
         printf(" %d -", a[i]);
     }
 }
+
+int menorEnArchivo(FILE * archi){
+    int menor;
+    int dato;
+
+    if(fread(&menor, sizeof(int), 1, archi)==0){
+        fseek(archi, sizeof(int)*(-1), SEEK_END);
+        fread(&menor, sizeof(int), 1, archi);
+    }else{
+        dato=menorEnArchivo(archi);
+        if(dato<menor){
+            menor=dato;
+        }
+    }
+    return menor;
+}
+
+
+
+
+
+
+
+
