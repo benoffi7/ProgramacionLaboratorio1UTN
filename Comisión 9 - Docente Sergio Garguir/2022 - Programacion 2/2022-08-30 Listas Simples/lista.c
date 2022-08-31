@@ -41,3 +41,5 @@ void muestraNodo(nodo* n){
     muestraUnaPersona(n->dato);
     printf("\n Nodo->sig: %p", n->siguiente);
 }
+
+
