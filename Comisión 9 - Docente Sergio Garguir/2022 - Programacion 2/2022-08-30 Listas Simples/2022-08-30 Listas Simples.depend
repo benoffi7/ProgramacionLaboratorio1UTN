@@ -1,5 +1,22 @@
 # depslib dependency file v1.0
-1661901298 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\main.c
+1662560025 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\main.c
 	<stdio.h>
 	<stdlib.h>
+	"lista.h"
+
+1662502630 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.h
+	"persona.h"
+
+1661903833 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\persona.h
+
+1662513824 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\persona.c
+	"persona.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1662583614 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
 

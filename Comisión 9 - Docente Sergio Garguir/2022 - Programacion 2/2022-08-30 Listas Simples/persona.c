@@ -9,7 +9,8 @@ stPersona cargaUnaPersona(){
     stPersona p;
     p.id=id;
     strcpy(p.nombre, "Pepe");
-    p.edad=45;
+    p.edad=rand()%100;
+    //p.edad=10;
     p.sexo='m';
     return p;
 }

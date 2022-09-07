@@ -42,4 +42,45 @@ void muestraNodo(nodo* n){
     printf("\n Nodo->sig: %p", n->siguiente);
 }
 
+nodo* buscarUltimo(nodo* lista){
+    nodo* seg = lista;
+    while(seg->siguiente != NULL){
+        seg = seg->siguiente;
+    }
+    return seg;
+}
 
+nodo* agregarAlFinal(nodo* lista, nodo* nuevo){
+    if(!lista){
+        lista = nuevo;
+    }else{
+        nodo* ultimo = buscarUltimo(lista);
+        ultimo->siguiente = nuevo;
+    }
+
+    return lista;
+}
+
+nodo* agregarEnOrdenPorEdad(nodo* lista, nodo* nuevo){
+    /// Si la lista esta vacia le asigno el nuevo nodo
+    if(!lista){
+        lista = nuevo;
+    }else{
+        /// si el nuevo nodo es menor al primero de la lista, agrego a principio
+        if(nuevo->dato.edad <= lista->dato.edad){
+            lista = agregarAlPpio(lista, nuevo);
+        }else{
+            /// buscamos el lugar donde insertar
+            nodo* ante = lista;
+            nodo* seg = lista;
+            while(seg && (nuevo->dato.edad > seg->dato.edad)){
+                ante = seg;
+                seg = seg->siguiente;
+            }
+            /// insertar el nuevo nodo en la lista de manera ordenada
+            nuevo->siguiente = seg;
+            ante->siguiente = nuevo;
+        }
+    }
+    return lista;
+}
