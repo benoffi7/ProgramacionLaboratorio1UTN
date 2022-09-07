@@ -84,3 +84,36 @@ nodo* agregarEnOrdenPorEdad(nodo* lista, nodo* nuevo){
     }
     return lista;
 }
+
+nodo* intercalarListas(nodo* listaA, nodo* listaB, nodo* listaFinal){
+    nodo* aux = NULL;
+    while(listaA && listaB){ /// while(listaA != NULL && listaB != NULL)
+        if(listaA->dato.edad < listaB->dato.edad){
+            aux = listaA;
+            listaA = listaA->siguiente;
+        }else{
+            aux = listaB;
+            listaB = listaB->siguiente;
+        }
+        aux->siguiente = NULL;
+        listaFinal = agregarAlFinal(listaFinal, aux);
+    }
+    if(listaA){
+        listaFinal = agregarAlFinal(listaFinal, listaA);
+    }else if(listaB){
+        listaFinal = agregarAlFinal(listaFinal, listaB);
+    }
+
+    return listaFinal;
+}
+
+
+
+
+
+
+
+
+
+
+
