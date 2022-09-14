@@ -1,21 +1,27 @@
 # depslib dependency file v1.0
-1662560025 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\main.c
+1663123162 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\main.c
 	<stdio.h>
 	<stdlib.h>
-	"lista.h"
+	<string.h>
+	"pila.h"
 
-1662502630 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.h
+1663194830 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.h
 	"persona.h"
 
 1661903833 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\persona.h
 
-1662513824 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\persona.c
+1662585517 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\persona.c
 	"persona.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1662583614 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.c
+1663194709 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1663191401 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\pila.h
 	<stdio.h>
 	<stdlib.h>
 	"lista.h"

@@ -1,17 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista.h"
+#include <string.h>
+#include "pila.h"
 
-nodo* archivo2lista(char archivo[], nodo* lista);
+nodo* archivo2lista(char archivo[], nodo* lista, int edad);
+nodo* archivo2listaPorNombre(char archivo[], nodo* lista, char nombre[]);
 
 int main()
 {
+    Pila p;
+    inicPila(&p);
     nodo* lista;
     lista=iniciLista();
-    cargaArchivo("personas.dat");
+    //cargaArchivo("personas.dat");
 
-    lista = archivo2lista("personas.dat", lista);
-
+    //lista = archivo2lista("personas.dat", lista, 0);
+    lista = archivo2listaPorNombre("personas.dat", lista, "Pepe");
     /*
     for(int i=0;i<50;i++){
        // lista=agregarAlPrincipioPro(lista, crearNodo(cargaUnaPersona()));
@@ -38,13 +42,48 @@ void cargaArchivo(char archivo[]){
     }
 }
 
-nodo* archivo2lista(char archivo[], nodo* lista){
+nodo* archivo2lista(char archivo[], nodo* lista, int edad){
     FILE* archi = fopen(archivo, "rb");
     stPersona p;
     if(archi){
-        while(fread(&p, sizeof(stPersona), 1, archi)){
-            lista = agregarEnOrdenPorEdad(lista, crearNodo(p));
+        while(fread(&p, sizeof(stPersona), 1, archi)>0){
+            if(p.edad>=edad){
+                lista=agregarEnOrdenPorEdad(lista, crearNodo(p));
+            }
         }
+
+        fclose(archi);
     }
     return lista;
 }
+
+nodo* archivo2listaPorNombre(char archivo[], nodo* lista, char nombre[]){
+    FILE* archi = fopen(archivo, "rb");
+    stPersona p;
+    if(archi){
+        while(fread(&p, sizeof(stPersona), 1, archi)>0){
+            if(strcmp(p.nombre,nombre)==0){
+                lista=agregarEnOrdenPorEdad(lista, crearNodo(p));
+            }
+        }
+
+        fclose(archi);
+    }
+    return lista;
+}
+
+void lista2archivo(nodo* lista, char archivo[]){
+    FILE* archi = fopen(archivo, "ab");
+    stPersona p;
+    if(archi){
+        while(lista){
+            p = lista->dato;
+            fwrite(&p, sizeof(stPersona), 1, archi);
+            lista=lista->siguiente;
+        }
+
+        fclose(archi);
+    }
+}
+
+

@@ -107,13 +107,126 @@ nodo* intercalarListas(nodo* listaA, nodo* listaB, nodo* listaFinal){
     return listaFinal;
 }
 
+int cuentaNodosPorEdad(nodo* lista, int edad){
+    int cont=0;
+    nodo* seg = lista;
+    while(seg){
+        if(seg->dato.edad>edad){
+            cont++;
+        }
+        seg=seg->siguiente;
+    }
+    return cont;
+}
 
+int cuentaNodosPorEdadRec(nodo* lista, int edad){
+    int cont=0;
+    if(lista){
+        if(lista->dato.edad > edad){
+            cont = 1 + cuentaNodosPorEdadRec(lista->siguiente, edad);
+        }else{
+            cont = cuentaNodosPorEdadRec(lista->siguiente, edad);
+        }
+    }
 
+    return cont;
+}
 
+int cuentaNodosRec(nodo* lista){
+    int cont=0;
+    if(lista){
+        cont = 1 + cuentaNodosRec(lista->siguiente);
+    }
+    return cont;
+}
 
+int cuentaNodosRecTernario(nodo* lista){
+    return (lista)?1+cuentaNodosRecTernario(lista->siguiente):0;
+}
 
+int sumaNodosPorEdad(nodo* lista, int edad){
+    int suma = 0;
+    nodo* seg = lista;
+    while(seg){
+        if(seg->dato.edad>edad){
+            suma += seg->dato.edad;
+        }
+        seg=seg->siguiente;
+    }
+    return suma;
+}
 
+int sumaNodosPorEdadRec(nodo* lista, int edad){
+    int suma=0;
+    if(lista){
+        if(lista->dato.edad>edad){
+            suma = lista->dato.edad + sumaNodosPorEdadRec(lista->siguiente, edad);
+        }else{
+            suma = sumaNodosPorEdadRec(lista->siguiente, edad);
+        }
+    }
 
+    return suma;
+}
 
+int sumaNodosPorEdadRecTern(nodo* lista, int edad){
+    return (lista)?(lista->dato.edad>edad)?lista->dato.edad+sumaNodosPorEdadRecTern(lista->siguiente, edad):sumaNodosPorEdadRecTern(lista->siguiente, edad):0;
+}
 
+void muestraListaRec(nodo* lista){
+    if(lista){
+        muestraNodo(lista);
+        muestraListaRec(lista->siguiente);
+    }
+}
 
+stPersona verPrimero(nodo* lista){
+    stPersona p;
+    if(lista){
+        p = lista->dato;
+    }
+    return p;
+}
+
+stPersona verPrimero1(nodo* lista){
+    stPersona p;
+    return (lista)?lista->dato:p;
+}
+
+nodo* borrarPrimero(nodo* lista){
+    if(lista){
+        nodo* aux=lista;
+        lista=lista->siguiente;
+        free(aux);
+    }
+    return lista;
+}
+
+nodo* buscaNodoPorNombre(nodo* lista, char nombre[]){
+    nodo* seg = lista;
+    while(seg && strcmp(nombre, seg->dato.nombre)!=0){
+        seg=seg->siguiente;
+    }
+    return seg;
+}
+
+nodo* borrarNodoPorNombre(nodo* lista, char nombre[]){
+    nodo* seg;
+    nodo* ante;
+    if(lista && strcmp(nombre, lista->dato.nombre)==0){
+        nodo* aux=lista;
+        lista=lista->siguiente;
+        free(aux);
+    }else{
+        seg = lista;
+        while(seg && strcmp(nombre, seg->dato.nombre)!=0){
+            ante = seg;
+            seg = seg->siguiente;
+        }
+        if(seg){
+            ante->siguiente=seg->siguiente;
+            free(seg);
+        }
+    }
+    return lista;
+}
