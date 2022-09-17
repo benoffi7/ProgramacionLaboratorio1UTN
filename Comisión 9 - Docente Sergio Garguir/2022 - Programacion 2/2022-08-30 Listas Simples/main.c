@@ -12,10 +12,15 @@ int main()
     inicPila(&p);
     nodo* lista;
     lista=iniciLista();
-    //cargaArchivo("personas.dat");
+    cargaArchivo("personas.dat");
 
     //lista = archivo2lista("personas.dat", lista, 0);
     lista = archivo2listaPorNombre("personas.dat", lista, "Pepe");
+    agregarAlPpioPunteroDoble(&lista, crearNodo(cargaUnaPersona()));
+    printf("\nLista de Personas Original!\n");
+    muestraLista(lista);
+    lista = invertirLista(lista);
+
     /*
     for(int i=0;i<50;i++){
        // lista=agregarAlPrincipioPro(lista, crearNodo(cargaUnaPersona()));
@@ -24,17 +29,17 @@ int main()
 
     lista = agregarAlFinal(lista, crearNodo(cargaUnaPersona()));
 */
-    printf("\nLista de Personas!\n");
+    printf("\nLista de Personas Invertida!\n");
     muestraLista(lista);
 
     return 0;
 }
 
 void cargaArchivo(char archivo[]){
-    FILE* archi = fopen(archivo, "ab");
+    FILE* archi = fopen(archivo, "wb");
     stPersona p;
     if(archi){
-        for(int i=0;i<30;i++){
+        for(int i=0;i<10;i++){
             p = cargaUnaPersona();
             fwrite(&p, sizeof(stPersona), 1, archi);
         }
@@ -86,4 +91,12 @@ void lista2archivo(nodo* lista, char archivo[]){
     }
 }
 
+/**
 
+            tenga datos       como me muevo                 datoActual
+pila        !pilavacia()        desapilar()                 tope()
+arreglo     i<v                 i++                           arreglo[i]
+archivo     fread()>0           fread()                        lo leido
+lista       lista!=NULL         lista=lista->siguiente          lista
+
+*/

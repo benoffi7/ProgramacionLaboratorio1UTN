@@ -5,7 +5,7 @@
 	<string.h>
 	"pila.h"
 
-1663194830 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.h
+1663372586 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.h
 	"persona.h"
 
 1661903833 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\persona.h
@@ -16,7 +16,7 @@
 	<stdlib.h>
 	<string.h>
 
-1663194709 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.c
+1663374781 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\lista.c
 	<stdio.h>
 	<stdlib.h>
 	"lista.h"
@@ -25,4 +25,7 @@
 	<stdio.h>
 	<stdlib.h>
 	"lista.h"
+
+1663191401 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-08-30 listas simples\pila.c
+	"pila.h"
 

@@ -30,4 +30,5 @@ stPersona verPrimero1(nodo* lista);
 nodo* borrarPrimero(nodo* lista);
 nodo* buscaNodoPorNombre(nodo* lista, char nombre[]);
 nodo* borrarNodoPorNombre(nodo* lista, char nombre[]);
+nodo* invertirLista(nodo* lista);
 #endif // LISTA_H_INCLUDED

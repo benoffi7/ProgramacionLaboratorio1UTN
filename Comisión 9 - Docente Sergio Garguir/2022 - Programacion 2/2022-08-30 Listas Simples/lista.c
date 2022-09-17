@@ -23,6 +23,15 @@ nodo * agregarAlPpio(nodo* lista, nodo* nuevo){
     return lista;
 }
 
+void agregarAlPpioPunteroDoble(nodo** lista, nodo* nuevo){
+    if((*lista)==NULL){
+        (*lista)=nuevo;
+    }else{
+        nuevo->siguiente=(*lista);
+        (*lista) = nuevo;
+    }
+}
+
 nodo * agregarAlPrincipioPro(nodo* lista, nodo* nuevo){
     nuevo->siguiente = lista;
     return nuevo;
@@ -227,6 +236,38 @@ nodo* borrarNodoPorNombre(nodo* lista, char nombre[]){
             ante->siguiente=seg->siguiente;
             free(seg);
         }
+    }
+    return lista;
+}
+
+nodo* invertirLista(nodo* lista){
+    nodo* listaInvertida=NULL;
+    nodo* aux=NULL;
+    while(lista){
+        aux=lista;
+        lista=lista->siguiente;
+        aux->siguiente=NULL;
+        listaInvertida=agregarAlPpio(listaInvertida, aux);
+    }
+    return listaInvertida;
+}
+
+nodo* borrarLista(nodo* lista){
+    nodo* aux=NULL;
+    while(lista){
+        aux=lista;
+        lista=lista->siguiente;
+        free(aux);
+    }
+    return lista;
+}
+
+nodo* borrarListaRecursiva(nodo* lista){
+    nodo* aux=NULL;
+    if(lista){
+        aux=lista;
+        lista=borrarListaRecursiva(lista->siguiente);
+        free(aux);
     }
     return lista;
 }
