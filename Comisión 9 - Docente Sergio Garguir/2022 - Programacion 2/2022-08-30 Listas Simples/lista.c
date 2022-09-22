@@ -37,6 +37,11 @@ nodo * agregarAlPrincipioPro(nodo* lista, nodo* nuevo){
     return nuevo;
 }
 
+void agregarAlPrincipioProPD(nodo** lista, nodo* nuevo){
+    nuevo->siguiente = (*lista);
+    (*lista)=nuevo;
+}
+
 void muestraLista(nodo* lista){
     nodo* seg = lista;
     while(seg!=NULL){
@@ -68,6 +73,15 @@ nodo* agregarAlFinal(nodo* lista, nodo* nuevo){
     }
 
     return lista;
+}
+
+void agregarAlFinalPD(nodo** lista, nodo* nuevo){
+    if(!(*lista)){
+        (*lista) = nuevo;
+    }else{
+        nodo* ultimo = buscarUltimo(*lista);
+        ultimo->siguiente = nuevo;
+    }
 }
 
 nodo* agregarEnOrdenPorEdad(nodo* lista, nodo* nuevo){
@@ -250,6 +264,18 @@ nodo* invertirLista(nodo* lista){
         listaInvertida=agregarAlPpio(listaInvertida, aux);
     }
     return listaInvertida;
+}
+
+void invertirListaPD(nodo** lista){
+    nodo* listaInvertida=NULL;
+    nodo* aux=NULL;
+    while(*lista){
+        aux=(*lista);
+        (*lista)=(*lista)->siguiente;
+        aux->siguiente=NULL;
+        listaInvertida=agregarAlPpio(listaInvertida, aux);
+    }
+    (*lista)=listaInvertida;
 }
 
 nodo* borrarLista(nodo* lista){

@@ -91,6 +91,20 @@ void lista2archivo(nodo* lista, char archivo[]){
     }
 }
 
+int lista2arreglo(nodo* lista, stPersona a[], int dim){
+    int i=0;
+    while(lista && i<dim){
+        stPersona dato = lista->dato;
+        if(dato.edad>=18 && dato.sexo=='f' && dato.nombre[strlen(dato.nombre)-1]=='s'){
+            a[i]=dato;
+            i++;
+        }
+        lista=lista->siguiente;
+    }
+    return i;
+}
+
+
 /**
 
             tenga datos       como me muevo                 datoActual
