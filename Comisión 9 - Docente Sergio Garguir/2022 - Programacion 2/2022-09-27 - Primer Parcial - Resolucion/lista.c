@@ -75,12 +75,12 @@ void agregarEnOrdenPorApellido(nodo** lista, nodo* nuevo){
     if(!(*lista)){
         (*lista) = nuevo;
     }else{
-        if(strcmp(nuevo->dato.apellido, (*lista)->dato.apellido)==0){
+        if(strcmp(nuevo->dato.apellido, (*lista)->dato.apellido)<0){
             (*lista) = agregarAlPrincipio((*lista), nuevo);
         }else{
             nodo* ante = (*lista);
             nodo* seg = (*lista)->siguiente;
-            while(seg && (strcmp(nuevo->dato.apellido, seg->dato.apellido)!=0)){
+            while(seg && (strcmp(nuevo->dato.apellido, seg->dato.apellido)>0)){
                 ante = seg;
                 seg = seg->siguiente;
             }
