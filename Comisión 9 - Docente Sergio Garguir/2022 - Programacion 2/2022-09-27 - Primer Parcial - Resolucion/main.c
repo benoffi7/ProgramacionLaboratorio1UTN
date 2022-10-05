@@ -14,6 +14,7 @@ int main()
     printf("\n Listado de Personas %d - %d - %d\n", sumaEdades(lista), sumaEdadesRecursiva(lista), sumaEdadesRecursivaTernario(lista));
     muestraLista(lista);
 
+    printf("\n suma edades mirabella %d", sumaEdadesRecursivaM(lista));
     lista2archivoV2(lista, nombreInicial, 'r');
     printf("\n Listado de Personas con inicial 'a' %d\n", cuentaNodosRecursivo(lista, 0));
     muestraArchivo(nombreInicial);

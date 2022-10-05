@@ -137,3 +137,17 @@ int cuentaNodosRecursivo(nodo* lista, int edad){
     }
     return cont;
 }
+
+int sumaEdadesRecursivaM(nodo* lista)
+{
+    int cont=0;
+    if(lista!=NULL)
+    {
+        if (atoi(lista->dato.dni)%2==0 && lista->dato.edad>=18)
+        {
+            cont=lista->dato.edad;
+        }
+        cont=cont+sumaEdadesRecursiva(lista->siguiente);
+    }
+    return cont;
+}

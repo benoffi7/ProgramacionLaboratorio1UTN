@@ -21,3 +21,19 @@
 	<stdlib.h>
 	"lista.h"
 
+1663508128 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-09-27 - primer parcial - resolucion\persona.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persona.h"
+
+1663508024 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-09-27 - primer parcial - resolucion\persona.h
+
+1664723073 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-09-27 - primer parcial - resolucion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1663524476 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-09-27 - primer parcial - resolucion\lista.h
+	"persona.h"
+
