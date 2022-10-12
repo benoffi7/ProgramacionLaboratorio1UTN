@@ -16,5 +16,7 @@ void agregarFila(Fila* fila, stPersona dato);
 stPersona verPrimeroFila(Fila* fila);
 stPersona extraerFila(Fila* fila);
 int filaVacia(Fila* fila);
+int cuentaMayoresDeEdad(Fila* fila, int edad);
+void pasaFila(Fila* origen, Fila* destino);
 
 #endif // FILA_H_INCLUDED

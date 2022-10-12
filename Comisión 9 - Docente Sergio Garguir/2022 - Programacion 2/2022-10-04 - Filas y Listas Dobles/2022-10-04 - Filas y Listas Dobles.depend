@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1664923511 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\listadoble.c
+1665525157 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\listadoble.c
 	"listaDoble.h"
 
 1664928479 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\listadoble.h
@@ -9,12 +9,12 @@
 
 1661903833 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\persona.h
 
-1664923777 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\main.c
+1665525151 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\main.c
 	<stdio.h>
 	<stdlib.h>
 	"fila.h"
 
-1664928479 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\fila.h
+1665525136 d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\fila.h
 	<stdio.h>
 	<stdlib.h>
 	"listaDoble.h"
@@ -25,6 +25,6 @@
 	<stdlib.h>
 	<string.h>
 
-1664928117 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\fila.c
+1665608470 source:d:\developer\c\2021-programación1-general\programacionlaboratorio1utn\comisión 9 - docente sergio garguir\2022 - programacion 2\2022-10-04 - filas y listas dobles\fila.c
 	"fila.h"
 

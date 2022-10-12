@@ -42,3 +42,13 @@ stPersona extraerFila(Fila* fila){
 int filaVacia(Fila* fila){
     return (fila->inicio)?0:1;
 }
+
+int cuentaMayoresDeEdad(Fila* fila, int edad){
+    return cuentaMayoresDeEdadDoble(fila->inicio, edad);
+}
+
+void pasaFila(Fila* origen, Fila* destino){
+    while(!filaVacia(origen)){
+        agregarFila(destino, extraerFila(origen));
+    }
+}

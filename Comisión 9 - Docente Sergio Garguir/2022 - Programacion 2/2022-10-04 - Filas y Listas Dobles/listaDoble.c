@@ -72,3 +72,16 @@ nodoDoble* agregarAlFinalD(nodoDoble* listaDoble, nodoDoble* nuevo){
 
     return listaDoble;
 }
+
+int cuentaMayoresDeEdadDoble(nodoDoble* lista, int edad){
+    int cont=0;
+    if(lista){
+        if(lista->dato.edad > edad){
+            cont=1+cuentaMayoresDeEdadDoble(lista->siguiente, edad);
+        }else{
+            cont=cuentaMayoresDeEdadDoble(lista->siguiente, edad);
+        }
+    }
+
+    return cont;
+}
