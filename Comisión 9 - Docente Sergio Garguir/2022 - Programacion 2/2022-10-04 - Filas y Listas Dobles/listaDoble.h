@@ -21,3 +21,4 @@ nodoDoble* borrarPrimeroD(nodoDoble* listaDoble);
 nodoDoble* buscarUltimoD(nodoDoble* listaDoble);
 nodoDoble* agregarAlFinalD(nodoDoble* listaDoble, nodoDoble* nuevo);
 #endif // LISTADOBLE_H_INCLUDED
+

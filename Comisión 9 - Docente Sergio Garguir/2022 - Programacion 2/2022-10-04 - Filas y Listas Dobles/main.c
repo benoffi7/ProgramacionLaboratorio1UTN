@@ -5,6 +5,8 @@
 
 int main()
 {
+    nodoArbol* arbol;
+    arbol=inicArbol();
 
     printf("Hello world!\n");
     return 0;
@@ -18,7 +20,7 @@ void fila2archivo(Fila* fila, int edad, char nombreArchivo[]){
 
     if(archi){
         while(!filaVacia(fila)){
-            p=extraerFila(fila);
+            p=extraerFila(fila);mar
             if(p.edad > edad){
                 fwrite(&p, sizeof(stPersona), 1, archi);
             }
