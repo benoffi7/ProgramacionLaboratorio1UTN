@@ -164,9 +164,9 @@ void arbol2archi(nodoArbol* arbol, FILE* archi){
 
 nodoDoble* arbol2listaDoble(nodoArbol* arbol, nodoDoble* lista){
     if(arbol){
-        arbol2listaDoble(arbol->izq, lista);
+        lista = arbol2listaDoble(arbol->izq, lista);
         lista = agregarAlFinalD(lista, crearNodoD(arbol->dato));
-        arbol2listaDoble(arbol->der, lista);
+        lista = arbol2listaDoble(arbol->der, lista);
     }
     return lista;
 }
