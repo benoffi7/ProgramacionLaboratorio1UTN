@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="2022-11-01 - tp6" />
+		<Option title="2022-11-20 - mock" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/2022-11-01 - tp6" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/2022-11-20 - mock" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/2022-11-01 - tp6" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/2022-11-20 - mock" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,30 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="celda.c">
+		<Unit filename="autoCarga.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="celda.h" />
-		<Unit filename="lista.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="lista.h" />
+		<Unit filename="autoCarga.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="materia.c">
+		<Unit filename="persona.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="materia.h" />
-		<Unit filename="notaAlumno.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="notaAlumno.h" />
+		<Unit filename="persona.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

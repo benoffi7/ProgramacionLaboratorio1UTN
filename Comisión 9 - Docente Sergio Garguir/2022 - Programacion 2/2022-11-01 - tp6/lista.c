@@ -72,7 +72,7 @@ nodoDoble* agregarAlFinalD(nodoDoble* listaDoble, nodoDoble* nuevo){
 
     return listaDoble;
 }
-
+/*
 int cuentaNotasMayoresDoble(nodoDoble* lista, int nota){int cuentaNotasMayoresDoble(nodoDoble* lista, int nota){
     int cont=0;
     if(lista){
@@ -85,3 +85,4 @@ int cuentaNotasMayoresDoble(nodoDoble* lista, int nota){int cuentaNotasMayoresDo
 
     return cont;
 }
+*/

@@ -14,6 +14,11 @@ typedef struct {
 #define NOMBRE_ARCHIVO "registroArchivo.dat"
 
 int cargaADL(celda adl[], int dim, char nombreArchivo[]);
+int alta(celda adl[], int v, stMateria materia, stNotaAlumno nota);
+int buscaPosMateria(celda adl[], int v, int id);
+int agregarCelda(celda adl[], int v, stMateria materia);
+stMateria getMateria(registroArchivo r);
+stNotaAlumno getNotaAlumno(registroArchivo r);
 
 int main()
 {
@@ -24,7 +29,6 @@ int main()
 int cargaADL(celda adl[], int dim, char nombreArchivo[]){
     registroArchivo r;
     stMateria materia;
-    stNotaAlumno nota;
     FILE *archi = fopen(nombreArchivo, "rb");
     int validos=0;
     if(archi){
@@ -84,7 +88,7 @@ stNotaAlumno getNotaAlumno(registroArchivo r){
 
     return nota;
 }
-
+/*
 nodoDoble* altaLDL(nodoDoble* ldl, stMateria materia, stNotaAlumno nota){
     nodoDoble* nuevo = crearNodoMateria(materia);
     nodoDoble* buscado = buscaNodoMateria(ldl, materia.idMateria);
@@ -96,3 +100,18 @@ nodoDoble* altaLDL(nodoDoble* ldl, stMateria materia, stNotaAlumno nota){
 
     return ldl;
 }
+
+
+arbol* altaLDL(arbol* adl, stMateria materia, stNotaAlumno nota){
+    arbol* buscado = inicArbol();
+    buscado = buscaNodoMateria(ldl, materia.idMateria);
+    if(!buscado){
+        buscado = crearNodoMateria(materia);
+        adl = agregarNodoArbol(adl, buscado);
+    }
+    buscado->listaNotas = agregarAlFinalNotas(buscado->listaNotas, crearNodoNota(nota));
+
+    return adl;
+}
+
+*/
